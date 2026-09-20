@@ -8,7 +8,7 @@ import platform
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Literal
 
 from .adapters.base import AgentAdapter
 from .adapters.deterministic_stub import DeterministicStubAdapter
@@ -26,12 +26,14 @@ from .models import (
 from .world_generator import WorldGenerator
 from .adapters.openai_responses import SCHEMA_VERSION
 from .prompting import PROMPT_VERSION
+from .prompting import render_agent_input
 
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
 CONDITIONS = ("free", "lineage", "macro")
 SEED_EDGE = ("A", "B")
 RECURSIVE_SEQUENCE = (("B", "C"), ("C", "A"), ("A", "B"))
+ExecutionPolicy = Literal["paired", "independent"]
 
 
 @dataclass(frozen=True)
@@ -51,6 +53,14 @@ class ExperimentRun:
     rounds: int = 0
     seed: int = 0
     run_class: str = "infrastructure"
+    execution_policy: ExecutionPolicy = "paired"
+    execution_metadata: dict[str, object] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class SeedResponse:
+    response: AgentResponse
+    provider_metadata: dict[str, object] | None
 
 
 def run_condition(
@@ -59,6 +69,8 @@ def run_condition(
     rounds: int,
     adapter: AgentAdapter | None = None,
     trial_id: str | None = None,
+    seed: SeedResponse | None = None,
+    reused_events: dict[int, TrialEvent] | None = None,
 ) -> ConditionRun:
     if condition not in CONDITIONS:
         raise ValueError(f"unknown condition: {condition}")
@@ -90,11 +102,41 @@ def run_condition(
                     f"message {received_message.message_id} addressed to "
                     f"{received_message.receiver}, not {sender}"
                 )
-            response = adapter.respond(sender, observation, received_message, condition)
+            visible_message_id = f"M{message_number:02d}"
+            model_visible_input = render_agent_input(sender, observation, received_message)
+            reused = reused_events.get(message_number) if reused_events else None
+            if cycle == 0 and seed is not None:
+                response = seed.response
+                provider_metadata = dict(seed.provider_metadata) if seed.provider_metadata else None
+                response_reused = True
+                source_condition = "seed"
+            elif reused is not None:
+                if reused.model_visible_input != model_visible_input:
+                    raise RuntimeError("paired reuse prompt mismatch")
+                response = reused.model_output
+                provider_metadata = dict(reused.provider_metadata) if reused.provider_metadata else None
+                response_reused = True
+                source_condition = "lineage"
+            else:
+                response = adapter.respond(sender, observation, received_message, condition)
+                provider_metadata = (
+                    dict(getattr(adapter, "last_call_metadata"))
+                    if getattr(adapter, "last_call_metadata", None)
+                    else None
+                )
+                response_reused = False
+                source_condition = None
             message_id = f"{run_id}_{condition}_M{message_number:02d}"
             parent_id = received_message.message_id if received_message else None
+            visible_parent_id = received_message.visible_message_id if received_message else None
             external_roots = {e.evidence_id for e in observation.evidence}
-            actual_lineage = graph.record_message(message_id, parent_id, external_roots)
+            actual_lineage = graph.record_message(
+                message_id,
+                parent_id,
+                external_roots,
+                visible_message_id=visible_message_id,
+                visible_parent_message_id=visible_parent_id,
+            )
             visible_envelope = actual_lineage if condition in ("lineage", "macro") else None
             message = AgentMessage(
                 message_id=message_id,
@@ -102,6 +144,7 @@ def run_condition(
                 receiver=receiver,
                 content=response.message,
                 envelope=visible_envelope,
+                visible_message_id=visible_message_id,
             )
             new_root_count = len(graph.last_new_roots)
             metrics = event_metrics(
@@ -119,16 +162,16 @@ def run_condition(
                     sender=sender,
                     receiver=receiver,
                     message_id=message_id,
+                    visible_message_id=visible_message_id,
                     model_output=response,
                     agent_message=message,
                     actual_lineage=actual_lineage,
                     agent_reported_information=response.message,
                     metrics=metrics,
-                    provider_metadata=(
-                        dict(getattr(adapter, "last_call_metadata"))
-                        if getattr(adapter, "last_call_metadata", None)
-                        else None
-                    ),
+                    provider_metadata=provider_metadata,
+                    response_reused=response_reused,
+                    source_condition=source_condition,
+                    model_visible_input=model_visible_input,
                 )
             )
             received_message = message
@@ -176,23 +219,83 @@ def run_experiment(
     adapter_name: str = "deterministic_stub",
     adapter_metadata: dict[str, object] | None = None,
     run_class: str = "infrastructure",
+    execution_policy: ExecutionPolicy = "paired",
 ) -> ExperimentRun:
     if trials < 1:
         raise ValueError("trials must be at least 1")
+    if execution_policy not in ("paired", "independent"):
+        raise ValueError("execution_policy must be paired or independent")
     factory = adapter_factory or DeterministicStubAdapter
     worlds = tuple(WorldGenerator(seed).generate_many(trials))
     condition_runs: list[ConditionRun] = []
+    actual_model_call_count = 0
+    reused_response_count = 0
     for world in worlds:
-        for condition in CONDITIONS:
-            condition_runs.append(
-                run_condition(
+        if execution_policy == "independent":
+            for condition in CONDITIONS:
+                condition_run = run_condition(
                     world=world,
                     condition=condition,
                     rounds=rounds,
                     adapter=factory(),
                     trial_id=world.world_id,
                 )
-            )
+                actual_model_call_count += len(condition_run.events)
+                condition_runs.append(condition_run)
+            continue
+
+        seed_adapter = factory()
+        seed_observation = AgentObservation(
+            agent_id="A",
+            evidence=tuple(e for e in world.evidence if e.assigned_to == "A"),
+        )
+        seed_response = seed_adapter.respond("A", seed_observation, None, "seed")
+        seed_metadata = (
+            dict(getattr(seed_adapter, "last_call_metadata"))
+            if getattr(seed_adapter, "last_call_metadata", None)
+            else None
+        )
+        shared_seed = SeedResponse(seed_response, seed_metadata)
+        actual_model_call_count += 1
+
+        free_run = run_condition(
+            world, "free", rounds, adapter=factory(), trial_id=world.world_id, seed=shared_seed
+        )
+        actual_model_call_count += len(free_run.events) - 1
+        lineage_run = run_condition(
+            world, "lineage", rounds, adapter=factory(), trial_id=world.world_id, seed=shared_seed
+        )
+        actual_model_call_count += len(lineage_run.events) - 1
+        lineage_events = {index + 1: event for index, event in enumerate(lineage_run.events)}
+        macro_run = run_condition(
+            world,
+            "macro",
+            rounds,
+            adapter=factory(),
+            trial_id=world.world_id,
+            seed=shared_seed,
+            reused_events=lineage_events,
+        )
+        reused_response_count += len(macro_run.events)
+        condition_runs.extend((free_run, lineage_run, macro_run))
+    actual_input_tokens = 0
+    actual_output_tokens = 0
+    actual_total_tokens = 0
+    seen_response_ids: set[str] = set()
+    for condition_run in condition_runs:
+        for event in condition_run.events:
+            if event.provider_metadata is None:
+                continue
+            response_id = event.provider_metadata.get("response_id")
+            if response_id and response_id in seen_response_ids:
+                continue
+            if response_id:
+                seen_response_ids.add(response_id)
+            usage = event.provider_metadata.get("usage", {})
+            actual_input_tokens += int(usage.get("input_tokens") or 0)
+            actual_output_tokens += int(usage.get("output_tokens") or 0)
+            actual_total_tokens += int(usage.get("total_tokens") or 0)
+
     return ExperimentRun(
         worlds,
         tuple(condition_runs),
@@ -201,6 +304,14 @@ def run_experiment(
         rounds=rounds,
         seed=seed,
         run_class=run_class,
+        execution_policy=execution_policy,
+        execution_metadata={
+            "actual_model_call_count": actual_model_call_count,
+            "reused_response_count": reused_response_count,
+            "input_tokens_actual": actual_input_tokens,
+            "output_tokens_actual": actual_output_tokens,
+            "total_tokens_actual": actual_total_tokens,
+        },
     )
 
 
@@ -239,6 +350,7 @@ def write_results(experiment: ExperimentRun) -> None:
     metadata = {
         "experiment": "EXP-002",
         "run_class": experiment.run_class,
+        "execution_policy": experiment.execution_policy,
         "world_count": len(experiment.worlds),
         "adapter_name": experiment.adapter_name,
         "provider": experiment.adapter_metadata.get("provider", "local"),
@@ -258,6 +370,7 @@ def write_results(experiment: ExperimentRun) -> None:
         "conditions": list(CONDITIONS),
         "topology": [list(SEED_EDGE), *[list(edge) for edge in RECURSIVE_SEQUENCE]],
         "adapter_metadata": experiment.adapter_metadata,
+        "execution_metadata": experiment.execution_metadata,
         "note": (
             "Exploratory real-model pilot. Not confirmatory evidence."
             if experiment.run_class == "pilot_real_model"
@@ -269,7 +382,7 @@ def write_results(experiment: ExperimentRun) -> None:
         for key in (
             "experiment", "run_class", "provider", "requested_model", "reasoning_effort",
             "sdk_version", "python_version", "timeout_seconds", "store", "max_retries",
-            "conditions", "topology", "rounds", "seed", "trial_count", "prompt_version",
+            "conditions", "topology", "rounds", "seed", "trial_count", "execution_policy", "prompt_version",
             "schema_version",
         )
     }
@@ -282,7 +395,10 @@ def write_results(experiment: ExperimentRun) -> None:
 
 
 def print_results(experiment: ExperimentRun) -> None:
-    print(f"\nEXP-002 run\nAdapter: {experiment.adapter_name}")
+    print(
+        f"\nEXP-002 run\nAdapter: {experiment.adapter_name}"
+        f"\nExecution policy: {experiment.execution_policy}"
+    )
     model = experiment.adapter_metadata.get("requested_model")
     if model:
         print(f"Model: {model}")
@@ -318,6 +434,7 @@ def main() -> None:
     parser.add_argument("--reasoning-effort", default=None)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--live", action="store_true")
+    parser.add_argument("--execution-policy", choices=("paired", "independent"), default=None)
     args = parser.parse_args()
 
     if args.adapter == "openai":
@@ -327,11 +444,16 @@ def main() -> None:
         )
         if args.dry_run:
             world = WorldGenerator(args.seed).generate_many(args.trials)[0]
-            print_dry_run_configuration(config.metadata())
-            print_dry_run(build_dry_run_inputs(world))
+            if args.execution_policy is None:
+                raise SystemExit("OpenAI runs require --execution-policy paired or independent")
+            dry_config = {**config.metadata(), "execution_policy": args.execution_policy}
+            print_dry_run_configuration(dry_config)
+            print_dry_run(build_dry_run_inputs(world, args.execution_policy), args.execution_policy)
             return
         if not args.live:
             raise SystemExit("OpenAI adapter requires --live or --dry-run; no network call made")
+        if args.execution_policy is None:
+            raise SystemExit("OpenAI runs require --execution-policy paired or independent")
         factory = lambda: OpenAIResponsesAdapter(config)
         experiment = run_experiment(
             args.trials,
@@ -341,6 +463,7 @@ def main() -> None:
             adapter_name="openai",
             adapter_metadata=config.metadata(),
             run_class="pilot_real_model",
+            execution_policy=args.execution_policy,
         )
     else:
         if args.live:
@@ -352,6 +475,7 @@ def main() -> None:
             adapter_name="deterministic_stub",
             adapter_metadata={"provider": "local"},
             run_class="infrastructure",
+            execution_policy=args.execution_policy or "paired",
         )
     write_results(experiment)
     print_results(experiment)

@@ -8,6 +8,7 @@ from .models import EpistemicEnvelope
 @dataclass(frozen=True)
 class LineageNode:
     message_id: str
+    visible_message_id: str
     parent_message_id: str | None
     evidence_roots: frozenset[str]
     inference_depth: int
@@ -30,6 +31,8 @@ class LineageGraph:
         message_id: str,
         parent_message_id: str | None,
         external_roots: set[str] | frozenset[str] = frozenset(),
+        visible_message_id: str | None = None,
+        visible_parent_message_id: str | None = None,
     ) -> EpistemicEnvelope:
         if message_id in self.nodes:
             raise ValueError(f"message already recorded: {message_id}")
@@ -49,13 +52,14 @@ class LineageGraph:
         self.last_new_roots = frozenset(new_roots)
         self.nodes[message_id] = LineageNode(
             message_id=message_id,
+            visible_message_id=visible_message_id or message_id,
             parent_message_id=parent_message_id,
             evidence_roots=frozenset(roots),
             inference_depth=depth,
         )
         return EpistemicEnvelope(
             actual_roots=tuple(sorted(roots)),
-            derived_from=parent_message_id,
+            derived_from=visible_parent_message_id or parent_message_id,
             inference_depth=depth,
             new_external_evidence=bool(new_roots),
         )

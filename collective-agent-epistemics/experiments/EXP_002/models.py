@@ -38,6 +38,7 @@ class AgentMessage:
     receiver: str
     content: str
     envelope: EpistemicEnvelope | None = None
+    visible_message_id: str = ""
 
 
 @dataclass(frozen=True)
@@ -61,12 +62,16 @@ class TrialEvent:
     sender: str
     receiver: str
     message_id: str
+    visible_message_id: str
     model_output: AgentResponse
     agent_message: AgentMessage
     actual_lineage: EpistemicEnvelope
     agent_reported_information: str
     metrics: dict[str, Any]
     provider_metadata: dict[str, Any] | None = None
+    response_reused: bool = False
+    source_condition: str | None = None
+    model_visible_input: str = ""
 
     def to_record(self) -> dict[str, Any]:
         return {
@@ -76,6 +81,7 @@ class TrialEvent:
             "sender": self.sender,
             "receiver": self.receiver,
             "message_id": self.message_id,
+            "visible_message_id": self.visible_message_id,
             "model_output": {
                 "answer": self.model_output.answer,
                 "confidence": self.model_output.confidence,
@@ -92,6 +98,9 @@ class TrialEvent:
             "agent_reported_information": self.agent_reported_information,
             "metrics": self.metrics,
             "provider_metadata": self.provider_metadata,
+            "response_reused": self.response_reused,
+            "source_condition": self.source_condition,
+            "model_visible_input": self.model_visible_input,
         }
 
 
