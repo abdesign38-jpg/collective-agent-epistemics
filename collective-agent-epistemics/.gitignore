@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.DS_Store
+
+experiments/EXP_001/results/*.jsonl
+experiments/EXP_001/results/*.csv
+experiments/EXP_001/results/run_metadata.json
+
+!experiments/EXP_001/results/.gitkeep
