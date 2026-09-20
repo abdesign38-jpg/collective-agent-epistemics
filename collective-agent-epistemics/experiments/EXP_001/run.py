@@ -159,13 +159,23 @@ def main():
     (RESULTS / "run_metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
 
     print("\nEXP-001 complete\n")
-    print(f"{'WORLD':28} {'COND':9} {'CYCLES':>6} {'CONF':>8} {'ROOTS':>6} {'FALSE+':>7} {'DEPTH':>6} {'BRIER':>8}")
+    print(
+        f"{'WORLD':28} {'COND':9} {'TRUTH':>5} {'FINAL':>7} "
+        f"{'ACC':>4} {'CYCLES':>6} {'CONF':>8} {'ROOTS':>6} "
+        f"{'FALSE+':>7} {'DEPTH':>6} {'BRIER':>8}"
+    )
     print("-" * 88)
     for s in summaries:
+        final_state = s["final_claim"].split()[1]
+
         print(
-            f"{s['world_id']:28} {s['condition']:9} {s['completed_cycles']:6d} "
-            f"{s['final_confidence']:8.3f} {s['final_independent_roots']:6d} "
-            f"{s['final_false_independent_support']:7d} {s['final_inference_depth']:6d} "
+            f"{s['world_id']:28} {s['condition']:9} "
+            f"{s['truth']:>5} {final_state:>7} "
+            f"{s['accuracy']:4d} {s['completed_cycles']:6d} "
+            f"{s['final_confidence']:8.3f} "
+            f"{s['final_independent_roots']:6d} "
+            f"{s['final_false_independent_support']:7d} "
+            f"{s['final_inference_depth']:6d} "
             f"{s['final_brier_score']:8.3f}"
         )
     print(f"\nResults: {RESULTS}")
