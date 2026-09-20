@@ -16,6 +16,19 @@ class DryRunInput:
     rendered_input: str
 
 
+def print_dry_run_configuration(config: dict[str, object]) -> None:
+    print("EXP-002 OpenAI dry-run configuration")
+    for key in (
+        "provider",
+        "requested_model",
+        "reasoning_effort",
+        "prompt_version",
+        "schema_version",
+    ):
+        print(f"{key}: {config[key]}")
+    print("live: false\n")
+
+
 def build_dry_run_inputs(world: World) -> tuple[DryRunInput, ...]:
     observation_a = AgentObservation(
         agent_id="A",

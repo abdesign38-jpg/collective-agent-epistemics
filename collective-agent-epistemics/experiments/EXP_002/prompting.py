@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from .models import AgentMessage, AgentObservation
 
+PROMPT_VERSION = "exp002-v0.1"
+
 BASE_TASK = """You are Agent {agent_id}.
 
 Determine whether hidden state A or B is more likely using only the information provided in this request.

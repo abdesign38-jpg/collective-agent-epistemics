@@ -42,13 +42,32 @@ class FakeClient:
         self.responses = FakeResponses(parsed, status)
 
 
+class MutableMetadataAdapter:
+    def __init__(self):
+        self.last_call_metadata = {"response_id": "first"}
+
+    def respond(self, agent_id, observation, received_message, condition):
+        from experiments.EXP_002.models import AgentResponse
+
+        self.last_call_metadata["response_id"] = "second"
+        return AgentResponse("A", 0.7, "State A is favored.")
+
+
+class FailingAdapter:
+    def respond(self, agent_id, observation, received_message, condition):
+        raise RuntimeError("synthetic provider failure")
+
+
 class OpenAIAdapterTests(unittest.TestCase):
     def setUp(self):
         self.observation = AgentObservation(agent_id="A", evidence=())
 
     def test_structured_output_is_converted_to_agent_response(self):
         client = FakeClient(ModelAgentResponse(answer="A", confidence=0.7, message="State A is favored."))
-        adapter = OpenAIResponsesAdapter(OpenAIAdapterConfig(model="test-model"), client=client)
+        adapter = OpenAIResponsesAdapter(
+            OpenAIAdapterConfig(model="test-model", reasoning_effort="medium"),
+            client=client,
+        )
         response = adapter.respond("A", self.observation, None, "free")
         self.assertEqual(response.answer, "A")
         self.assertEqual(response.confidence, 0.7)
@@ -58,13 +77,13 @@ class OpenAIAdapterTests(unittest.TestCase):
     def test_request_is_stateless_and_has_no_tools(self):
         client = FakeClient(ModelAgentResponse(answer="A", confidence=0.7, message="A"))
         adapter = OpenAIResponsesAdapter(
-            OpenAIAdapterConfig(model="test-model", reasoning_effort="low", timeout_seconds=12),
+            OpenAIAdapterConfig(model="test-model", reasoning_effort="medium", timeout_seconds=12),
             client=client,
         )
         adapter.respond("A", self.observation, None, "free")
         request = client.responses.calls[0]
         self.assertEqual(request["model"], "test-model")
-        self.assertEqual(request["reasoning"], {"effort": "low"})
+        self.assertEqual(request["reasoning"], {"effort": "medium"})
         self.assertEqual(request["timeout"], 12)
         self.assertFalse(request["store"])
         self.assertNotIn("tools", request)
@@ -82,7 +101,10 @@ class OpenAIAdapterTests(unittest.TestCase):
 
     def test_missing_parsed_output_fails_visibly(self):
         client = FakeClient(parsed=None)
-        adapter = OpenAIResponsesAdapter(OpenAIAdapterConfig(model="test-model"), client=client)
+        adapter = OpenAIResponsesAdapter(
+            OpenAIAdapterConfig(model="test-model", reasoning_effort="medium"),
+            client=client,
+        )
         with self.assertRaises(OpenAIAdapterError):
             adapter.respond("A", self.observation, None, "free")
 
@@ -112,7 +134,7 @@ class OpenAIAdapterTests(unittest.TestCase):
     def test_client_is_created_with_zero_retries_and_explicit_timeout(self):
         with patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"}, clear=False):
             with patch("openai.OpenAI") as openai_client:
-                OpenAIResponsesAdapter(OpenAIAdapterConfig(timeout_seconds=17))
+                OpenAIResponsesAdapter(OpenAIAdapterConfig(model="test-model", reasoning_effort="medium", timeout_seconds=17))
         openai_client.assert_called_once_with(
             api_key="test-key",
             timeout=17,
@@ -134,6 +156,44 @@ class OpenAIAdapterTests(unittest.TestCase):
         self.assertEqual(metadata["seed"], 42)
         self.assertEqual(metadata["trial_count"], 1)
         self.assertEqual(metadata["adapter_metadata"]["experiment"], "wrong")
+        self.assertEqual(len(metadata["config_fingerprint"]), 64)
+
+    def test_provider_metadata_is_copied_per_event(self):
+        from experiments.EXP_002.run import run_condition
+
+        adapter = MutableMetadataAdapter()
+        result = run_condition(generate_world(42), "free", rounds=0, adapter=adapter)
+        self.assertEqual(result.events[0].provider_metadata["response_id"], "second")
+        adapter.last_call_metadata["response_id"] = "third"
+        self.assertEqual(result.events[0].provider_metadata["response_id"], "second")
+
+    def test_provider_failure_aborts_before_completed_condition(self):
+        from experiments.EXP_002.run import run_condition
+
+        with self.assertRaises(RuntimeError):
+            run_condition(generate_world(42), "free", rounds=1, adapter=FailingAdapter())
+
+    def test_model_and_reasoning_must_be_explicit(self):
+        with self.assertRaises(ValueError):
+            OpenAIAdapterConfig.from_environment(reasoning_effort="medium")
+        with self.assertRaises(ValueError):
+            OpenAIAdapterConfig.from_environment(model="test-model")
+        with self.assertRaises(ValueError):
+            OpenAIAdapterConfig(model="test-model", reasoning_effort="automatic")
+
+    def test_lineage_macro_free_prompt_snapshot_sections(self):
+        envelope = EpistemicEnvelope(("E1",), "A_01", 1, False)
+        lineage_message = AgentMessage("A_01", "A", "B", "State A is favored.", envelope)
+        free_message = AgentMessage("A_01", "A", "B", "State A is favored.", None)
+        observation = AgentObservation("B", ())
+        free_prompt = render_agent_input("B", observation, free_message)
+        lineage_prompt = render_agent_input("B", observation, lineage_message)
+        macro_prompt = render_agent_input("B", observation, lineage_message)
+        self.assertNotEqual(free_prompt, lineage_prompt)
+        self.assertEqual(lineage_prompt, macro_prompt)
+        self.assertEqual(lineage_prompt.count("Message metadata:"), 1)
+        self.assertNotIn("macro", lineage_prompt.lower())
+        self.assertNotIn("stop", lineage_prompt.lower())
 
 
 if __name__ == "__main__":

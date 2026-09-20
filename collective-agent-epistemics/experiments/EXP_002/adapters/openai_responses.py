@@ -8,9 +8,11 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from ..models import AgentMessage, AgentObservation, AgentResponse
-from ..prompting import render_agent_input
+from ..prompting import PROMPT_VERSION, render_agent_input
 
-DEFAULT_MODEL = "gpt-6-astra"
+SCHEMA_VERSION = "exp002-agent-response-v0.1"
+ReasoningEffort = Literal["none", "low", "medium", "high", "xhigh", "max"]
+SUPPORTED_REASONING_EFFORTS = ("none", "low", "medium", "high", "xhigh", "max")
 
 
 class ModelAgentResponse(BaseModel):
@@ -30,9 +32,22 @@ class ModelAgentResponse(BaseModel):
 
 @dataclass(frozen=True)
 class OpenAIAdapterConfig:
-    model: str = DEFAULT_MODEL
-    reasoning_effort: str | None = None
+    model: str
+    reasoning_effort: ReasoningEffort
     timeout_seconds: float = 60.0
+
+    def __post_init__(self) -> None:
+        if not self.model.strip():
+            raise ValueError(
+                "EXP-002 OpenAI runs require an explicit model via --model or EXP002_MODEL"
+            )
+        if self.reasoning_effort not in SUPPORTED_REASONING_EFFORTS:
+            raise ValueError(
+                "EXP-002 OpenAI runs require an explicit reasoning effort: "
+                + ", ".join(SUPPORTED_REASONING_EFFORTS)
+            )
+        if self.timeout_seconds <= 0:
+            raise ValueError("timeout_seconds must be positive")
 
     @classmethod
     def from_environment(
@@ -41,9 +56,19 @@ class OpenAIAdapterConfig:
         reasoning_effort: str | None = None,
         timeout_seconds: float = 60.0,
     ) -> "OpenAIAdapterConfig":
+        selected_model = model or os.getenv("EXP002_MODEL")
+        if not selected_model:
+            raise ValueError(
+                "EXP-002 OpenAI runs require an explicit model via --model or EXP002_MODEL"
+            )
+        if reasoning_effort is None:
+            raise ValueError(
+                "EXP-002 OpenAI runs require an explicit reasoning effort via "
+                "--reasoning-effort"
+            )
         return cls(
-            model=model or os.getenv("EXP002_MODEL") or DEFAULT_MODEL,
-            reasoning_effort=reasoning_effort,
+            model=selected_model,
+            reasoning_effort=reasoning_effort,  # type: ignore[arg-type]
             timeout_seconds=timeout_seconds,
         )
 
@@ -53,6 +78,10 @@ class OpenAIAdapterConfig:
             "requested_model": self.model,
             "reasoning_effort": self.reasoning_effort,
             "timeout_seconds": self.timeout_seconds,
+            "store": False,
+            "max_retries": 0,
+            "prompt_version": PROMPT_VERSION,
+            "schema_version": SCHEMA_VERSION,
             "sdk_version": _sdk_version(),
         }
 

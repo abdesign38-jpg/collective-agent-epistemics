@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import platform
 from dataclasses import dataclass, field
@@ -12,7 +13,7 @@ from typing import Callable
 from .adapters.base import AgentAdapter
 from .adapters.deterministic_stub import DeterministicStubAdapter
 from .adapters.openai_responses import OpenAIAdapterConfig, OpenAIResponsesAdapter
-from .dry_run import build_dry_run_inputs, print_dry_run
+from .dry_run import build_dry_run_inputs, print_dry_run, print_dry_run_configuration
 from .lineage import LineageGraph
 from .metrics import event_metrics
 from .models import (
@@ -23,6 +24,8 @@ from .models import (
     World,
 )
 from .world_generator import WorldGenerator
+from .adapters.openai_responses import SCHEMA_VERSION
+from .prompting import PROMPT_VERSION
 
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
@@ -47,6 +50,7 @@ class ExperimentRun:
     adapter_metadata: dict[str, object] = field(default_factory=dict)
     rounds: int = 0
     seed: int = 0
+    run_class: str = "infrastructure"
 
 
 def run_condition(
@@ -120,7 +124,11 @@ def run_condition(
                     actual_lineage=actual_lineage,
                     agent_reported_information=response.message,
                     metrics=metrics,
-                    provider_metadata=getattr(adapter, "last_call_metadata", None),
+                    provider_metadata=(
+                        dict(getattr(adapter, "last_call_metadata"))
+                        if getattr(adapter, "last_call_metadata", None)
+                        else None
+                    ),
                 )
             )
             received_message = message
@@ -167,6 +175,7 @@ def run_experiment(
     adapter_factory: Callable[[], AgentAdapter] | None = None,
     adapter_name: str = "deterministic_stub",
     adapter_metadata: dict[str, object] | None = None,
+    run_class: str = "infrastructure",
 ) -> ExperimentRun:
     if trials < 1:
         raise ValueError("trials must be at least 1")
@@ -191,6 +200,7 @@ def run_experiment(
         adapter_metadata=adapter_metadata or {},
         rounds=rounds,
         seed=seed,
+        run_class=run_class,
     )
 
 
@@ -228,12 +238,18 @@ def write_results(experiment: ExperimentRun) -> None:
 
     metadata = {
         "experiment": "EXP-002",
+        "run_class": experiment.run_class,
         "world_count": len(experiment.worlds),
         "adapter_name": experiment.adapter_name,
         "provider": experiment.adapter_metadata.get("provider", "local"),
         "requested_model": experiment.adapter_metadata.get("requested_model"),
         "reasoning_effort": experiment.adapter_metadata.get("reasoning_effort"),
         "sdk_version": experiment.adapter_metadata.get("sdk_version"),
+        "timeout_seconds": experiment.adapter_metadata.get("timeout_seconds"),
+        "store": False,
+        "max_retries": 0,
+        "prompt_version": experiment.adapter_metadata.get("prompt_version", PROMPT_VERSION),
+        "schema_version": experiment.adapter_metadata.get("schema_version", SCHEMA_VERSION),
         "python_version": platform.python_version(),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "trial_count": len(experiment.worlds),
@@ -242,15 +258,35 @@ def write_results(experiment: ExperimentRun) -> None:
         "conditions": list(CONDITIONS),
         "topology": [list(SEED_EDGE), *[list(edge) for edge in RECURSIVE_SEQUENCE]],
         "adapter_metadata": experiment.adapter_metadata,
-        "note": "Infrastructure validation only; not evidence for the research hypothesis.",
+        "note": (
+            "Exploratory real-model pilot. Not confirmatory evidence."
+            if experiment.run_class == "pilot_real_model"
+            else "Infrastructure validation only."
+        ),
     }
+    fingerprint_input = {
+        key: metadata[key]
+        for key in (
+            "experiment", "run_class", "provider", "requested_model", "reasoning_effort",
+            "sdk_version", "python_version", "timeout_seconds", "store", "max_retries",
+            "conditions", "topology", "rounds", "seed", "trial_count", "prompt_version",
+            "schema_version",
+        )
+    }
+    metadata["config_fingerprint"] = hashlib.sha256(
+        json.dumps(fingerprint_input, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
     (RESULTS / "run_metadata.json").write_text(
         json.dumps(metadata, indent=2) + "\n", encoding="utf-8"
     )
 
 
 def print_results(experiment: ExperimentRun) -> None:
-    print("\nEXP-002 deterministic smoke test\n")
+    print(f"\nEXP-002 run\nAdapter: {experiment.adapter_name}")
+    model = experiment.adapter_metadata.get("requested_model")
+    if model:
+        print(f"Model: {model}")
+    print()
     print(
         f"{'WORLD':24} {'CONDITION':10} {'TRUTH':>5} {'FINAL':>5} "
         f"{'ACCURACY':>8} {'CONFIDENCE':>10} {'CYCLES':>6} "
@@ -291,6 +327,7 @@ def main() -> None:
         )
         if args.dry_run:
             world = WorldGenerator(args.seed).generate_many(args.trials)[0]
+            print_dry_run_configuration(config.metadata())
             print_dry_run(build_dry_run_inputs(world))
             return
         if not args.live:
@@ -303,6 +340,7 @@ def main() -> None:
             adapter_factory=factory,
             adapter_name="openai",
             adapter_metadata=config.metadata(),
+            run_class="pilot_real_model",
         )
     else:
         if args.live:
@@ -313,6 +351,7 @@ def main() -> None:
             args.seed,
             adapter_name="deterministic_stub",
             adapter_metadata={"provider": "local"},
+            run_class="infrastructure",
         )
     write_results(experiment)
     print_results(experiment)
