@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Epistemic Event",
+  "type": "object",
+  "required": [
+    "trial_id",
+    "condition",
+    "round",
+    "sender",
+    "receiver",
+    "claim_id",
+    "claim",
+    "confidence",
+    "actual_roots",
+    "perceived_roots",
+    "inference_depth",
+    "new_independent_roots"
+  ],
+  "properties": {
+    "trial_id": {
+      "type": "string"
+    },
+    "condition": {
+      "enum": [
+        "free",
+        "lineage",
+        "macro"
+      ]
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sender": {
+      "type": "string"
+    },
+    "receiver": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claim_id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "actual_roots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "perceived_roots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "inference_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "new_independent_roots": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "false_independent_support": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "brier_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

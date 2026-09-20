@@ -1,0 +1,16 @@
+{
+  "experiment": "EXP-001",
+  "rounds_requested": 4,
+  "worlds": [
+    "W1_single_root",
+    "W2_two_independent_roots",
+    "W3_conflicting_roots",
+    "W4_misleading_single_root"
+  ],
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "note": "Synthetic harness validation only; not evidence about real LLM behavior."
+}

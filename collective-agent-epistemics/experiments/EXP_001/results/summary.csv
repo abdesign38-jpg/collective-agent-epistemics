@@ -1,0 +1,13 @@
+world_id,condition,truth,completed_cycles,final_claim,final_confidence,final_brier_score,final_independent_roots,final_perceived_roots,final_false_independent_support,final_inference_depth,accuracy,event_count
+W1_single_root,free,A,4,State A is favored.,1.0,0.0,1,5,4,12,1,13
+W1_single_root,lineage,A,4,State A is favored.,0.7,0.09,1,1,0,12,1,13
+W1_single_root,macro,A,1,State A is favored.,0.7,0.09,1,1,0,3,1,4
+W2_two_independent_roots,free,A,4,State A is favored.,1.0,0.0,2,5,4,12,1,13
+W2_two_independent_roots,lineage,A,4,State A is favored.,0.91,0.0081,2,2,0,12,1,13
+W2_two_independent_roots,macro,A,2,State A is favored.,0.91,0.0081,2,2,0,6,1,7
+W3_conflicting_roots,free,A,4,State A is favored.,1.0,0.0,2,5,4,12,1,13
+W3_conflicting_roots,lineage,A,4,State A is favored.,0.802085,0.03917,2,2,0,12,1,13
+W3_conflicting_roots,macro,A,2,State A is favored.,0.802085,0.03917,2,2,0,6,1,7
+W4_misleading_single_root,free,B,4,State A is favored.,1.0,1.0,1,5,4,12,0,13
+W4_misleading_single_root,lineage,B,4,State A is favored.,0.7,0.49,1,1,0,12,0,13
+W4_misleading_single_root,macro,B,1,State A is favored.,0.7,0.49,1,1,0,3,0,4

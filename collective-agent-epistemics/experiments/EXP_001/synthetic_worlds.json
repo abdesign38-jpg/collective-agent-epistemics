@@ -1,0 +1,84 @@
+[
+  {
+    "world_id": "W1_single_root",
+    "truth": "A",
+    "description": "Only Agent A receives one external evidence root supporting A.",
+    "agents": {
+      "A": [
+        {
+          "evidence_id": "E1",
+          "supports_state": "A",
+          "reliability": 0.7,
+          "source": "sensor_1"
+        }
+      ],
+      "B": [],
+      "C": []
+    }
+  },
+  {
+    "world_id": "W2_two_independent_roots",
+    "truth": "A",
+    "description": "Agents A and B each receive independent evidence supporting A.",
+    "agents": {
+      "A": [
+        {
+          "evidence_id": "E1",
+          "supports_state": "A",
+          "reliability": 0.7,
+          "source": "sensor_1"
+        }
+      ],
+      "B": [
+        {
+          "evidence_id": "E2",
+          "supports_state": "A",
+          "reliability": 0.65,
+          "source": "sensor_2"
+        }
+      ],
+      "C": []
+    }
+  },
+  {
+    "world_id": "W3_conflicting_roots",
+    "truth": "A",
+    "description": "Independent evidence conflicts: A receives pro-A evidence and B pro-B evidence.",
+    "agents": {
+      "A": [
+        {
+          "evidence_id": "E1",
+          "supports_state": "A",
+          "reliability": 0.72,
+          "source": "sensor_1"
+        }
+      ],
+      "B": [
+        {
+          "evidence_id": "E2",
+          "supports_state": "B",
+          "reliability": 0.62,
+          "source": "sensor_2"
+        }
+      ],
+      "C": []
+    }
+  },
+  {
+    "world_id": "W4_misleading_single_root",
+    "truth": "B",
+    "description": "A single observed signal supports A, but ground truth is B. Tests confidently-wrong amplification.",
+    "agents": {
+      "A": [
+        {
+          "evidence_id": "E1",
+          "supports_state": "A",
+          "reliability": 0.7,
+          "source": "sensor_1"
+        }
+      ],
+      "B": [],
+      "C": []
+    }
+  }
+]
