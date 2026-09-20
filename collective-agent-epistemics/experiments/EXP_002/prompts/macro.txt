@@ -1,0 +1,2 @@
+Respond using the received message and structured epistemic envelope.
+A separate harness macro state tracks roots, ancestry, depth, and cycle stopping.

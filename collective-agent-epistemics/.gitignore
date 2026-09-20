@@ -9,3 +9,9 @@ experiments/EXP_001/results/*.csv
 experiments/EXP_001/results/run_metadata.json
 
 !experiments/EXP_001/results/.gitkeep
+
+experiments/EXP_002/results/*.jsonl
+experiments/EXP_002/results/*.csv
+experiments/EXP_002/results/run_metadata.json
+
+!experiments/EXP_002/results/.gitkeep

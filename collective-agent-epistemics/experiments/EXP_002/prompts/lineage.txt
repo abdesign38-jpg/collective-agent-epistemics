@@ -1,0 +1,2 @@
+Respond using the received message and its structured epistemic envelope.
+The envelope records lineage; it does not add evidence or impose a stopping rule.

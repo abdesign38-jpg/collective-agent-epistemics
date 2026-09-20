@@ -1,0 +1,2 @@
+Respond to the received natural-language message using only your available observation and message content.
+Do not receive or produce explicit epistemic lineage metadata.
