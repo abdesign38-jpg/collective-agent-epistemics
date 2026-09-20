@@ -1,2 +1,3 @@
-Respond using the received message and its structured epistemic envelope.
-The envelope records lineage; it does not add evidence or impose a stopping rule.
+Evaluate whether hidden state A or B is more likely using the information currently available to you.
+Return your answer, confidence, and a concise message for the next agent.
+The message also carries a structured lineage envelope maintained by the harness.

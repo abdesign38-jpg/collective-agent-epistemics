@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
@@ -23,7 +23,8 @@ from .world_generator import WorldGenerator
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
 CONDITIONS = ("free", "lineage", "macro")
-TOPOLOGY = (("A", "B"), ("B", "C"), ("C", "A"))
+SEED_EDGE = ("A", "B")
+RECURSIVE_SEQUENCE = (("B", "C"), ("C", "A"), ("A", "B"))
 
 
 @dataclass(frozen=True)
@@ -38,6 +39,10 @@ class ConditionRun:
 class ExperimentRun:
     worlds: tuple[World, ...]
     condition_runs: tuple[ConditionRun, ...]
+    adapter_name: str = "deterministic_stub"
+    adapter_metadata: dict[str, object] = field(default_factory=dict)
+    rounds: int = 0
+    seed: int = 0
 
 
 def run_condition(
@@ -65,13 +70,18 @@ def run_condition(
         if cycle > 0 and condition == "macro":
             graph.start_cycle()
 
-        steps = (TOPOLOGY[0],) if cycle == 0 else TOPOLOGY
+        steps = (SEED_EDGE,) if cycle == 0 else RECURSIVE_SEQUENCE
         for sender, receiver in steps:
             message_number += 1
             observation = AgentObservation(
                 agent_id=sender,
                 evidence=tuple(e for e in world.evidence if e.assigned_to == sender),
             )
+            if received_message is not None and received_message.receiver != sender:
+                raise RuntimeError(
+                    f"message {received_message.message_id} addressed to "
+                    f"{received_message.receiver}, not {sender}"
+                )
             response = adapter.respond(sender, observation, received_message, condition)
             message_id = f"{run_id}_{condition}_M{message_number:02d}"
             parent_id = received_message.message_id if received_message else None
@@ -128,15 +138,17 @@ def run_condition(
         "accuracy": final_event.metrics["accuracy"],
         "final_confidence": final_event.model_output.confidence,
         "final_brier_score": final_event.metrics["brier_score"],
+        "final_p_a": final_event.metrics["p_a"],
         "completed_cycles": completed_cycles,
         "independent_evidence_root_count": graph.independent_root_count,
         "max_inference_depth": max(e.actual_lineage.inference_depth for e in events),
         "new_independent_evidence_count": sum(
             int(e.metrics["new_independent_evidence"]) for e in events
         ),
-        "confidence_trajectory": [e.model_output.confidence for e in events],
-        "confidence_delta_without_new_evidence": [
-            e.metrics["confidence_delta_without_new_evidence"] for e in events
+        "reported_confidence_trajectory": [e.metrics["reported_confidence"] for e in events],
+        "p_a_trajectory": [e.metrics["p_a"] for e in events],
+        "p_a_delta_without_new_evidence": [
+            e.metrics["p_a_delta_without_new_evidence"] for e in events
         ],
         "stop_reason": stop_reason,
     }
@@ -148,6 +160,8 @@ def run_experiment(
     rounds: int,
     seed: int,
     adapter_factory: Callable[[], AgentAdapter] | None = None,
+    adapter_name: str = "deterministic_stub",
+    adapter_metadata: dict[str, object] | None = None,
 ) -> ExperimentRun:
     if trials < 1:
         raise ValueError("trials must be at least 1")
@@ -165,7 +179,14 @@ def run_experiment(
                     trial_id=world.world_id,
                 )
             )
-    return ExperimentRun(worlds, tuple(condition_runs))
+    return ExperimentRun(
+        worlds,
+        tuple(condition_runs),
+        adapter_name=adapter_name,
+        adapter_metadata=adapter_metadata or {},
+        rounds=rounds,
+        seed=seed,
+    )
 
 
 def write_results(experiment: ExperimentRun) -> None:
@@ -188,8 +209,10 @@ def write_results(experiment: ExperimentRun) -> None:
         "independent_evidence_root_count",
         "max_inference_depth",
         "new_independent_evidence_count",
-        "confidence_trajectory",
-        "confidence_delta_without_new_evidence",
+        "final_p_a",
+        "reported_confidence_trajectory",
+        "p_a_trajectory",
+        "p_a_delta_without_new_evidence",
         "stop_reason",
     ]
     with (RESULTS / "summary.csv").open("w", newline="", encoding="utf-8") as output:
@@ -201,11 +224,15 @@ def write_results(experiment: ExperimentRun) -> None:
     metadata = {
         "experiment": "EXP-002",
         "world_count": len(experiment.worlds),
+        "adapter_name": experiment.adapter_name,
+        "trial_count": len(experiment.worlds),
+        "rounds": experiment.rounds,
+        "seed": experiment.seed,
         "conditions": list(CONDITIONS),
-        "topology": [list(edge) for edge in TOPOLOGY],
-        "adapter": "deterministic_stub",
+        "topology": [list(SEED_EDGE), *[list(edge) for edge in RECURSIVE_SEQUENCE]],
         "note": "Infrastructure validation only; not evidence for the research hypothesis.",
     }
+    metadata.update(experiment.adapter_metadata)
     (RESULTS / "run_metadata.json").write_text(
         json.dumps(metadata, indent=2) + "\n", encoding="utf-8"
     )
@@ -242,7 +269,12 @@ def main() -> None:
     parser.add_argument("--adapter", choices=("deterministic_stub",), default="deterministic_stub")
     args = parser.parse_args()
 
-    experiment = run_experiment(args.trials, args.rounds, args.seed)
+    experiment = run_experiment(
+        args.trials,
+        args.rounds,
+        args.seed,
+        adapter_name=args.adapter,
+    )
     write_results(experiment)
     print_results(experiment)
 

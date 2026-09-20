@@ -1,2 +1,2 @@
-Respond to the received natural-language message using only your available observation and message content.
-Do not receive or produce explicit epistemic lineage metadata.
+Evaluate whether hidden state A or B is more likely using the information currently available to you.
+Return your answer, confidence, and a concise message for the next agent.
