@@ -3,12 +3,16 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import platform
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
 from .adapters.base import AgentAdapter
 from .adapters.deterministic_stub import DeterministicStubAdapter
+from .adapters.openai_responses import OpenAIAdapterConfig, OpenAIResponsesAdapter
+from .dry_run import build_dry_run_inputs, print_dry_run
 from .lineage import LineageGraph
 from .metrics import event_metrics
 from .models import (
@@ -116,6 +120,7 @@ def run_condition(
                     actual_lineage=actual_lineage,
                     agent_reported_information=response.message,
                     metrics=metrics,
+                    provider_metadata=getattr(adapter, "last_call_metadata", None),
                 )
             )
             received_message = message
@@ -225,14 +230,20 @@ def write_results(experiment: ExperimentRun) -> None:
         "experiment": "EXP-002",
         "world_count": len(experiment.worlds),
         "adapter_name": experiment.adapter_name,
+        "provider": experiment.adapter_metadata.get("provider", "local"),
+        "requested_model": experiment.adapter_metadata.get("requested_model"),
+        "reasoning_effort": experiment.adapter_metadata.get("reasoning_effort"),
+        "sdk_version": experiment.adapter_metadata.get("sdk_version"),
+        "python_version": platform.python_version(),
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "trial_count": len(experiment.worlds),
         "rounds": experiment.rounds,
         "seed": experiment.seed,
         "conditions": list(CONDITIONS),
         "topology": [list(SEED_EDGE), *[list(edge) for edge in RECURSIVE_SEQUENCE]],
+        "adapter_metadata": experiment.adapter_metadata,
         "note": "Infrastructure validation only; not evidence for the research hypothesis.",
     }
-    metadata.update(experiment.adapter_metadata)
     (RESULTS / "run_metadata.json").write_text(
         json.dumps(metadata, indent=2) + "\n", encoding="utf-8"
     )
@@ -266,15 +277,43 @@ def main() -> None:
     parser.add_argument("--trials", type=int, default=1)
     parser.add_argument("--rounds", type=int, default=4)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--adapter", choices=("deterministic_stub",), default="deterministic_stub")
+    parser.add_argument("--adapter", choices=("deterministic_stub", "openai"), default="deterministic_stub")
+    parser.add_argument("--model", default=None)
+    parser.add_argument("--reasoning-effort", default=None)
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--live", action="store_true")
     args = parser.parse_args()
 
-    experiment = run_experiment(
-        args.trials,
-        args.rounds,
-        args.seed,
-        adapter_name=args.adapter,
-    )
+    if args.adapter == "openai":
+        config = OpenAIAdapterConfig.from_environment(
+            model=args.model,
+            reasoning_effort=args.reasoning_effort,
+        )
+        if args.dry_run:
+            world = WorldGenerator(args.seed).generate_many(args.trials)[0]
+            print_dry_run(build_dry_run_inputs(world))
+            return
+        if not args.live:
+            raise SystemExit("OpenAI adapter requires --live or --dry-run; no network call made")
+        factory = lambda: OpenAIResponsesAdapter(config)
+        experiment = run_experiment(
+            args.trials,
+            args.rounds,
+            args.seed,
+            adapter_factory=factory,
+            adapter_name="openai",
+            adapter_metadata=config.metadata(),
+        )
+    else:
+        if args.live:
+            raise SystemExit("--live is only valid with --adapter openai")
+        experiment = run_experiment(
+            args.trials,
+            args.rounds,
+            args.seed,
+            adapter_name="deterministic_stub",
+            adapter_metadata={"provider": "local"},
+        )
     write_results(experiment)
     print_results(experiment)
 

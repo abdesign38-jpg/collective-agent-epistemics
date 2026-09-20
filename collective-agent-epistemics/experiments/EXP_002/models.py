@@ -66,6 +66,7 @@ class TrialEvent:
     actual_lineage: EpistemicEnvelope
     agent_reported_information: str
     metrics: dict[str, Any]
+    provider_metadata: dict[str, Any] | None = None
 
     def to_record(self) -> dict[str, Any]:
         return {
@@ -90,6 +91,7 @@ class TrialEvent:
             "actual_lineage": _envelope_record(self.actual_lineage),
             "agent_reported_information": self.agent_reported_information,
             "metrics": self.metrics,
+            "provider_metadata": self.provider_metadata,
         }
 
 

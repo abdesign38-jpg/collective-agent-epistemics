@@ -3,6 +3,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 .DS_Store
+.env
+.env.*
+!.env.example
 
 experiments/EXP_001/results/*.jsonl
 experiments/EXP_001/results/*.csv
