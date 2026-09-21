@@ -4,7 +4,7 @@
   "status": "WORLD_MANIFEST_FROZEN_NOT_EXECUTED",
   "anchors": {
     "closure_checkpoint": "de62984adc44566b513545feaf2d61fcc229e71c",
-    "plan_freeze_commit": "ecbcbc73f5c7c05c39e11e0d3d14dc9dfb0b4f57",
+    "plan_freeze_commit": "ecbcbc77d0832b82ea9da2abc3d800db759c238c",
     "frozen_runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
     "protocol_tag": "exp-002-protocol-v0.1",
     "derivation_anchor": "de62984adc44566b513545feaf2d61fcc229e71c|exp-002-protocol-v0.1|GATE_2B_PLAN_v0.1"

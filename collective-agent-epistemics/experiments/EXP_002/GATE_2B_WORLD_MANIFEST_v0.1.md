@@ -11,7 +11,7 @@ After this manifest is committed, the world list, seeds, and execution order are
 ## Anchors
 
 - Research closure checkpoint: `de62984adc44566b513545feaf2d61fcc229e71c`
-- Gate 2B plan freeze commit: `ecbcbc73f5c7c05c39e11e0d3d14dc9dfb0b4f57`
+- Gate 2B plan freeze commit: `ecbcbc77d0832b82ea9da2abc3d800db759c238c`
 - Frozen EXP-002 runtime: `7e9aed1b7093baae10ae30f27e0b6a2b932f92f5`
 - Frozen protocol tag: `exp-002-protocol-v0.1`
 - Derivation anchor: `de62984adc44566b513545feaf2d61fcc229e71c|exp-002-protocol-v0.1|GATE_2B_PLAN_v0.1`
@@ -72,23 +72,23 @@ Final cell counts: `A/A = 2`, `B/B = 2`, `A/B = 2`, `B/A = 2`. This set is inten
 |---:|---:|---|---|---|---|---|
 | 1 | 1211074116 | B | B | B/B | yes | — |
 | 2 | 945922859 | B | B | B/B | yes | — |
-| 3 | 319975066 | B | A | B/A | yes | — |
-| 4 | 1531843854 | A | B | A/B | yes | — |
+| 3 | 1247992891 | A | A | A/A | yes | — |
+| 4 | 217181935 | A | A | A/A | yes | — |
 | 5 | 1791476913 | A | A | A/A | no | cell_full |
 | 6 | 2092598332 | A | A | A/A | no | cell_full |
 | 7 | 1271319373 | A | A | A/A | no | cell_full |
 | 8 | 1074218747 | B | B | B/B | no | cell_full |
 | 9 | 37444839 | B | B | B/B | no | cell_full |
-| 10 | 515022515 | B | A | B/A | yes | — |
-| 11 | 217181935 | A | A | A/A | yes | — |
+| 10 | 319975066 | B | A | B/A | yes | — |
+| 11 | 1523495488 | A | B | A/B | yes | — |
 | 12 | 1692118867 | B | B | B/B | no | cell_full |
 | 13 | 1529813721 | A | A | A/A | no | cell_full |
 | 14 | 1284154942 | B | B | B/B | no | cell_full |
 | 15 | 993197738 | B | B | B/B | no | cell_full |
-| 16 | 1247992891 | A | A | A/A | yes | — |
+| 16 | 515022515 | B | A | B/A | yes | — |
 | 17 | 475958240 | A | A | A/A | no | cell_full |
 | 18 | 687885545 | A | A | A/A | no | cell_full |
-| 19 | 1523495488 | A | B | A/B | yes | — |
+| 19 | 1531843854 | A | B | A/B | yes | — |
 
 No candidate was rejected for exclusion or duplication; all rejections in this scan were `cell_full`.
 
