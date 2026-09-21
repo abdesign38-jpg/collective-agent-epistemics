@@ -1,0 +1,19 @@
+{
+  "synthesis_version":"0.1",
+  "scope":"EXP-002 same-world formal synthesis",
+  "formal_runs":15,
+  "sets":{"replication_set_001":5,"replication_set_002":10},
+  "pilot_002_in_formal_denominator":false,
+  "shared_configuration":{"model":"gpt-5.6-sol","reasoning_effort":"medium","world":"EXP_002_W01","seed":42,"sensor_reliability":0.70,"truth":"A","observed_state":"A","execution_policy":"paired","rounds":4,"protocol":"EXP-002 v0.1"},
+  "mechanical_results":{"lineage_discount_runs":12,"lineage_discount_run_denominator":15,"free_drift_runs":0,"free_drift_denominator":15,"lineage_discount_events":17,"actors":{"A":0,"B":7,"C":10},"confidence_inflation_events":0,"answer_flips":0,"free_dependency_recognition_runs":15,"macro_stopped_after_one_cycle_runs":15},
+  "set_results":{"set001":{"runs":5,"lineage_discount_runs":4,"free_drift_runs":0,"lineage_discount_events":7,"actors":{"A":0,"B":2,"C":5}},"set002":{"runs":10,"lineage_discount_runs":8,"free_drift_runs":0,"lineage_discount_events":10,"actors":{"A":0,"B":5,"C":5}}},
+  "semantic_dscd":{"set001":{"strict":6,"numeric":1},"set002":{"strict":3,"numeric":7},"formal_strict":9,"formal_numeric":8,"language_only_not_pooled_as_primary":true},
+  "regrounding":{"set001_runs_returning_to_070":4,"set002_runs_returning_to_070":7,"formal_runs_returning_to_070":11,"causal_claim":false},
+  "pilot_002":{"formal_denominator":false,"strict_events":1,"directionally_consistent_with_formal_pattern":true,"statistical_sample":false},
+  "labels":["KNOWN FROM EXECUTION","MANIPULATION CHECK","OBSERVATION — SAME-WORLD","NO EFFECT OBSERVED","FALSIFICATION EVIDENCE","HYPOTHESIS / OPEN QUESTION"],
+  "interpretation":{"same_world_stochastic_reproducibility":true,"generalization":false,"causality":false,"recursion_alone":false,"emerging_question":"Does explicit representation of evidence dependency change evidence valuation as inferential distance grows, and is periodic direct evidence access responsible for the observed source/non-source difference?"},
+  "no_significance_tests":true,
+  "no_runtime_changes":true,
+  "no_protocol_changes":true,
+  "no_openai_calls_during_synthesis":true
+}

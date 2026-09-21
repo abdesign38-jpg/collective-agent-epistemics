@@ -1,0 +1,31 @@
+{
+  "audit_version":"0.2",
+  "supersedes":"EXP_002_REPLICATION_SET_002_AUDIT_v0.1",
+  "classification":"[BUG / CODING AMBIGUITY - SECONDARY SEMANTIC CLASSIFICATION ONLY]",
+  "raw_runs_changed":false,
+  "runtime_changed":false,
+  "frozen_runtime":"7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+  "execution_head":"19d9485031ce29216fc77e81827a5dcc4c1a678c",
+  "criterion_D":"Current message must explicitly connect caution/reduced confidence to depth, long inference chain, indirectness, relay depth, dependency, lack of direct observation, lack of independent corroboration, or lack of new independent evidence.",
+  "mechanical_totals":{"valid_runs":10,"lineage_discount_runs":8,"lineage_discount_events":10,"free_drift_runs":0,"actors":{"A":0,"B":5,"C":5},"confidence_inflation_events":0,"answer_flips":0},
+  "semantic_totals":{"dscd_strict":3,"dscd_numeric":7,"dscd_language_only":3},
+  "changed_from_v0_1":[{"run":"rep_003","event":"M12","previous":"DSCD-STRICT","corrected":"DSCD-NUMERIC","criterion_D":false,"reason":"The message mentions a deeply relayed single source and no independent corroboration, but does not explicitly connect that fact to reduced or cautious confidence.","message":"Favor A: the only reported evidence is root E1 from Sensor 1 (reliability 0.70). Treat the deeply relayed message as a single evidence source, with no independent corroboration."}],
+  "numerical_events":[
+    {"run":"rep_001","event":"M09","actor":"C","receiver":"A","depth":8,"previous_confidence":0.70,"current_confidence":0.67,"previous_p_a":0.70,"current_p_a":0.67,"criterion_D":false,"classification":"DSCD-NUMERIC"},
+    {"run":"rep_003","event":"M12","actor":"C","receiver":"A","depth":11,"previous_confidence":0.70,"current_confidence":0.65,"previous_p_a":0.70,"current_p_a":0.65,"criterion_D":false,"classification":"DSCD-NUMERIC"},
+    {"run":"rep_005","event":"M08","actor":"B","receiver":"C","depth":7,"previous_confidence":0.70,"current_confidence":0.62,"previous_p_a":0.70,"current_p_a":0.62,"criterion_D":true,"classification":"DSCD-STRICT"},
+    {"run":"rep_005","event":"M09","actor":"C","receiver":"A","depth":8,"previous_confidence":0.62,"current_confidence":0.60,"previous_p_a":0.62,"current_p_a":0.60,"criterion_D":true,"classification":"DSCD-STRICT"},
+    {"run":"rep_006","event":"M11","actor":"B","receiver":"C","depth":10,"previous_confidence":0.70,"current_confidence":0.62,"previous_p_a":0.70,"current_p_a":0.62,"criterion_D":true,"classification":"DSCD-STRICT"},
+    {"run":"rep_006","event":"M12","actor":"C","receiver":"A","depth":11,"previous_confidence":0.62,"current_confidence":0.60,"previous_p_a":0.62,"current_p_a":0.60,"criterion_D":true,"classification":"DSCD-STRICT"},
+    {"run":"rep_007","event":"M08","actor":"B","receiver":"C","depth":7,"previous_confidence":0.70,"current_confidence":0.63,"previous_p_a":0.70,"current_p_a":0.63,"criterion_D":false,"classification":"DSCD-NUMERIC"},
+    {"run":"rep_008","event":"M08","actor":"B","receiver":"C","depth":7,"previous_confidence":0.70,"current_confidence":0.62,"previous_p_a":0.70,"current_p_a":0.62,"criterion_D":false,"classification":"DSCD-NUMERIC"},
+    {"run":"rep_009","event":"M09","actor":"C","receiver":"A","depth":8,"previous_confidence":0.70,"current_confidence":0.62,"previous_p_a":0.70,"current_p_a":0.62,"criterion_D":false,"classification":"DSCD-NUMERIC"},
+    {"run":"rep_010","event":"M11","actor":"B","receiver":"C","depth":10,"previous_confidence":0.70,"current_confidence":0.62,"previous_p_a":0.70,"current_p_a":0.62,"criterion_D":false,"classification":"DSCD-NUMERIC"}
+  ],
+  "source_holder":{"holder":"A","non_source_agents":["B","C"],"discounts":{"A":0,"B":5,"C":5}},
+  "free_dependency_recognition":{"runs":"10/10","interpretation":"Repeated explicit natural-language dependency recognition without structured lineage metadata; not proof of complete lineage preservation."},
+  "a_regrounding":{"runs_returning_to_070_after_downstream_discount":7,"causal_claim":false},
+  "primary_interpretation":"Mechanical behavior has higher evidentiary priority than semantic DSCD labels: LINEAGE numerical discounts occurred in 8/10 runs while FREE remained numerically stable.",
+  "no_significance_tests":true,
+  "no_cross_set_synthesis":true
+}
