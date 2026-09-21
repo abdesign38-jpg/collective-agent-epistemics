@@ -1,0 +1,87 @@
+{
+  "plan_version": "0.1",
+  "gate": "2B",
+  "status": "PLAN_FROZEN_NOT_EXECUTED",
+  "scientific_question": "Do the architecture-dependent epistemic behaviors observed under W01 survive when the external world/evidence realization changes while the frozen EXP-002 communication protocol remains otherwise controlled?",
+  "anchors": {
+    "closure_checkpoint": "de62984adc44566b513545feaf2d61fcc229e71c",
+    "frozen_runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+    "protocol_tag": "exp-002-protocol-v0.1"
+  },
+  "controlled_configuration": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "rounds": 4,
+    "sensor_reliability": 0.7,
+    "conditions": [
+      "free",
+      "lineage",
+      "macro"
+    ],
+    "prompts_changed": false,
+    "topology_changed": false,
+    "metrics_changed": false,
+    "lineage_semantics_changed": false,
+    "stopping_logic_changed": false
+  },
+  "intended_variation": [
+    "truth",
+    "sensor_observation",
+    "evidence_alignment"
+  ],
+  "scope_exclusions": [
+    "DSCD mechanism experiment",
+    "source-holder intervention",
+    "depth intervention",
+    "causal mechanism experiment",
+    "architecture redesign"
+  ],
+  "selection": {
+    "anchor": "de62984adc44566b513545feaf2d61fcc229e71c|exp-002-protocol-v0.1|GATE_2B_PLAN_v0.1",
+    "max_seed": 2147483646,
+    "known_preexisting_exclusions": [
+      42
+    ],
+    "generalization_set_001": {
+      "planned_worlds": 12,
+      "label": "GEN001"
+    },
+    "stress_set_001": {
+      "planned_worlds": 8,
+      "classification": "TARGETED_PROSPECTIVELY_STRATIFIED_STRESS_TEST",
+      "label": "STRESS001",
+      "cells": {
+        "A/A": 2,
+        "B/B": 2,
+        "A/B": 2,
+        "B/A": 2
+      }
+    }
+  },
+  "manifest_required_before_model_calls": true,
+  "canonical_identity": "G2B_<SET_ID>_seed_<SEED>",
+  "pooling_rule": "Generalization and Stress must not be pooled into a single headline prevalence or generalization denominator.",
+  "early_stopping": false,
+  "sample_extension": false,
+  "retry_policy": {
+    "technical_only": true,
+    "preserve_failed_attempt": true,
+    "same_seed_required": true,
+    "same_configuration_required": true,
+    "replacement_world_forbidden": true,
+    "scientific_n_unchanged": true
+  },
+  "planned_scientific_n": {
+    "generalization": 12,
+    "stress": 8,
+    "total": 20
+  },
+  "nominal_provider_calls": {
+    "per_world": 25,
+    "generalization": 300,
+    "stress": 200,
+    "total": 500
+  },
+  "significance_tests": false
+}
