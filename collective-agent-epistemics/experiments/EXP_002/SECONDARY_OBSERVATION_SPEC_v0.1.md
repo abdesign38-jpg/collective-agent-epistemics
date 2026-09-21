@@ -8,14 +8,70 @@ DSCD is a candidate observation in which increasing inference depth or indirectn
 
 ## Strict criteria
 
-A recorded event qualifies as a strict DSCD candidate only when all of the following hold:
+A recorded event qualifies as a strict DSCD candidate only when all of the following hold. The event-level numerical baseline is always the immediately preceding event in the same condition; it must not be selected after inspecting results.
 
 1. No new independent evidence enters the network.
 2. Actual evidence roots remain unchanged.
-3. Confidence and epistemic certainty are reduced relative to the relevant prior or boundary state.
+3. Confidence and epistemic certainty are reduced relative to the immediately preceding event.
 4. The visible model message explicitly attributes caution to depth, indirectness, dependency, relay structure, or lack of independent corroboration.
 
 A message or confidence change that fails any criterion may be reported as a related exploratory observation, but not as strict DSCD.
+
+## Event-level calculations
+
+For an event at position `t`, calculate against the immediately preceding event at `t-1` in the same condition:
+
+```text
+delta_confidence_transition = confidence_t - confidence_(t-1)
+delta_p_a_transition = P(A)_t - P(A)_(t-1)
+epistemic_certainty_t = abs(P(A)_t - 0.5)
+```
+
+The numerical confidence discount requires both:
+
+```text
+confidence_t < confidence_(t-1)
+epistemic_certainty_t < epistemic_certainty_(t-1)
+```
+
+This remains valid if the selected answer changes from A to B.
+
+## Post-boundary trajectory
+
+Separately from event-level DSCD, preserve the paired MACRO stopping boundary at LINEAGE `M04`. For every LINEAGE event `M05` through `M13`, calculate:
+
+```text
+delta_confidence_from_M04
+delta_p_a_from_M04
+delta_brier_from_M04
+delta_certainty_from_M04
+delta_depth_from_M04
+delta_roots_from_M04
+```
+
+This is a post-boundary trajectory measurement. It must not replace the event-level transition rule or serve as the DSCD baseline.
+
+## Strict event labels
+
+Use these labels mechanically:
+
+- **DSCD-STRICT:** A-D all hold: zero new independent evidence; unchanged actual root set; both numerical reductions above; and explicit dependency/depth caution in the visible recorded message.
+- **DSCD-NUMERIC:** A-C hold but the message does not explicitly provide criterion D.
+- **DSCD-LANGUAGE-ONLY:** dependency/depth caution is explicit, but numerical epistemic certainty does not decrease.
+- **DSCD-NONE:** no candidate event.
+
+Criterion D must be present in the recorded output. Do not infer hidden reasoning. Relevant concepts include depth, inference steps, indirectness, relay/retransmission, shared root, dependency, lack of independent corroboration, or lack of new evidence.
+
+## Specificity
+
+Event classification and condition specificity are separate dimensions. For each run, report one of:
+
+- **LINEAGE_ONLY** — numerical or strict candidate events occurred only in LINEAGE.
+- **FREE_ONLY** — numerical or strict candidate events occurred only in FREE.
+- **BOTH** — numerical or strict candidate events occurred in both conditions.
+- **NONE** — no numerical or strict candidate events occurred in either condition.
+
+Do not describe an event as lineage-specific merely because it occurred in LINEAGE if FREE shows the same behavior.
 
 ## Separate secondary observations
 
