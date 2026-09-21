@@ -6,5 +6,6 @@ This directory separates the project's stable conceptual frame, working proposit
 - [hypothesis_v0.1.md](hypothesis_v0.1.md) — **Hypothesis = falsifiable working proposition.** Historical v0.1 wording retained as the project's pre-existing hypothesis record.
 - [evidence_map.md](evidence_map.md) — **Evidence map = external literature/evidence state.** Tracks support and uncertainty from sources outside the experiment outputs.
 - [observations/](observations/) — **Observations = empirical findings from this repository.** Entries are tied to recorded runs and classified conservatively; they do not silently rewrite the framework or hypothesis.
+- [REPOSITORY_RESEARCH_STRUCTURE_v0.1.md](REPOSITORY_RESEARCH_STRUCTURE_v0.1.md) — repository hierarchy and branching policy for experiments, protocols, replication sets, runs, audits, and observations.
 
 The current empirical observation registry begins with [EXP_002_pilot_observations_v0.1.md](observations/EXP_002_pilot_observations_v0.1.md).

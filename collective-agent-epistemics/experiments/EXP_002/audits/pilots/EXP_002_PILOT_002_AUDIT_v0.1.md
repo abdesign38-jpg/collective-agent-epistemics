@@ -17,7 +17,7 @@ This is an analysis-only audit of the already completed exploratory real-model p
 
 ## 2. Preservation and integrity checks
 
-Pilot 002 was preserved before analysis at [../results/archive/pilot_002_seed42_r4](../results/archive/pilot_002_seed42_r4). Pilot 001 was not overwritten.
+Pilot 002 was preserved before analysis at [../../results/archive/pilots/pilot_002_seed42_r4](../../results/archive/pilots/pilot_002_seed42_r4). Pilot 001 was not overwritten.
 
 | File | SHA-256 |
 |---|---|
@@ -210,7 +210,7 @@ No integrity anomaly was found. The notable empirical anomaly is LINEAGE M09: co
 
 - [EXP_002_PILOT_002_AUDIT_v0.1.md](EXP_002_PILOT_002_AUDIT_v0.1.md)
 - [EXP_002_PILOT_002_AUDIT_v0.1.json](EXP_002_PILOT_002_AUDIT_v0.1.json)
-- Preserved run: [../results/archive/pilot_002_seed42_r4](../results/archive/pilot_002_seed42_r4)
+- Preserved run: [../../results/archive/pilots/pilot_002_seed42_r4](../../results/archive/pilots/pilot_002_seed42_r4)
 
 Audit-time OpenAI calls: `0`.
 

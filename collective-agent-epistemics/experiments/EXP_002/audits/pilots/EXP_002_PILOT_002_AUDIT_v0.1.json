@@ -21,7 +21,7 @@
     "final_answers": {"free": "A", "lineage": "A", "macro": "A"}
   },
   "preservation": {
-    "path": "experiments/EXP_002/results/archive/pilot_002_seed42_r4/",
+    "path": "experiments/EXP_002/results/archive/pilots/pilot_002_seed42_r4/",
     "files": {
       "events.jsonl": "6764c1e483d0ad885fab8a5e1624414f922c3cc1d440312325f98673fd18263f",
       "summary.csv": "5280de5383464b5a4499e09bd1072e9d4d89e3d71eeb86f8ce70fab360c382e0",

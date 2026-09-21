@@ -2,7 +2,7 @@
 
 ## Scope
 
-These are conservative observations from real-model Pilot 002 (`seed=42`, `rounds=4`, `gpt-5.6-sol`, paired execution). They are exploratory observations, not a revised primary hypothesis and not confirmatory evidence. The full forensic audit is archived under `experiments/EXP_002/audits/`.
+These are conservative observations from real-model Pilot 002 (`seed=42`, `rounds=4`, `gpt-5.6-sol`, paired execution). They are exploratory observations, not a revised primary hypothesis and not confirmatory evidence. The full forensic audit is archived under `experiments/EXP_002/audits/pilots/`.
 
 ## Recorded observations
 

@@ -21,7 +21,7 @@ world: EXP_002_W01
 The replication set uses the same frozen protocol, prompts, topology, world generation, metrics, and stopping semantics. Results belong under:
 
 ```text
-experiments/EXP_002/results/archive/rep_001_<NNN>_seed42_r4/
+experiments/EXP_002/results/archive/replication_sets/replication_set_001/rep_<NNN>/
 ```
 
 ## Primary outcomes
