@@ -1,0 +1,565 @@
+{
+  "manifest_version": "0.1",
+  "gate": "2B",
+  "status": "WORLD_MANIFEST_FROZEN_NOT_EXECUTED",
+  "anchors": {
+    "closure_checkpoint": "de62984adc44566b513545feaf2d61fcc229e71c",
+    "plan_freeze_commit": "ecbcbc73f5c7c05c39e11e0d3d14dc9dfb0b4f57",
+    "frozen_runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+    "protocol_tag": "exp-002-protocol-v0.1",
+    "derivation_anchor": "de62984adc44566b513545feaf2d61fcc229e71c|exp-002-protocol-v0.1|GATE_2B_PLAN_v0.1"
+  },
+  "exclusion_registry": [
+    {
+      "seed": 42,
+      "source": "GATE_2B_PLAN_v0.1.md section 2",
+      "source_ref": "de62984adc44566b513545feaf2d61fcc229e71c",
+      "reason": "seed 42 was inspected in Gate 2A / prior pilots before this plan was frozen"
+    }
+  ],
+  "generalization_set_001": {
+    "label": "GEN001",
+    "planned_worlds": 12,
+    "accepted_worlds": 12,
+    "worlds": [
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_874625177",
+        "seed": 874625177,
+        "internal_world_id": "EXP_002_W_874625177",
+        "truth": "A",
+        "observed_state": "B",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "0879f1e45ebeac87130d78674ca914716de5d9b64b532785807a88f8562f358d",
+        "execution_order": 1
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_948364460",
+        "seed": 948364460,
+        "internal_world_id": "EXP_002_W_948364460",
+        "truth": "B",
+        "observed_state": "B",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "196abccc671ff16525a87c0ffd82f637a95a9d4b3bd0fc3004922fd9911488f7",
+        "execution_order": 2
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_170961959",
+        "seed": 170961959,
+        "internal_world_id": "EXP_002_W_170961959",
+        "truth": "A",
+        "observed_state": "B",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "4832375b8cd02c2203fb156271c42a1664cab3b157560caa337bfe0234d5af25",
+        "execution_order": 3
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1925941366",
+        "seed": 1925941366,
+        "internal_world_id": "EXP_002_W_1925941366",
+        "truth": "B",
+        "observed_state": "B",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "58ac4ec984d402f8b5d5ced4c348e12e14a96bc29c9017870507ab800d9d144e",
+        "execution_order": 4
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1257399226",
+        "seed": 1257399226,
+        "internal_world_id": "EXP_002_W_1257399226",
+        "truth": "B",
+        "observed_state": "B",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "5ab5398ae92e676183e7347cb49233a24cda597f01bdf9e72cf25180bc04b2c2",
+        "execution_order": 5
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1027876222",
+        "seed": 1027876222,
+        "internal_world_id": "EXP_002_W_1027876222",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "77cede1005c97a00bda7faf754ad01bc906983f3aa11a1881363f0154c93cf77",
+        "execution_order": 6
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1353126068",
+        "seed": 1353126068,
+        "internal_world_id": "EXP_002_W_1353126068",
+        "truth": "A",
+        "observed_state": "A",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "d0b53125148f928c5485d8c4e6fabf4e13c085aa4c16b242541ced8ebc873c14",
+        "execution_order": 7
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1926897563",
+        "seed": 1926897563,
+        "internal_world_id": "EXP_002_W_1926897563",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "d6719763b02c0e3fbf52643eac8f87d004b564018ce69cbbb88bc5123bd073e7",
+        "execution_order": 8
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1043406990",
+        "seed": 1043406990,
+        "internal_world_id": "EXP_002_W_1043406990",
+        "truth": "A",
+        "observed_state": "A",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "dcbb46eea4102313fc52d3de72f41cb7f3e139f30fbf8987791001d9e2979df8",
+        "execution_order": 9
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1114638083",
+        "seed": 1114638083,
+        "internal_world_id": "EXP_002_W_1114638083",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "de384b79ed6d71630eba89123f30cc76d7b4f29b2a49dfd35228a071c551ea28",
+        "execution_order": 10
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_1662733804",
+        "seed": 1662733804,
+        "internal_world_id": "EXP_002_W_1662733804",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "e369d656a6c399283f03b1ae6e2a29bcc95e6d0e776ab1d5b3f1017e30e7e8f4",
+        "execution_order": 11
+      },
+      {
+        "set": "GEN001",
+        "canonical_world_id": "G2B_GEN001_seed_208630909",
+        "seed": 208630909,
+        "internal_world_id": "EXP_002_W_208630909",
+        "truth": "A",
+        "observed_state": "B",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "e52892dda2bfaf01ec6601d032bb72f34f55e1c61348e68cf147fc4c4ad8aec0",
+        "execution_order": 12
+      }
+    ],
+    "selection_scan": [
+      {
+        "ordinal": 1,
+        "nonce": 0,
+        "candidate_seed": 1926897563,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 2,
+        "nonce": 0,
+        "candidate_seed": 948364460,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 3,
+        "nonce": 0,
+        "candidate_seed": 170961959,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 4,
+        "nonce": 0,
+        "candidate_seed": 208630909,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 5,
+        "nonce": 0,
+        "candidate_seed": 1043406990,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 6,
+        "nonce": 0,
+        "candidate_seed": 1027876222,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 7,
+        "nonce": 0,
+        "candidate_seed": 1257399226,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 8,
+        "nonce": 0,
+        "candidate_seed": 1925941366,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 9,
+        "nonce": 0,
+        "candidate_seed": 874625177,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 10,
+        "nonce": 0,
+        "candidate_seed": 1353126068,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 11,
+        "nonce": 0,
+        "candidate_seed": 1662733804,
+        "rejected": false,
+        "reason": null
+      },
+      {
+        "ordinal": 12,
+        "nonce": 0,
+        "candidate_seed": 1114638083,
+        "rejected": false,
+        "reason": null
+      }
+    ]
+  },
+  "stress_set_001": {
+    "label": "STRESS001",
+    "planned_worlds": 8,
+    "cells_target": {
+      "A/A": 2,
+      "B/B": 2,
+      "A/B": 2,
+      "B/A": 2
+    },
+    "accepted_worlds": 8,
+    "cells_final": {
+      "A/A": 2,
+      "B/B": 2,
+      "A/B": 2,
+      "B/A": 2
+    },
+    "worlds": [
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_1211074116",
+        "seed": 1211074116,
+        "internal_world_id": "EXP_002_W_1211074116",
+        "truth": "B",
+        "observed_state": "B",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "01c6185cc2b569988ae6dc4e4ed83afd9ac3c6276e2621164eb4fa77b7fa19a5",
+        "execution_order": 1
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_945922859",
+        "seed": 945922859,
+        "internal_world_id": "EXP_002_W_945922859",
+        "truth": "B",
+        "observed_state": "B",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "31a16461491fe220c76c48a685e204f3def0d2fe3f5d6d6342cc9f138e5a6a0f",
+        "execution_order": 2
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_319975066",
+        "seed": 319975066,
+        "internal_world_id": "EXP_002_W_319975066",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "73af8e972cfe2fb1f3c59acd1c53af233f506dc4797e37917cedbe686abb58e5",
+        "execution_order": 3
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_1531843854",
+        "seed": 1531843854,
+        "internal_world_id": "EXP_002_W_1531843854",
+        "truth": "A",
+        "observed_state": "B",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "85865849163c338000272fe3ef25aa209c82adcd3bf768fe3eec34a8cb666c06",
+        "execution_order": 4
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_515022515",
+        "seed": 515022515,
+        "internal_world_id": "EXP_002_W_515022515",
+        "truth": "B",
+        "observed_state": "A",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "a7f9a294fb73b18a4e7a30b40bfec1302cdba39aee416d44b1c94c36cef8c6c9",
+        "execution_order": 5
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_217181935",
+        "seed": 217181935,
+        "internal_world_id": "EXP_002_W_217181935",
+        "truth": "A",
+        "observed_state": "A",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "b6eb32c7fc3b4830b106399a017335cd77f65ef23b9114b840faf17202b09e2d",
+        "execution_order": 6
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_1247992891",
+        "seed": 1247992891,
+        "internal_world_id": "EXP_002_W_1247992891",
+        "truth": "A",
+        "observed_state": "A",
+        "evidence_alignment": "aligned",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "e72ba5f210194d27573024677fbc8a230a12f67358d1b764d32c6a07c3dc141b",
+        "execution_order": 7
+      },
+      {
+        "set": "STRESS001",
+        "canonical_world_id": "G2B_STRESS001_seed_1523495488",
+        "seed": 1523495488,
+        "internal_world_id": "EXP_002_W_1523495488",
+        "truth": "A",
+        "observed_state": "B",
+        "evidence_alignment": "misleading",
+        "sensor_reliability": 0.7,
+        "evidence_root": "E1",
+        "order_key": "edb1d4283253c80598de49529273a444f507e6331c7e1582e7cea1ae71a3c4e0",
+        "execution_order": 8
+      }
+    ],
+    "selection_scan": [
+      {
+        "scan_index": 1,
+        "candidate_seed": 1211074116,
+        "rejected": false,
+        "reason": null,
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 2,
+        "candidate_seed": 945922859,
+        "rejected": false,
+        "reason": null,
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 3,
+        "candidate_seed": 1247992891,
+        "rejected": false,
+        "reason": null,
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 4,
+        "candidate_seed": 217181935,
+        "rejected": false,
+        "reason": null,
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 5,
+        "candidate_seed": 1791476913,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 6,
+        "candidate_seed": 2092598332,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 7,
+        "candidate_seed": 1271319373,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 8,
+        "candidate_seed": 1074218747,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 9,
+        "candidate_seed": 37444839,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 10,
+        "candidate_seed": 319975066,
+        "rejected": false,
+        "reason": null,
+        "truth": "B",
+        "observed_state": "A",
+        "cell": "B/A"
+      },
+      {
+        "scan_index": 11,
+        "candidate_seed": 1523495488,
+        "rejected": false,
+        "reason": null,
+        "truth": "A",
+        "observed_state": "B",
+        "cell": "A/B"
+      },
+      {
+        "scan_index": 12,
+        "candidate_seed": 1692118867,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 13,
+        "candidate_seed": 1529813721,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 14,
+        "candidate_seed": 1284154942,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 15,
+        "candidate_seed": 993197738,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "B",
+        "observed_state": "B",
+        "cell": "B/B"
+      },
+      {
+        "scan_index": 16,
+        "candidate_seed": 515022515,
+        "rejected": false,
+        "reason": null,
+        "truth": "B",
+        "observed_state": "A",
+        "cell": "B/A"
+      },
+      {
+        "scan_index": 17,
+        "candidate_seed": 475958240,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 18,
+        "candidate_seed": 687885545,
+        "rejected": true,
+        "reason": "cell_full",
+        "truth": "A",
+        "observed_state": "A",
+        "cell": "A/A"
+      },
+      {
+        "scan_index": 19,
+        "candidate_seed": 1531843854,
+        "rejected": false,
+        "reason": null,
+        "truth": "A",
+        "observed_state": "B",
+        "cell": "A/B"
+      }
+    ]
+  }
+}
