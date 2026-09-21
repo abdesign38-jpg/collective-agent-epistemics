@@ -92,11 +92,26 @@ class Exp002Tests(unittest.TestCase):
         world = generate_world(seed=42, world_id="test-world")
         result = run_condition(world, "macro", rounds=8)
         self.assertEqual(result.summary["completed_cycles"], 1)
+        self.assertTrue(result.summary["macro_stop_triggered"])
         self.assertEqual(result.summary["stop_reason"], "no_new_independent_roots_after_cycle")
         self.assertEqual(
             [(event.sender, event.receiver) for event in result.events],
             [("A", "B"), ("B", "C"), ("C", "A"), ("A", "B")],
         )
+
+    def test_macro_stop_is_observable_on_final_allowed_cycle(self):
+        world = generate_world(seed=42, world_id="test-world")
+        result = run_condition(world, "macro", rounds=1)
+        self.assertEqual(result.summary["completed_cycles"], 1)
+        self.assertTrue(result.summary["macro_stop_triggered"])
+        self.assertEqual(result.summary["stop_reason"], "no_new_independent_roots_after_cycle")
+
+    def test_non_macro_cycle_exhaustion_reports_max_rounds(self):
+        world = generate_world(seed=42, world_id="test-world")
+        result = run_condition(world, "lineage", rounds=1)
+        self.assertEqual(result.summary["completed_cycles"], 1)
+        self.assertFalse(result.summary["macro_stop_triggered"])
+        self.assertEqual(result.summary["stop_reason"], "max_rounds")
 
     def test_event_keeps_model_output_separate_from_hidden_lineage(self):
         world = generate_world(seed=42, world_id="test-world")

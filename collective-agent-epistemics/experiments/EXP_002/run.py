@@ -84,6 +84,7 @@ def run_condition(
     previous_response: AgentResponse | None = None
     message_number = 0
     completed_cycles = 0
+    macro_stop_triggered = False
     run_id = trial_id or world.world_id
 
     for cycle in range(0, rounds + 1):
@@ -180,11 +181,14 @@ def run_condition(
         if cycle > 0:
             completed_cycles += 1
             if condition == "macro" and graph.should_stop_after_cycle():
+                macro_stop_triggered = True
                 break
 
-    stop_reason = "max_rounds"
-    if condition == "macro" and completed_cycles < rounds:
-        stop_reason = "no_new_independent_roots_after_cycle"
+    stop_reason = (
+        "no_new_independent_roots_after_cycle"
+        if macro_stop_triggered
+        else "max_rounds"
+    )
     final_event = events[-1]
     summary = {
         "world_id": world.world_id,
@@ -206,6 +210,7 @@ def run_condition(
         "p_a_delta_without_new_evidence": [
             e.metrics["p_a_delta_without_new_evidence"] for e in events
         ],
+        "macro_stop_triggered": macro_stop_triggered,
         "stop_reason": stop_reason,
     }
     return ConditionRun(world, condition, tuple(events), summary)
@@ -339,6 +344,7 @@ def write_results(experiment: ExperimentRun) -> None:
         "reported_confidence_trajectory",
         "p_a_trajectory",
         "p_a_delta_without_new_evidence",
+        "macro_stop_triggered",
         "stop_reason",
     ]
     with (RESULTS / "summary.csv").open("w", newline="", encoding="utf-8") as output:
