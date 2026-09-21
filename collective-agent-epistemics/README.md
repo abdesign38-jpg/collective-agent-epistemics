@@ -1,18 +1,25 @@
 # Collective Agent Epistemics
 
-A minimal research harness for testing whether recursive multi-agent communication can
-increase apparent confidence or informational volume without a corresponding increase
-in independent evidence.
+A minimal research harness for studying whether recursive multi-agent communication
+changes epistemic lineage, calibration, confidence, or convergence without a
+corresponding increase in independent evidence.
 
 ## Research question
 
 > As inference depth and inter-agent recursion increase without new independent evidence,
 > what happens to epistemic lineage, calibration, confidence, and convergence?
 
-This repository begins with **EXP-001**, a controlled synthetic experiment. It is not
-evidence that LLMs necessarily behave this way. Its purpose is to validate the
-instrumentation, lineage model, metrics, and experimental protocol before replacing
-the synthetic agent with real model adapters.
+The project preserves a broad research frame rather than treating any single pilot
+trajectory as confirmation. See the [research framework](research/framework_v0.1.md),
+[historical hypothesis](research/hypothesis_v0.1.md), [protocol lock](experiments/EXP_002/PROTOCOL_LOCK_v0.1.md),
+and [replication plan](experiments/EXP_002/REPLICATION_PLAN_v0.1.md).
+
+## Current project state
+
+- **EXP-001** — synthetic harness validation.
+- **EXP-002** — real-model recursive communication experiment.
+- **EXP-002 v0.1** — frozen at the implementation used for Pilot 002.
+- **Current phase** — exact same-world stochastic replication.
 
 ## EXP-001 conditions
 
@@ -23,6 +30,13 @@ the synthetic agent with real model adapters.
    recursion when a full cycle adds no independent evidence.
 
 All three conditions use the same synthetic worlds and same agent topology. The worlds include a misleading-evidence control so the harness can expose confidently-wrong amplification, not only confidence growth on correct trials.
+
+## EXP-002 conditions
+
+EXP-002 compares FREE, LINEAGE, and MACRO under a shared seed and paired execution.
+The real-model pilot and its forensic audit are exploratory, not confirmatory evidence.
+Preserved runs live under `experiments/EXP_002/results/archive/`; see the
+[results contract](experiments/EXP_002/results/README.md).
 
 ## Quick start
 
@@ -63,5 +77,6 @@ research hypothesis. It validates that we can measure:
 - confidence change without new independent evidence
 - macro stopping behavior
 
-The next research phase should replace the synthetic agent with one or more real LLM
-adapters while preserving the same protocol and event schema.
+The next research phase is replication of the frozen EXP-002 configuration. Future
+worlds, models, and architecture interventions remain gated until that replication
+and audit are complete.
