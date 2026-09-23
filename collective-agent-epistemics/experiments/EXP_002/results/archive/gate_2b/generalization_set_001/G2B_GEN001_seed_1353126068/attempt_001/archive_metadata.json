@@ -1,0 +1,26 @@
+{
+  "gate": "2B",
+  "set": "generalization_set_001",
+  "canonical_world_id": "G2B_GEN001_seed_1353126068",
+  "seed": 1353126068,
+  "attempt": 1,
+  "manifest_path": "/workspaces/collective-agent-epistemics/collective-agent-epistemics/experiments/EXP_002/GATE_2B_WORLD_MANIFEST_v0.1.json",
+  "manifest_sha256": "a023e3338ace04e601f6478983cd21e3c762d842aabf30aef8be68ae475a48cf",
+  "manifest_last_commit": "1cd749c0cb8f04d64d7581d44364c8875e9799a2",
+  "frozen_runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+  "protocol_tag": "exp-002-protocol-v0.1",
+  "plan_freeze_commit": "ecbcbc77d0832b82ea9da2abc3d800db759c238c",
+  "runtime_emitted_world_id": "EXP_002_W01",
+  "raw_run_metadata_note": "Legacy field from frozen EXP-002 v0.1 run.py; run_class is the authoritative execution classification for Gate 2B.",
+  "manifest_internal_world_id_note": "manifest internal_world_id uses EXP_002_W_<seed>; the frozen runner emits EXP_002_W01 for trials=1. truth/observed_state are identical because both derive from the same seed.",
+  "raw_file_sha256": {
+    "events.jsonl": "210169f3e3d45d77a074c8b55b64cfaf2efe15eedbc6aef4e39d72b0c97d0aa9",
+    "summary.csv": "e1cf5e712e4f254cab28c2bc7157f3abca777eabce1b861addc0096400fea398",
+    "run_metadata.json": "d21a94956d380ad16c9f69d4e3c35497f87b44e86ae0b1f54090c775c98491e7"
+  },
+  "adapter_name": "openai",
+  "execution_policy": "paired",
+  "rounds": 4,
+  "timestamp_utc": "2026-09-23T17:58:17.535040+00:00",
+  "technical_integrity_status": "pass"
+}

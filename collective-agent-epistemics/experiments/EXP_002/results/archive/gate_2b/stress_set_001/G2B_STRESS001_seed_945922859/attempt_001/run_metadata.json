@@ -1,0 +1,64 @@
+{
+  "experiment": "EXP-002",
+  "run_class": "gate_2b_real_model",
+  "execution_policy": "paired",
+  "world_count": 1,
+  "adapter_name": "openai",
+  "provider": "openai",
+  "requested_model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "sdk_version": "3.16.2",
+  "timeout_seconds": 60.0,
+  "store": false,
+  "max_retries": 0,
+  "prompt_version": "exp002-v0.1",
+  "schema_version": "exp002-agent-response-v0.1",
+  "python_version": "3.14.2",
+  "timestamp_utc": "2026-09-23T18:06:49.039671+00:00",
+  "trial_count": 1,
+  "rounds": 4,
+  "seed": 945922859,
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "topology": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ]
+  ],
+  "adapter_metadata": {
+    "provider": "openai",
+    "requested_model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "timeout_seconds": 60.0,
+    "store": false,
+    "max_retries": 0,
+    "prompt_version": "exp002-v0.1",
+    "schema_version": "exp002-agent-response-v0.1",
+    "sdk_version": "3.16.2"
+  },
+  "execution_metadata": {
+    "actual_model_call_count": 25,
+    "reused_response_count": 4,
+    "input_tokens_actual": 4437,
+    "output_tokens_actual": 2799,
+    "total_tokens_actual": 7236
+  },
+  "note": "Infrastructure validation only.",
+  "config_fingerprint": "b693abe2cb6b39f3b75ed4cff8ac85b6833bf4b498b8ed65739db47d557fe453"
+}
