@@ -1,0 +1,3729 @@
+{
+  "audit_version": "0.1",
+  "analysis_type": "primary_outcome_audit",
+  "experiment": "EXP-002",
+  "gate": "2B",
+  "set": "stress_set_001",
+  "status": "COMPLETE",
+  "provenance": {
+    "starting_head": "4318219d793d87fcee7e95ee4a432c110a62d462",
+    "raw_data_commit": "5fb6ddde3cb7398b3cb5e1dd6e58f02ac0cc0c53",
+    "corpus_audit_commit": "9713dac336eba57ff5df5639149209c729724c05",
+    "runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+    "protocol": "exp-002-protocol-v0.1",
+    "plan_commit": "ecbcbc77d0832b82ea9da2abc3d800db759c238c",
+    "manifest_commit": "1cd749c0cb8f04d64d7581d44364c8875e9799a2"
+  },
+  "scientific_scope": {
+    "stress_worlds": 8,
+    "generalization_analyzed": false,
+    "w01_context_only": true,
+    "secondary_analysis_performed": false,
+    "openai_calls": 0,
+    "raw_data_modified": false,
+    "significance_tests_performed": false
+  },
+  "set_composition": {
+    "n": 8,
+    "cells": {
+      "A/A": 2,
+      "B/B": 2,
+      "A/B": 2,
+      "B/A": 2
+    },
+    "aligned": 4,
+    "misleading": 4
+  },
+  "condition_aggregates": {
+    "free": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    },
+    "lineage": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    },
+    "macro": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    }
+  },
+  "cell_aggregates": {
+    "A/A": {
+      "free": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "lineage": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "macro": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      }
+    },
+    "B/B": {
+      "free": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "lineage": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "macro": {
+        "n": 2,
+        "accuracy_count": 2,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      }
+    },
+    "A/B": {
+      "free": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "lineage": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "macro": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.3,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      }
+    },
+    "B/A": {
+      "free": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "lineage": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "macro": {
+        "n": 2,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      }
+    }
+  },
+  "alignment_aggregates": {
+    "aligned": {
+      "free": {
+        "n": 4,
+        "accuracy_count": 4,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "lineage": {
+        "n": 4,
+        "accuracy_count": 4,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      },
+      "macro": {
+        "n": 4,
+        "accuracy_count": 4,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.09,
+          "min": 0.09,
+          "max": 0.09
+        }
+      }
+    },
+    "misleading": {
+      "free": {
+        "n": 4,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "lineage": {
+        "n": 4,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      },
+      "macro": {
+        "n": 4,
+        "accuracy_count": 0,
+        "final_confidence": {
+          "mean": 0.7,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "final_p_a": {
+          "mean": 0.5,
+          "min": 0.3,
+          "max": 0.7
+        },
+        "final_brier": {
+          "mean": 0.49,
+          "min": 0.49,
+          "max": 0.49
+        }
+      }
+    }
+  },
+  "world_records": [
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_1211074116",
+      "execution_order": 1,
+      "seed": 1211074116,
+      "truth": "B",
+      "observed_state": "B",
+      "cell": "B/B",
+      "evidence_alignment": "aligned",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_1211074116/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.62,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.38,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.1444,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.08,
+            -0.08,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed state B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed state B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly favors B at 0.70 reliability. Agent C only repeats this observation, so it should not be counted as independent evidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with 0.70 reliability. Agent C cites the same evidence root E1, so its message should not be counted as independent support."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B based solely on sensor_1’s direct observation at 0.70 reliability; Agent C’s message is only a relay and should not be double-counted."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B based solely on direct evidence E1 from sensor_1 (reliability 0.70). Agent C’s message is derived from the same evidence and should not be double-counted."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_945922859",
+      "execution_order": 2,
+      "seed": 945922859,
+      "truth": "B",
+      "observed_state": "B",
+      "cell": "B/B",
+      "evidence_alignment": "aligned",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_945922859/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.35,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.1225,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.05,
+            -0.05,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly reports B at 0.70 reliability. Agent C’s message repeats the same underlying observation, so it does not provide independent corroboration."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly supports B at 0.70 reliability. Agent C’s message traces to the same evidence root E1, so it should not be counted as independent confirmation."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Choose B based on the direct Sensor 1 observation (reliability 0.70). Agent C’s message relays the same evidence, so it was not double-counted."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B based on sensor_1's 0.70-reliable direct observation. Agent C adds no independent evidence because its message derives from the same root E1."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_319975066",
+      "execution_order": 3,
+      "seed": 319975066,
+      "truth": "B",
+      "observed_state": "A",
+      "cell": "B/A",
+      "evidence_alignment": "misleading",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_319975066/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.4225,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.05,
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.4225,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.05,
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A at 0.70 reliability. Agent C’s message repeats the same observation, so it supports A but should not be treated as independent evidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Select A based on Sensor 1's 0.70 reliability. Agent C's message traces to the same evidence root E1, so it should not be treated as independent corroboration."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Favor A based on the direct sensor_1 observation (0.70 reliability). Agent C’s message repeats the same evidence, so do not double-count it."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Favor A based on sensor_1's 0.70-reliable observation. Agent C cites the same evidence root E1, so its message should not be counted as independent support."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_1531843854",
+      "execution_order": 4,
+      "seed": 1531843854,
+      "truth": "A",
+      "observed_state": "B",
+      "cell": "A/B",
+      "evidence_alignment": "misleading",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_1531843854/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed state B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed state B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with 0.70 reliability. Agent C's message appears to repeat the same evidence, so it should not be double-counted."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Choose B based on Sensor 1’s 0.70-reliable observation. Agent C cites the same evidence root, so it should not be counted independently."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Direct sensor_1 observation favors B at 0.70 reliability. Agent C’s message merely relays the same observation, so it should not increase confidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B based on sensor_1’s direct observation (reliability 0.70). Agent C’s message derives from the same root E1, so do not count it as independent evidence."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_515022515",
+      "execution_order": 5,
+      "seed": 515022515,
+      "truth": "B",
+      "observed_state": "A",
+      "cell": "B/A",
+      "evidence_alignment": "misleading",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_515022515/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.62,
+            0.64,
+            0.7,
+            0.65,
+            0.56,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.62,
+            0.64,
+            0.7,
+            0.65,
+            0.56,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.3844,
+            0.4096,
+            0.49,
+            0.4225,
+            0.3136,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.08,
+            0.02,
+            0.06,
+            -0.05,
+            -0.09,
+            0.14
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was received."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was received."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with 0.70 reliability. Agent C only relays the same report, so it adds no independent evidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly favors A at 0.70 reliability. Agent C’s message traces to the same evidence root E1, so it should not be counted as independent corroboration."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select A based on the 0.70-reliable direct observation. Agent C’s message only repeats that evidence, so do not count it independently."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Favor A based on the direct sensor observation (0.70 reliability). Agent C’s depth-11 report adds no independent evidence and should not be double-counted."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_217181935",
+      "execution_order": 6,
+      "seed": 217181935,
+      "truth": "A",
+      "observed_state": "A",
+      "cell": "A/A",
+      "evidence_alignment": "aligned",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_217181935/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.1225,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.05,
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.62,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.62,
+            0.7,
+            0.7,
+            0.65,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.1444,
+            0.09,
+            0.09,
+            0.1225,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -0.08,
+            0.08,
+            0.0,
+            -0.05,
+            0.05,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was received."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was received."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly supports A at 0.70 reliability. Agent C’s message repeats the same underlying observation, so it should not be counted as independent evidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Favor A. The direct observation supports A at 0.70 reliability; Agent C’s message traces to the same evidence root E1, so it should not be double-counted."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Direct sensor_1 observation favors A at 0.70 reliability. Agent C’s message repeats the same evidence via Agent B, so it was not double-counted."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Favor A. The direct sensor reports A with 0.70 reliability; Agent C cites the same evidence root E1, so it adds no independent corroboration."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_1247992891",
+      "execution_order": 7,
+      "seed": 1247992891,
+      "truth": "A",
+      "observed_state": "A",
+      "cell": "A/A",
+      "evidence_alignment": "aligned",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_1247992891/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "A",
+            "A",
+            "A",
+            "A"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "brier_trajectory": [
+            0.09,
+            0.09,
+            0.09,
+            0.09
+          ],
+          "accuracy_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "A",
+          "final_confidence": 0.7,
+          "final_p_a": 0.7,
+          "final_brier": 0.09,
+          "accuracy": 1,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed A with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly favors A at 0.70 reliability. Agent C’s message traces back to the same observation, so it does not add independent evidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Sensor 1 directly supports A with 0.70 reliability. Agent C’s message traces to the same evidence root, so it should not be counted independently."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select A based on the direct sensor_1 observation (reliability 0.70). Agent C’s message appears to relay the same evidence, so do not double-count it."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select A. Sensor_1 directly supports A at 0.70 reliability; Agent C cites the same evidence root E1, so do not double-count it."
+        }
+      ]
+    },
+    {
+      "canonical_world_id": "G2B_STRESS001_seed_1523495488",
+      "execution_order": 8,
+      "seed": 1523495488,
+      "truth": "A",
+      "observed_state": "B",
+      "cell": "A/B",
+      "evidence_alignment": "misleading",
+      "authoritative_attempt": "attempt_001",
+      "archive_path": "experiments/EXP_002/results/archive/gate_2b/stress_set_001/G2B_STRESS001_seed_1523495488/attempt_001",
+      "conditions": {
+        "free": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "lineage": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 4,
+          "stop_reason": "max_rounds",
+          "macro_stop_triggered": false
+        },
+        "macro": {
+          "answer_trajectory": [
+            "B",
+            "B",
+            "B",
+            "B"
+          ],
+          "confidence_trajectory": [
+            0.7,
+            0.7,
+            0.7,
+            0.7
+          ],
+          "p_a_trajectory": [
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "brier_trajectory": [
+            0.49,
+            0.49,
+            0.49,
+            0.49
+          ],
+          "accuracy_trajectory": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "root_count_trajectory": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "depth_trajectory": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "p_a_delta_without_new_evidence_trajectory": [
+            null,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "final_answer": "B",
+          "final_confidence": 0.7,
+          "final_p_a": 0.3,
+          "final_brier": 0.49,
+          "accuracy": 0,
+          "completed_cycles": 1,
+          "stop_reason": "no_new_independent_roots_after_cycle",
+          "macro_stop_triggered": true
+        }
+      },
+      "comparisons": {
+        "free_vs_lineage": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_lineage_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "macro_m04_vs_free_m13": {
+          "answer_same": true,
+          "accuracy_difference": 0,
+          "confidence_difference": 0.0,
+          "p_a_difference": 0.0,
+          "brier_difference": 0.0
+        },
+        "m04_to_m13": {
+          "free_confidence_change": 0.0,
+          "free_p_a_change": 0.0,
+          "free_brier_change": 0.0,
+          "lineage_confidence_change": 0.0,
+          "lineage_p_a_change": 0.0,
+          "lineage_brier_change": 0.0
+        }
+      },
+      "message_transformation_checkpoints": [
+        {
+          "condition": "free",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "lineage",
+          "event": "M01",
+          "actor": "A",
+          "message": "Sensor 1 directly observed B with reported reliability 0.70; no other evidence was provided."
+        },
+        {
+          "condition": "free",
+          "event": "M04",
+          "actor": "A",
+          "message": "Favor B based on Sensor 1’s direct observation at 0.70 reliability. Agent C’s message appears to relay the same evidence, so it should not be double-counted."
+        },
+        {
+          "condition": "lineage",
+          "event": "M04",
+          "actor": "A",
+          "message": "Select B based on sensor_1’s 0.70-reliable observation. Agent C’s message traces to the same evidence root E1, so it should not be counted as independent support."
+        },
+        {
+          "condition": "free",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B based on Sensor 1’s direct observation at 0.70 reliability. Agent C’s message relays the same evidence, so it should not increase confidence."
+        },
+        {
+          "condition": "lineage",
+          "event": "M13",
+          "actor": "A",
+          "message": "Select B. The direct observation favors B with 0.70 reliability; Agent C’s message appears derived from the same evidence root, so do not double-count it."
+        }
+      ]
+    }
+  ],
+  "interpretation_labels": {
+    "known_from_execution": true,
+    "descriptive_stress_observation": true,
+    "boundary_conditions": true,
+    "no_effect_observed": true,
+    "falsification_evidence": true,
+    "open_questions": true
+  },
+  "stress_priority": "cell-conditional analysis has interpretive priority; alignment and all-8 totals are secondary bookkeeping only",
+  "descriptive_balanced_stress_summary": {
+    "free": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    },
+    "lineage": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    },
+    "macro": {
+      "n": 8,
+      "accuracy_count": 4,
+      "final_confidence": {
+        "mean": 0.7,
+        "min": 0.7,
+        "max": 0.7
+      },
+      "final_p_a": {
+        "mean": 0.5,
+        "min": 0.3,
+        "max": 0.7
+      },
+      "final_brier": {
+        "mean": 0.29,
+        "min": 0.09,
+        "max": 0.49
+      }
+    }
+  },
+  "primary_stress_interpretation": "cell-conditional and mixed; outcomes vary across the four prospectively balanced truth/observation cells",
+  "secondary_analysis_performed": false,
+  "significance_tests_performed": false,
+  "openai_calls": 0,
+  "raw_data_modified": false
+}
