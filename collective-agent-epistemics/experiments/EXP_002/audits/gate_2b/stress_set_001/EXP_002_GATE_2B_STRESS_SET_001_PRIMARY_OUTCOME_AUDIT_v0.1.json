@@ -3721,7 +3721,76 @@
       }
     }
   },
-  "primary_stress_interpretation": "cell-conditional and mixed; outcomes vary across the four prospectively balanced truth/observation cells",
+  "statistical_boundary": {
+    "analysis_type": "descriptive/exploratory",
+    "significance_tests_performed": false,
+    "population_prevalence_inference_authorized": false,
+    "design": "prospectively stratified 2/2/2/2 stress design",
+    "interpretive_priority": "truth x observed-state cell; alignment and all-8 summaries are secondary bookkeeping"
+  },
+  "free_lineage_comparisons": {
+    "final_answer_agreement_all_worlds": true,
+    "final_accuracy_equality_all_worlds": true,
+    "final_confidence_equality_all_worlds": true,
+    "final_p_a_equality_all_worlds": true,
+    "final_brier_equality_all_worlds": true,
+    "transient_trajectory_differences_present": true,
+    "interpretation": "Transient FREE/LINEAGE trajectory differences occur in some worlds; final primary values agree in every observed world."
+  },
+  "macro_boundary_analysis": {
+    "architecture_role": "stopping architecture, not an independent model trajectory",
+    "paired_reuse": "M01-M04 reuses the paired/shared trajectory",
+    "m04_vs_lineage_m13": [
+      {"world": "G2B_STRESS001_seed_1211074116", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_945922859", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_319975066", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_1531843854", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_515022515", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_217181935", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_1247992891", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0},
+      {"world": "G2B_STRESS001_seed_1523495488", "confidence_difference": 0.0, "p_a_difference": 0.0, "brier_difference": 0.0}
+    ],
+    "causal_benefit_or_harm_authorized": false,
+    "interpretation": "In the observed Stress worlds, M04 stopping outcomes equal the eventual final FREE/LINEAGE primary values."
+  },
+  "message_transformation_notes": {
+    "checkpoints": ["M01", "M04", "M13"],
+    "conditions": ["free", "lineage"],
+    "macro_independent_semantic_trajectory": false,
+    "records": "Exact checkpoint messages are retained in each world_record.message_transformation_checkpoints; no semantic taxonomy or score was added."
+  },
+  "known_from_execution": [
+    "Eight prospectively balanced Stress worlds were analyzed: two per truth/observed-state cell.",
+    "The final primary answer, accuracy, confidence, P(A), and Brier values are equal across conditions within every observed world.",
+    "Transient trajectory differences occur in some worlds and are preserved in the per-world records."
+  ],
+  "descriptive_stress_observations": [
+    "Cell-conditional primary outcomes are stable at final state across the four balanced cells.",
+    "Some B/B and B/A worlds show transient FREE/LINEAGE trajectory differences despite final equality."
+  ],
+  "cell_conditional_observations": {
+    "A/A": {"n": 2, "final_architecture_equality": true},
+    "B/B": {"n": 2, "final_architecture_equality": true, "transient_trajectory_differences_present": true},
+    "A/B": {"n": 2, "final_architecture_equality": true},
+    "B/A": {"n": 2, "final_architecture_equality": true, "transient_trajectory_differences_present": true}
+  },
+  "boundary_conditions": [
+    "Truth x observed-state cell has interpretive priority over alignment aggregation.",
+    "Transient trajectory differences are world/cell-dependent."
+  ],
+  "no_effect_observed": [
+    "No final FREE/LINEAGE/MACRO primary outcome difference was observed within any Stress world.",
+    "No final answer disagreement was observed."
+  ],
+  "falsification_evidence": [
+    "The balanced Stress corpus does not show a uniform final-state architecture difference.",
+    "Any all-8 aggregate alone would obscure cell structure and is not used as a prevalence claim."
+  ],
+  "open_questions": [
+    "Why some balanced cells/worlds show transient trajectory divergence while final primary values coincide remains unresolved."
+  ],
+  "generalization_analysis_performed": false,
+  "primary_stress_interpretation": "Across the four prospectively balanced truth x observation cells, final primary outcomes are architecture-equal within every observed Stress world. Transient FREE/LINEAGE trajectory differences occur in some worlds, especially within B/B and B/A, and are world/cell-dependent. Stress therefore shows no observed final-state architecture difference while preserving conditional transient trajectory variation.",
   "secondary_analysis_performed": false,
   "significance_tests_performed": false,
   "openai_calls": 0,

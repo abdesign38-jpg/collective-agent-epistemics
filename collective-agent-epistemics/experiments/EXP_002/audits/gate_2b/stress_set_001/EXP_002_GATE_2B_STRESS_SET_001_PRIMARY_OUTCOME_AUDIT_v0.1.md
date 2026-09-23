@@ -97,7 +97,7 @@ The all-8 arithmetic summary is included only for transparent bookkeeping of the
 
 ## Descriptive Stress observations
 
-**[DESCRIPTIVE GENERALIZATION OBSERVATION]** Under the controlled four-cell design, final primary outcomes are identical across FREE, LINEAGE, and the M04 MACRO stopping outcome within each cell. Transient trajectory differences occur in some worlds, with the clearest variation in B/A and some B/B worlds.
+**[DESCRIPTIVE STRESS OBSERVATION]** Under the controlled four-cell design, final primary outcomes are identical across FREE, LINEAGE, and the M04 MACRO stopping outcome within each cell. Transient trajectory differences occur in some worlds, with the clearest variation in B/A and some B/B worlds.
 
 ## Boundary conditions
 
@@ -117,7 +117,7 @@ The all-8 arithmetic summary is included only for transparent bookkeeping of the
 
 ## Primary Stress interpretation
 
-Under controlled, prospectively balanced coverage of A/A, B/B, A/B, and B/A, the frozen primary outcomes show cell-stable final equality across FREE, LINEAGE, and MACRO, with transient trajectory differences in some worlds. The result is descriptive and cell-conditional, not a population claim.
+Across the four prospectively balanced truth x observation cells, final primary outcomes are architecture-equal within every observed Stress world. Transient FREE/LINEAGE trajectory differences occur in some worlds, especially within B/B and B/A, and are world/cell-dependent. Stress therefore shows no observed final-state architecture difference while preserving conditional transient trajectory variation. The result is descriptive and cell-conditional, not a population claim.
 
 ## Limits and gate status
 
