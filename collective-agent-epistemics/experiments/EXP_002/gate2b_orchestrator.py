@@ -36,6 +36,10 @@ PROJECT_ROOT = HERE.parent.parent
 DEFAULT_PLAN = HERE / "GATE_2B_PLAN_v0.1.json"
 DEFAULT_MANIFEST = HERE / "GATE_2B_WORLD_MANIFEST_v0.1.json"
 DEFAULT_ARCHIVE_ROOT = HERE / "results" / "archive" / "gate_2b"
+CANONICAL_PLAN_COMMIT = "ecbcbc77d0832b82ea9da2abc3d800db759c238c"
+CANONICAL_MANIFEST_COMMIT = "1cd749c0cb8f04d64d7581d44364c8875e9799a2"
+CANONICAL_PLAN_RELATIVE_PATH = "experiments/EXP_002/GATE_2B_PLAN_v0.1.json"
+CANONICAL_MANIFEST_RELATIVE_PATH = "experiments/EXP_002/GATE_2B_WORLD_MANIFEST_v0.1.json"
 TRANSIENT_FILES = ("events.jsonl", "summary.csv", "run_metadata.json")
 REQUIRED_CALLS = 25
 REQUIRED_REUSED = 4
@@ -82,6 +86,60 @@ def load_plan(path: Path) -> dict[str, Any]:
 
 def load_manifest(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def git_file_bytes(commit: str, relative_path: str) -> bytes:
+    try:
+        repo_root = Path(
+            subprocess.run(
+                ["git", "rev-parse", "--show-toplevel"],
+                cwd=PROJECT_ROOT,
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+        )
+        repo_relative_path = str((PROJECT_ROOT / relative_path).resolve().relative_to(repo_root))
+    except (OSError, subprocess.CalledProcessError, ValueError) as exc:
+        raise Gate2BIntegrityError("unable to resolve repository root for canonical artifact verification") from exc
+    try:
+        result = subprocess.run(
+            ["git", "show", f"{commit}:{repo_relative_path}"],
+            cwd=PROJECT_ROOT,
+            capture_output=True,
+            check=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Gate2BIntegrityError(
+            f"unable to load canonical artifact {relative_path} at {commit}"
+        ) from exc
+    return result.stdout
+
+
+def verify_canonical_artifacts(
+    plan_path: Path,
+    manifest_path: Path,
+    plan: dict[str, Any],
+    manifest: dict[str, Any],
+) -> None:
+    expected_plan_path = (PROJECT_ROOT / CANONICAL_PLAN_RELATIVE_PATH).resolve()
+    expected_manifest_path = (PROJECT_ROOT / CANONICAL_MANIFEST_RELATIVE_PATH).resolve()
+    if plan_path.resolve() != expected_plan_path:
+        raise Gate2BIntegrityError("live execution requires the canonical Gate 2B plan path")
+    if manifest_path.resolve() != expected_manifest_path:
+        raise Gate2BIntegrityError("live execution requires the canonical Gate 2B manifest path")
+    if plan_path.read_bytes() != git_file_bytes(CANONICAL_PLAN_COMMIT, CANONICAL_PLAN_RELATIVE_PATH):
+        raise Gate2BIntegrityError("canonical Gate 2B plan bytes do not match the frozen plan commit")
+    if manifest_path.read_bytes() != git_file_bytes(CANONICAL_MANIFEST_COMMIT, CANONICAL_MANIFEST_RELATIVE_PATH):
+        raise Gate2BIntegrityError("canonical Gate 2B manifest bytes do not match the corrected manifest commit")
+    plan_anchors = plan["anchors"]
+    manifest_anchors = manifest["anchors"]
+    if manifest_anchors.get("plan_freeze_commit") != CANONICAL_PLAN_COMMIT:
+        raise Gate2BIntegrityError("manifest plan_freeze_commit does not match the canonical plan commit")
+    if manifest_anchors.get("frozen_runtime") != plan_anchors.get("frozen_runtime"):
+        raise Gate2BIntegrityError("manifest frozen_runtime does not match the plan frozen_runtime")
+    if manifest_anchors.get("protocol_tag") != plan_anchors.get("protocol_tag"):
+        raise Gate2BIntegrityError("manifest protocol_tag does not match the plan protocol_tag")
 
 
 def manifest_world_tasks(manifest: dict[str, Any], sets: tuple[str, ...]) -> list[WorldTask]:
@@ -206,7 +264,17 @@ def classify_existing_attempt(dest: Path, task: WorldTask, attempt: int) -> str:
     archive_meta_present = (dest / "archive_metadata.json").exists()
     failure_meta_present = (dest / "failure_metadata.json").exists()
 
-    if failure_meta_present and not any(raw_present.values()) and not archive_meta_present:
+    if failure_meta_present and not archive_meta_present:
+        try:
+            failure_metadata = json.loads((dest / "failure_metadata.json").read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise Gate2BIntegrityError(
+                f"{task.canonical_world_id} attempt_{attempt:03d}: unreadable failure_metadata.json: {exc}"
+            ) from exc
+        if failure_metadata.get("status") != "technical_failure":
+            raise Gate2BIntegrityError(
+                f"{task.canonical_world_id} attempt_{attempt:03d}: failure metadata is not technical_failure"
+            )
         return "failed"
 
     if not all(raw_present.values()) or not archive_meta_present or failure_meta_present:
@@ -313,7 +381,38 @@ def _write_failure_record(dest: Path, task: WorldTask, attempt: int, manifest_pa
     (dest / "failure_metadata.json").write_text(json.dumps(failure_metadata, indent=2) + "\n", encoding="utf-8")
 
 
-def run_and_archive_world(
+def _preserve_post_execution_failure(
+    task: WorldTask,
+    archive_root: Path,
+    manifest_path: Path,
+    expected: dict[str, Any],
+    exc: Exception,
+) -> None:
+    attempts = existing_attempts(archive_root, task)
+    attempt = attempts[-1] if attempts else 1
+    dest = archive_destination(archive_root, task, attempt)
+    dest.mkdir(parents=True, exist_ok=True)
+    diagnostics = dest / "diagnostics"
+    diagnostics.mkdir(exist_ok=True)
+    diagnostic_hashes: dict[str, str] = {}
+    for name in TRANSIENT_FILES:
+        source = RESULTS / name
+        if source.exists():
+            target = diagnostics / name
+            shutil.copy2(source, target)
+            diagnostic_hashes[name] = sha256_file(target)
+    failure_path = dest / "failure_metadata.json"
+    if failure_path.exists():
+        failure_metadata = json.loads(failure_path.read_text(encoding="utf-8"))
+    else:
+        _write_failure_record(dest, task, attempt, manifest_path, expected, exc)
+        failure_metadata = json.loads(failure_path.read_text(encoding="utf-8"))
+    failure_metadata["diagnostic_raw_file_sha256"] = diagnostic_hashes
+    failure_metadata["diagnostics_are_invalid_incomplete_artifacts"] = True
+    failure_path.write_text(json.dumps(failure_metadata, indent=2) + "\n", encoding="utf-8")
+
+
+def _run_and_archive_world(
     task: WorldTask,
     *,
     adapter_factory: Callable[[], AgentAdapter],
@@ -325,6 +424,7 @@ def run_and_archive_world(
     manifest_path: Path,
     expected: dict[str, Any],
     authorize_retry: bool = False,
+    execution_state: dict[str, bool] | None = None,
 ) -> Path:
     verify_world_reproducibility(task)
 
@@ -349,6 +449,8 @@ def run_and_archive_world(
         raise Gate2BIntegrityError(f"{task.canonical_world_id}: attempt_{next_attempt:03d} directory already exists unexpectedly")
 
     clear_transient_outputs()
+    if execution_state is not None:
+        execution_state["started"] = True
     try:
         experiment = run_experiment(
             trials=1,
@@ -392,6 +494,10 @@ def run_and_archive_world(
         "protocol_tag": expected["protocol_tag"],
         "plan_freeze_commit": expected.get("plan_freeze_commit"),
         "runtime_emitted_world_id": summary_rows[0]["world_id"],
+        "raw_run_metadata_note": (
+            "Legacy field from frozen EXP-002 v0.1 run.py; run_class is the "
+            "authoritative execution classification for Gate 2B."
+        ),
         "manifest_internal_world_id_note": (
             "manifest internal_world_id uses EXP_002_W_<seed>; the frozen runner "
             "emits EXP_002_W01 for trials=1. truth/observed_state are identical "
@@ -406,6 +512,47 @@ def run_and_archive_world(
     }
     (dest / "archive_metadata.json").write_text(json.dumps(archive_metadata, indent=2) + "\n", encoding="utf-8")
     return dest
+
+
+def run_and_archive_world(
+    task: WorldTask,
+    *,
+    adapter_factory: Callable[[], AgentAdapter],
+    adapter_name: str,
+    adapter_metadata: dict[str, Any],
+    run_class: str,
+    rounds: int,
+    archive_root: Path,
+    manifest_path: Path,
+    expected: dict[str, Any],
+    authorize_retry: bool = False,
+) -> Path:
+    execution_state = {"started": False}
+    try:
+        return _run_and_archive_world(
+            task,
+            adapter_factory=adapter_factory,
+            adapter_name=adapter_name,
+            adapter_metadata=adapter_metadata,
+            run_class=run_class,
+            rounds=rounds,
+            archive_root=archive_root,
+            manifest_path=manifest_path,
+            expected=expected,
+            authorize_retry=authorize_retry,
+            execution_state=execution_state,
+        )
+    except Gate2BIntegrityError as exc:
+        if execution_state["started"]:
+            _preserve_post_execution_failure(task, archive_root, manifest_path, expected, exc)
+        raise
+    except Exception as exc:
+        if execution_state["started"]:
+            _preserve_post_execution_failure(task, archive_root, manifest_path, expected, exc)
+        raise Gate2BIntegrityError(
+            f"{task.canonical_world_id}: post-execution technical failure ({type(exc).__name__}); "
+            "failure preserved, campaign stopped, no auto-retry"
+        ) from exc
 
 
 def run_campaign(
@@ -464,6 +611,8 @@ def main() -> None:
     plan = load_plan(args.plan)
     resolved = resolve_and_verify_frozen_configuration(args, plan)
     manifest = load_manifest(args.manifest)
+    if args.adapter == "openai" and args.live:
+        verify_canonical_artifacts(args.plan, args.manifest, plan, manifest)
     verify_runtime_matches_frozen(manifest["anchors"]["frozen_runtime"])
 
     sets = tuple(s.strip() for s in args.sets.split(",") if s.strip())
