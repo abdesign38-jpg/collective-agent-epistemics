@@ -1,0 +1,22 @@
+:root {
+  --bg-0: #050808;
+  --bg-1: #091413;
+  --bg-2: #112321;
+  --surface: rgba(10, 19, 18, 0.74);
+  --surface-strong: rgba(10, 19, 18, 0.9);
+  --ink: #d8efe8;
+  --muted: #8ca9a0;
+  --mint: #2af6cf;
+  --mint-soft: #36bfa7;
+  --amber: #f2c66e;
+  --line: rgba(82, 147, 133, 0.42);
+  --line-strong: rgba(82, 147, 133, 0.75);
+  --danger: #ff7777;
+
+  --font-display: "Orbitron", "Chakra Petch", sans-serif;
+  --font-body: "Chakra Petch", sans-serif;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.55);
+}

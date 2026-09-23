@@ -6,6 +6,8 @@ __pycache__/
 .env
 .env.*
 !.env.example
+node_modules/
+dist/
 
 experiments/EXP_001/results/*.jsonl
 experiments/EXP_001/results/*.csv
