@@ -1,0 +1,127 @@
+{
+  "synthesis_version": "0.1",
+  "analysis_type": "cross_set_primary_outcome_synthesis",
+  "experiment": "EXP-002",
+  "gate": "2B",
+  "status": "CLOSED_UNDER_FROZEN_V0_1_DESIGN",
+  "provenance": {
+    "starting_head": "9397d6335a274b0dec60e69139cae894c5068344",
+    "raw_data_commit": "5fb6ddde3cb7398b3cb5e1dd6e58f02ac0cc0c53",
+    "corpus_audit_commit": "9713dac336eba57ff5df5639149209c729724c05",
+    "generalization_audit_commit": "4318219d793d87fcee7e95ee4a432c110a62d462",
+    "stress_audit_commit": "9397d6335a274b0dec60e69139cae894c5068344",
+    "runtime": "7e9aed1b7093baae10ae30f27e0b6a2b932f92f5",
+    "protocol": "exp-002-protocol-v0.1",
+    "plan_commit": "ecbcbc77d0832b82ea9da2abc3d800db759c238c",
+    "manifest_commit": "1cd749c0cb8f04d64d7581d44364c8875e9799a2"
+  },
+  "source_artifacts": {
+    "w01": "experiments/EXP_002/audits/synthesis/EXP_002_SAME_WORLD_SYNTHESIS_v0.1.*",
+    "generalization": "experiments/EXP_002/audits/gate_2b/generalization_set_001/EXP_002_GATE_2B_GENERALIZATION_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.*",
+    "stress": "experiments/EXP_002/audits/gate_2b/stress_set_001/EXP_002_GATE_2B_STRESS_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.*",
+    "corpus": "experiments/EXP_002/audits/gate_2b/corpus/EXP_002_GATE_2B_CORPUS_AUDIT_v0.1.*"
+  },
+  "research_framework": {
+    "umbrella_question": "As inference depth and inter-agent recursion increase without new independent evidence, what happens to epistemic lineage, calibration, confidence, and convergence?",
+    "distinguished_layers": ["agent epistemic state", "message transmitted", "network evidence state"],
+    "network_evidence_state_definition": "independent external evidence roots plus recursive derivation structure"
+  },
+  "gate_2b_question": "Do the architecture-dependent epistemic behaviors observed under W01 survive when the external world/evidence realization changes while the frozen EXP-002 communication protocol remains otherwise controlled?",
+  "historical_hypothesis_status": "ACTIVE / FALSIFIABLE / NOT ESTABLISHED",
+  "evidence_layers": {
+    "w01": {"formal_runs": 15, "role": "same-world same-model same-protocol stochastic reproducibility", "in_generalization_denominator": false},
+    "generalization": {"worlds": 12, "role": "prospectively unfiltered multi-world/evidence-realization component"},
+    "stress": {"worlds": 8, "role": "prospectively stratified conditional robustness component", "cells": {"A/A": 2, "B/B": 2, "A/B": 2, "B/A": 2}}
+  },
+  "semantic_world_scope": {
+    "variation": ["truth", "sensor observation", "evidence alignment"],
+    "fixed": ["sensor reliability", "single evidence root E1", "topology", "prompts", "metrics", "lineage semantics", "stopping logic"],
+    "limitation": "These are controlled truth/observation configurations, not arbitrary rich environments; seeds within a cell are stochastic/model realizations."
+  },
+  "generalization_summary": {
+    "n": 12,
+    "aligned": 5,
+    "misleading": 7,
+    "accuracy_free": "5/12",
+    "accuracy_lineage": "5/12",
+    "final_answer_agreement_free_lineage": "12/12",
+    "interpretation": "Mixed/conditional: transient differences occur in some worlds and one final FREE confidence/Brier divergence is recorded, while many worlds have equal final outcomes."
+  },
+  "stress_summary": {
+    "n": 8,
+    "cells": {"A/A": 2, "B/B": 2, "A/B": 2, "B/A": 2},
+    "final_architecture_equality_within_worlds": "8/8",
+    "transient_trajectory_differences": "present in some B/B and B/A worlds",
+    "interpretation": "Cell-conditional final equality with conditional transient trajectory variation."
+  },
+  "cross_set_cell_matrix": {
+    "A/A": {"generalization_n": 2, "stress_n": 2, "generalization": "final equality; accuracy correct", "stress": "final equality; accuracy correct", "concordance": "final concordance"},
+    "B/B": {"generalization_n": 3, "stress_n": 2, "generalization": "final equality; accuracy correct", "stress": "final equality; transient differences in some worlds", "concordance": "final concordance; trajectory variation conditional"},
+    "A/B": {"generalization_n": 3, "stress_n": 2, "generalization": "final equality; accuracy incorrect", "stress": "final equality; accuracy incorrect", "concordance": "final concordance"},
+    "B/A": {"generalization_n": 4, "stress_n": 2, "generalization": "one final FREE confidence/Brier divergence; answers remain equal", "stress": "final equality; transient differences in some worlds", "concordance": "not a deterministic cell property"}
+  },
+  "cross_set_concordance": [
+    "Aligned E1 produces correct final answers across observed architectures in both sets.",
+    "Misleading E1 produces incorrect final answers across observed architectures in both sets.",
+    "One independent external root remains fixed while recursive derivation depth grows.",
+    "Transient primary trajectory variation is observed, while no uniform final architecture advantage is established.",
+    "MACRO stopping operates mechanically at M04 in all observed worlds."
+  ],
+  "cross_set_discordance": [
+    "Generalization contains one final FREE confidence/Brier divergence in a B/A world; Stress B/A retains final equality.",
+    "Transient trajectory variation is present in selected cells/worlds rather than uniformly across every realization."
+  ],
+  "trajectory_vs_endpoint": "Transient FREE/LINEAGE differences occur in both sets; final differences are sparse in Generalization and absent within observed Stress worlds. Endpoint equality does not erase trajectory divergence, and transient divergence does not establish persistent degradation.",
+  "network_evidence_state": {
+    "independent_external_evidence_basis": "E1 only; root count remains 1; no new independent external evidence enters.",
+    "derivation_structure": "Evolves through recursion: descendants accumulate and inference depth increases.",
+    "agent_message_epistemic_state": "May remain stable or vary in answer, confidence, P(A), Brier, and wording without new independent external evidence."
+  },
+  "evidence_alignment_findings": "Final patterns are strongly stratified by aligned versus misleading E1 under the fixed single-root design, but alignment is not a causal explanation and the cell structure remains primary.",
+  "free_assessment": "FREE is stable in many worlds but shows transient variation and one isolated final Generalization confidence/Brier divergence. It is not labeled globally inferior or superior.",
+  "lineage_assessment": "LINEAGE exposes structured lineage metadata. It does not establish source correctness, a global accuracy/calibration benefit, or elimination of trajectory variation.",
+  "macro_assessment": "MACRO is LINEAGE/shared trajectory plus stopping at M04, not an independent model trajectory. Stopping validity is established mechanically; consistent epistemic benefit is not established.",
+  "candidate_mechanism_assessment": {
+    "recursion": "PRESENT BY DESIGN",
+    "shared_ancestry_evidence_dependency": "PRESENT BY DESIGN",
+    "statistical_correlation": "NOT DIRECTLY MEASURED AS A GATE 2B ENDPOINT",
+    "lineage_loss": "NOT ESTABLISHED",
+    "evidence_double_counting": "NOT ESTABLISHED",
+    "confidence_epistemic_state_variation": "OBSERVED CONDITIONALLY",
+    "causal_chain_status": "CANDIDATE CAUSAL CHAIN UNPROVEN"
+  },
+  "relationship_to_w01": "W01 established same-world stochastic trajectory behavior only. Gate 2B shows that related primary trajectory variation is conditional/stochastic across world realization rather than a uniform final-state effect. W01 is not merged into Gate 2B denominators.",
+  "relationship_to_historical_hypothesis": {
+    "proposition_A_necessary_confidence_inflation": "WEAKENED/NARROWED; no uniform confidence inflation is supported.",
+    "proposition_B_state_variation_with_fixed_external_basis": "OBSERVED CONDITIONALLY in primary trajectories.",
+    "proposition_C_lineage_consistently_improves_accuracy_calibration": "NOT ESTABLISHED.",
+    "proposition_D_lineage_may_alter_valuation_conditionally": "OPEN/CONDITIONALLY OBSERVED DESCRIPTIVELY; no causality.",
+    "proposition_E_macro_consistent_final_advantage": "NOT ESTABLISHED.",
+    "overall": "The broad hypothesis remains ACTIVE / FALSIFIABLE / NOT ESTABLISHED."
+  },
+  "null_hypothesis_assessment": "NOT REJECTED BY THIS DESIGN / REMAINS VIABLE; Gate 2B lacks a clean non-interaction control separating individual-model stochastic behavior from interaction-induced degradation.",
+  "known_from_execution": ["Both primary audits are complete and separate.", "All 20 valid worlds passed corpus integrity.", "Generalization and Stress selection schemes remained separate."],
+  "cross_set_observations": ["Final answer/accuracy behavior is concordant by aligned versus misleading E1.", "Transient trajectory variation is conditional on world/cell realization.", "The Generalization B/A final deviation is absent in observed Stress B/A worlds."],
+  "boundary_conditions": ["Evidence alignment and truth/observation cell", "Within-cell stochastic/model realization", "Single-root source correctness is fixed by the world and not verified by lineage metadata", "MACRO's fixed M04 stopping boundary"],
+  "no_effect_observed": ["No uniform final architecture advantage", "No final FREE/LINEAGE answer disagreement in either completed primary audit", "No consistent MACRO final advantage established"],
+  "falsification_evidence": ["No uniform persistent architecture effect", "No support for necessary confidence inflation", "Misleading E1 remains incorrect across observed architectures"],
+  "hypothesis_narrowing": ["The strong necessary/systematic confidence-inflation formulation is weakened/narrowed.", "The lineage-loss to double-counting mechanism remains unestablished."],
+  "not_established": ["Causality", "Population prevalence", "Global superiority of FREE, LINEAGE, or MACRO", "Lineage loss", "Evidence double counting", "Source correctness from dependency metadata", "Historical hypothesis confirmation"],
+  "open_questions": ["Whether explicit lineage representation changes evidence valuation under other source structures.", "How source correctness/reliability interacts with dependency representation.", "Whether a clean non-interaction control changes the null assessment."],
+  "gate_2b_answer": "W01-like architecture-dependent behavior survives only conditionally and stochastically in primary trajectories when world/evidence realization changes; no uniform persistent final-state architecture effect is established.",
+  "gate_closure_checklist": {
+    "1_world_manifest_prospectively_frozen": "PASS",
+    "2_generalization_12_worlds_valid_documented": "PASS",
+    "3_stress_8_worlds_valid_documented": "PASS",
+    "4_immutable_raw_outputs_preserved": "PASS",
+    "5_predefined_primary_outcomes_audited": "PASS",
+    "6_generalization_and_stress_reported_separately": "PASS",
+    "7_deviations_and_negative_results_retained": "PASS"
+  },
+  "gate_2b_scientific_status": "CLOSED_UNDER_FROZEN_V0_1_DESIGN",
+  "secondary_analysis_performed": false,
+  "significance_tests_performed": false,
+  "openai_calls": 0,
+  "raw_data_modified": false,
+  "source_audits_modified": false
+}
