@@ -1,0 +1,20 @@
+{
+  "gate": "2B",
+  "set": "generalization_set_001",
+  "canonical_world_id": "G2B_GEN001_seed_874625177",
+  "seed": 874625177,
+  "attempt": 1,
+  "frozen_config": {
+    "rounds": 4,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired"
+  },
+  "manifest_sha256": "a023e3338ace04e601f6478983cd21e3c762d842aabf30aef8be68ae475a48cf",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "timestamp_utc": "2026-09-23T17:44:38.834610+00:00",
+  "status": "technical_failure",
+  "diagnostic_raw_file_sha256": {},
+  "diagnostics_are_invalid_incomplete_artifacts": true
+}
