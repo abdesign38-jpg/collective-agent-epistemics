@@ -148,9 +148,9 @@ const renderLanding = (phase: number): string => {
         <div class="signal-beam beam-bottom" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
 
         <div class="node node-root" style="box-shadow: 0 0 ${28 + rootGlow * 26}px rgba(242, 198, 110, 0.22);"><span>E1</span></div>
-        <div class="node node-a" style="left:${agentA}%; top:70%;"><span>A</span></div>
-        <div class="node node-b" style="left:50%; top:${agentB}%;"><span>B</span></div>
-        <div class="node node-c" style="left:${agentC}%; top:70%;"><span>C</span></div>
+        <div class="node bee bee-a" style="left:${agentA}%; top:70%;"><span class="bee-wing bee-wing-left"></span><span class="bee-wing bee-wing-right"></span><span class="bee-body"></span><span class="agent-label">A</span></div>
+        <div class="node bee bee-b" style="left:50%; top:${agentB}%;"><span class="bee-wing bee-wing-left"></span><span class="bee-wing bee-wing-right"></span><span class="bee-body"></span><span class="agent-label">B</span></div>
+        <div class="node bee bee-c" style="left:${agentC}%; top:70%;"><span class="bee-wing bee-wing-left"></span><span class="bee-wing bee-wing-right"></span><span class="bee-body"></span><span class="agent-label">C</span></div>
         <svg class="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
           <line x1="50" y1="52" x2="18" y2="24" />
           <line x1="50" y1="52" x2="18" y2="82" />
