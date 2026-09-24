@@ -45,6 +45,28 @@ button {
   box-shadow: inset 0 0 0 1px rgba(42, 246, 207, 0.08), 0 20px 70px rgba(0, 0, 0, 0.38);
 }
 
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(42, 246, 207, 0.2), inset 0 0 12px rgba(42, 246, 207, 0.05); }
+  50% { box-shadow: 0 0 22px rgba(42, 246, 207, 0.38), inset 0 0 18px rgba(42, 246, 207, 0.12); }
+}
+
+@keyframes floatNode {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-8px); }
+}
+
+@keyframes scanGrid {
+  0% { transform: translateY(-2%); opacity: 0.5; }
+  50% { transform: translateY(2%); opacity: 1; }
+  100% { transform: translateY(-2%); opacity: 0.5; }
+}
+
+@keyframes shimmerLine {
+  0% { stroke-dashoffset: 0; opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: -30; opacity: 0.4; }
+}
+
 .topbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -100,6 +122,13 @@ button {
   text-transform: uppercase;
   padding: 0.3rem 0;
   border-bottom: 2px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease, text-shadow 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--mint);
+  text-shadow: 0 0 12px rgba(42, 246, 207, 0.5);
 }
 
 .nav-link.active {
@@ -185,10 +214,12 @@ button {
   letter-spacing: -0.06em;
   color: var(--ink);
   font-family: var(--font-display);
+  text-shadow: 0 0 18px rgba(42, 246, 207, 0.08);
 }
 
 .hero h1 span {
   color: var(--mint);
+  text-shadow: 0 0 14px rgba(42, 246, 207, 0.3);
 }
 
 .subtitle {
@@ -233,6 +264,13 @@ button {
   letter-spacing: 0.18em;
   font-size: 0.56rem;
   padding: 0.75rem 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(42, 246, 207, 0.8);
 }
 
 .chip-active {
@@ -254,6 +292,14 @@ button {
   text-align: left;
   font-size: 0.9rem;
   box-shadow: 0 0 18px rgba(42, 246, 207, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0 25px rgba(42, 246, 207, 0.25);
+  border-color: rgba(42, 246, 207, 1);
 }
 
 .network-panel {
@@ -275,6 +321,7 @@ button {
     linear-gradient(90deg, rgba(42, 246, 207, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+  animation: scanGrid 8s ease-in-out infinite;
 }
 
 .mini-card {
@@ -338,6 +385,7 @@ button {
   color: var(--mint);
   font-family: var(--font-display);
   font-size: 1.4rem;
+  animation: pulseGlow 4s ease-in-out infinite;
 }
 
 .node-root {
@@ -350,6 +398,12 @@ button {
   border-color: rgba(242, 198, 110, 0.8);
   color: var(--amber);
   box-shadow: 0 0 36px rgba(242, 198, 110, 0.2);
+}
+
+.node-a,
+.node-b,
+.node-c {
+  animation: floatNode 5s ease-in-out infinite;
 }
 
 .node-a {
@@ -382,6 +436,7 @@ button {
   stroke: rgba(42, 246, 207, 0.8);
   stroke-width: 0.6;
   stroke-dasharray: 3 2;
+  animation: shimmerLine 4s linear infinite;
 }
 
 .metrics {
