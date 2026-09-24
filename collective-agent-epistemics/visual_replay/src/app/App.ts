@@ -52,7 +52,33 @@ const trajectoryRows = `
   <tr><td>M12</td><td>Agent C</td><td>0.30</td><td>0.44</td></tr>
 `;
 
-const renderLanding = (): string => `
+const buildSignalPath = (phase: number, waveA = 0.92, waveB = 1.22): string => {
+  const points = Array.from({ length: 11 }, (_, i) => {
+    const x = (i / 10) * 100;
+    const y = 52 + Math.sin((i + phase * 0.15) * 0.9) * 14 * waveA + Math.cos((i + phase * 0.2) * 1.8) * 7 * waveB;
+    return `${i === 0 ? "M" : "L"}${x.toFixed(2)} ${y.toFixed(2)}`;
+  });
+  return points.join(" ");
+};
+
+const buildPulseTrace = (phase: number): string => {
+  const points = Array.from({ length: 12 }, (_, i) => {
+    const x = (i / 11) * 100;
+    const y = 58 - Math.sin(i * 0.85 + phase * 0.2) * 18 - (i / 11) * 10;
+    return `${i === 0 ? "M" : "L"}${x.toFixed(2)} ${y.toFixed(2)}`;
+  });
+  return points.join(" ");
+};
+
+const renderLanding = (phase: number): string => {
+  const signalPath = buildSignalPath(phase, 0.8, 1.15);
+  const pulsePath = buildPulseTrace(phase);
+  const rootGlow = 0.45 + Math.sin(phase * 0.12) * 0.2;
+  const agentA = 18 + Math.sin(phase * 0.25) * 2;
+  const agentB = 52 + Math.cos(phase * 0.24) * 2;
+  const agentC = 82 + Math.sin(phase * 0.28 + 1.2) * 2;
+
+  return `
   <div class="page-shell">
     <header class="topbar glass">
       <div class="brand" aria-label="Epistemic Hive home">
@@ -92,26 +118,39 @@ const renderLanding = (): string => `
         <button type="button" class="cta">Enter Experiment</button>
       </section>
 
-      <section class="network-panel glass" aria-hidden="true">
+      <section class="network-panel glass" aria-hidden="true" style="--root-glow: ${rootGlow.toFixed(3)};">
         <div class="mini-card mini-card-left">
           <h3>Evidence Flow</h3>
-          <div class="mini-graph"></div>
+          <div class="mini-graph">
+            <svg viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true"><path d="${signalPath}" class="mini-trace mini-trace-a"></path></svg>
+          </div>
         </div>
 
         <div class="mini-card mini-card-right">
           <h3>Agent Trajectories</h3>
-          <div class="mini-graph mini-graph-small"></div>
+          <div class="mini-graph mini-graph-small">
+            <svg viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true"><path d="${pulsePath}" class="mini-trace mini-trace-b"></path></svg>
+          </div>
         </div>
 
         <div class="mini-card mini-card-bottom">
           <h3>Network Topology</h3>
-          <div class="mini-graph mini-graph-hex"></div>
+          <div class="mini-graph mini-graph-hex">
+            <svg viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true"><path d="${buildSignalPath(phase + 2, 0.95, 1.28)}" class="mini-trace mini-trace-c"></path></svg>
+          </div>
         </div>
 
-        <div class="node node-root"><span>E1</span></div>
-        <div class="node node-a"><span>A</span></div>
-        <div class="node node-b"><span>B</span></div>
-        <div class="node node-c"><span>C</span></div>
+        <div class="hub-halo" style="opacity: ${0.28 + rootGlow};"></div>
+        <div class="hub-ring ring-one"></div>
+        <div class="hub-ring ring-two"></div>
+        <div class="signal-beam beam-left" style="transform: translate(-50%, -50%) rotate(${15 + Math.sin(phase * 0.2) * 7}deg);"></div>
+        <div class="signal-beam beam-right" style="transform: translate(-50%, -50%) rotate(${ -22 + Math.cos(phase * 0.18) * 9}deg);"></div>
+        <div class="signal-beam beam-bottom" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
+
+        <div class="node node-root" style="box-shadow: 0 0 ${28 + rootGlow * 26}px rgba(242, 198, 110, 0.22);"><span>E1</span></div>
+        <div class="node node-a" style="left:${agentA}%; top:70%;"><span>A</span></div>
+        <div class="node node-b" style="left:50%; top:${agentB}%;"><span>B</span></div>
+        <div class="node node-c" style="left:${agentC}%; top:70%;"><span>C</span></div>
         <svg class="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
           <line x1="50" y1="52" x2="18" y2="24" />
           <line x1="50" y1="52" x2="18" y2="82" />
@@ -125,12 +164,12 @@ const renderLanding = (): string => `
           <p>Visual replay</p>
         </article>
         <article>
-          <h2>1</h2>
+          <h2>${(1 + Math.sin(phase * 0.15)).toFixed(0) || 1}</h2>
           <p>Root</p>
           <small>Evidence node</small>
         </article>
         <article>
-          <h2>3</h2>
+          <h2>${Math.round(2 + Math.sin(phase * 0.22 + 1.4) + 1.4)}</h2>
           <p>Agents</p>
           <small>Observed</small>
         </article>
@@ -140,12 +179,15 @@ const renderLanding = (): string => `
           <small>Exploration</small>
         </article>
         <div class="metrics-visual">
-          <div class="metric-line"></div>
+          <svg viewBox="0 0 140 44" preserveAspectRatio="none" aria-hidden="true" class="metric-svg">
+            <path d="${buildSignalPath(phase + 5, 1.1, 0.8)}" class="metric-trace"></path>
+          </svg>
         </div>
       </section>
     </main>
   </div>
-`;
+  `;
+};
 
 interface AppState {
   stage: number;
@@ -162,7 +204,7 @@ const initialState: AppState = {
 };
 
 const render = (state: AppState): string => {
-  return renderLanding();
+  return renderLanding(state.step + state.world.length);
 };
 
 const wireTimeline = (root: HTMLElement, step: number): void => {
@@ -232,4 +274,14 @@ export const mountApp = (root: HTMLElement): void => {
   });
 
   rerender();
+
+  const frameLoop = (): void => {
+    if (state.stage === 0) {
+      state = { ...state, step: state.step + 1 };
+      rerender();
+    }
+    window.setTimeout(frameLoop, 1400);
+  };
+
+  window.setTimeout(frameLoop, 1400);
 };
