@@ -1,0 +1,45 @@
+name: Research Integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  research-integrity:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python for offline harness compatibility / integrity validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        working-directory: collective-agent-epistemics
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Run offline unit tests
+        working-directory: collective-agent-epistemics
+        run: python -m unittest discover -s tests -v
+
+      - name: Validate required scientific tags
+        run: |
+          set -e
+          for tag in \
+            exp-002-protocol-v0.1 \
+            exp-002-gate2a-closed-v0.1 \
+            exp-002-gate2b-closed-v0.1
+          do
+            git rev-parse --verify "$tag^{commit}" >/dev/null
+          done
+          echo "Validated tags: exp-002-protocol-v0.1, exp-002-gate2a-closed-v0.1, exp-002-gate2b-closed-v0.1"
