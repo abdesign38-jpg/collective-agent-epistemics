@@ -8,9 +8,11 @@ Repository
     ├── README.md
     ├── experiments/
     ├── research/
+    ├── schemas/
     ├── src/
     ├── tests/
-    └── schemas/
+    └── visualization/
+        └── epistemic-hive/
 ```
 
 ## Primary project entry point
@@ -18,6 +20,7 @@ Repository
 - [collective-agent-epistemics/README.md](collective-agent-epistemics/README.md)
 - [collective-agent-epistemics/research/](collective-agent-epistemics/research/)
 - [collective-agent-epistemics/experiments/](collective-agent-epistemics/experiments/)
+- [collective-agent-epistemics/visualization/](collective-agent-epistemics/visualization/)
 
 ## Current governance status
 

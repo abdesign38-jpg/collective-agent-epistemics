@@ -3,15 +3,15 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const visualReplayRoot = dirname(dirname(fileURLToPath(import.meta.url)));
-const repositoryRoot = dirname(visualReplayRoot);
-const experimentRoot = join(repositoryRoot, "experiments", "EXP_002");
+const appRoot = dirname(dirname(fileURLToPath(import.meta.url)));
+const projectRoot = dirname(dirname(appRoot));
+const experimentRoot = join(projectRoot, "experiments", "EXP_002");
 const manifestPath = join(experimentRoot, "GATE_2B_WORLD_MANIFEST_v0.1.json");
 const auditPaths = {
   generalization: join(experimentRoot, "audits", "gate_2b", "generalization_set_001", "EXP_002_GATE_2B_GENERALIZATION_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json"),
   stress: join(experimentRoot, "audits", "gate_2b", "stress_set_001", "EXP_002_GATE_2B_STRESS_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json")
 };
-const outputPath = join(visualReplayRoot, "src", "data", "generatedReplay.ts");
+const outputPath = join(appRoot, "src", "data", "generatedReplay.ts");
 
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 
@@ -68,7 +68,7 @@ for (const definition of setDefinitions) {
       auditRecord.archive_path,
       "events.jsonl"
     );
-    const { source, records } = await readJsonLines(join(repositoryRoot, archiveRelativePath));
+    const { source, records } = await readJsonLines(join(projectRoot, archiveRelativePath));
     const conditions = Object.fromEntries(
       ["free", "lineage", "macro"].map((condition) => [
         condition,
@@ -100,7 +100,7 @@ for (const definition of setDefinitions) {
       trajectoryDifference: pairedDifferences.some(Boolean),
       archivePath: auditRecord.archive_path,
       attempt,
-      auditPath: auditPaths[definition.id].replace(`${repositoryRoot}/`, ""),
+      auditPath: auditPaths[definition.id].replace(`${projectRoot}/`, ""),
       sourceHash: sha256(source),
       conditions
     });

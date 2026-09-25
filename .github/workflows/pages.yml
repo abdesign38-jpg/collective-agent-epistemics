@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'collective-agent-epistemics/visualization/epistemic-hive/**'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -26,20 +29,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: collective-agent-epistemics/visual_replay/package-lock.json
+          cache-dependency-path: collective-agent-epistemics/visualization/epistemic-hive/package-lock.json
 
       - name: Install dependencies
-        working-directory: collective-agent-epistemics/visual_replay
+        working-directory: collective-agent-epistemics/visualization/epistemic-hive
         run: npm ci
 
       - name: Build app
-        working-directory: collective-agent-epistemics/visual_replay
+        working-directory: collective-agent-epistemics/visualization/epistemic-hive
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: collective-agent-epistemics/visual_replay/dist
+          path: collective-agent-epistemics/visualization/epistemic-hive/dist
 
   deploy:
     environment:
