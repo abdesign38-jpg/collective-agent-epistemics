@@ -42,23 +42,6 @@ The real-model pilot and its forensic audit are exploratory, not confirmatory ev
 Preserved runs live under `experiments/EXP_002/results/archive/`; see the
 [results contract](experiments/EXP_002/results/README.md).
 
-## Visualization boundary
-
-Epistemic Hive is a downstream representation layer within the monorepo and is intentionally separated from the scientific evidence tree.
-
-```text
-collective-agent-epistemics/
-├── experiments/
-├── research/
-├── schemas/
-├── src/
-├── tests/
-└── visualization/
-    └── epistemic-hive/
-```
-
-The visualization may read committed scientific artifacts for replay purposes, but it does not generate or validate experimental evidence.
-
 ## Quick start
 
 Requires Python 3.10+ and no external packages.
