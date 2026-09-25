@@ -7,6 +7,10 @@ const visualReplayRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const repositoryRoot = dirname(visualReplayRoot);
 const experimentRoot = join(repositoryRoot, "experiments", "EXP_002");
 const manifestPath = join(experimentRoot, "GATE_2B_WORLD_MANIFEST_v0.1.json");
+const auditPaths = {
+  generalization: join(experimentRoot, "audits", "gate_2b", "generalization_set_001", "EXP_002_GATE_2B_GENERALIZATION_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json"),
+  stress: join(experimentRoot, "audits", "gate_2b", "stress_set_001", "EXP_002_GATE_2B_STRESS_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json")
+};
 const outputPath = join(visualReplayRoot, "src", "data", "generatedReplay.ts");
 
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
@@ -36,7 +40,11 @@ const projectEvent = (event) => ({
   responseReused: event.response_reused
 });
 
-const attemptFor = (worldId) => worldId === "G2B_GEN001_seed_874625177" ? "attempt_002" : "attempt_001";
+const hasSameRootRegrounding = (event) => event.sender === "A"
+  && event.actual_lineage.actual_roots?.length === 1
+  && event.actual_lineage.actual_roots[0] === "E1"
+  && event.actual_lineage.new_external_evidence === false
+  && event.model_visible_input.includes("Direct observation:");
 
 const setDefinitions = [
   { key: "generalization_set_001", id: "generalization", label: "Generalization" },
@@ -45,29 +53,39 @@ const setDefinitions = [
 
 const manifestSource = await readFile(manifestPath, "utf8");
 const manifest = JSON.parse(manifestSource);
+const audits = {};
+for (const [set, path] of Object.entries(auditPaths)) {
+  audits[set] = JSON.parse(await readFile(path, "utf8"));
+}
 const worlds = [];
 
 for (const definition of setDefinitions) {
   for (const world of manifest[definition.key].worlds) {
-    const attempt = attemptFor(world.canonical_world_id);
+    const auditRecord = audits[definition.id].world_records.find((record) => record.canonical_world_id === world.canonical_world_id);
+    if (!auditRecord) throw new Error(`Missing audit record for ${world.canonical_world_id}.`);
+    const attempt = auditRecord.authoritative_attempt;
     const archiveRelativePath = join(
-      "experiments",
-      "EXP_002",
-      "results",
-      "archive",
-      "gate_2b",
-      definition.key,
-      world.canonical_world_id,
-      attempt,
+      auditRecord.archive_path,
       "events.jsonl"
     );
     const { source, records } = await readJsonLines(join(repositoryRoot, archiveRelativePath));
     const conditions = Object.fromEntries(
       ["free", "lineage", "macro"].map((condition) => [
         condition,
-        records.filter((event) => event.condition === condition).map(projectEvent)
+        records.filter((event) => event.condition === condition).map((event) => ({
+          ...projectEvent(event),
+          sameRootRegrounding: hasSameRootRegrounding(event)
+        }))
       ])
     );
+
+    if (conditions.free.length !== 13 || conditions.lineage.length !== 13 || conditions.macro.length !== 4) {
+      throw new Error(`Unexpected condition counts for ${world.canonical_world_id}.`);
+    }
+    const pairedDifferences = conditions.free.map((event, index) => {
+      const other = conditions.lineage[index];
+      return event.answer !== other.answer || event.confidence !== other.confidence || event.pA !== other.pA;
+    });
 
     worlds.push({
       id: world.canonical_world_id,
@@ -78,8 +96,11 @@ for (const definition of setDefinitions) {
       alignment: world.evidence_alignment,
       sensorReliability: world.sensor_reliability,
       evidenceRoot: world.evidence_root,
-      archivePath: archiveRelativePath,
+      finalDifference: pairedDifferences.at(-1) ?? false,
+      trajectoryDifference: pairedDifferences.some(Boolean),
+      archivePath: auditRecord.archive_path,
       attempt,
+      auditPath: auditPaths[definition.id].replace(`${repositoryRoot}/`, ""),
       sourceHash: sha256(source),
       conditions
     });
@@ -91,7 +112,6 @@ if (worlds.length !== 20) {
 }
 
 const snapshot = {
-  generatedAt: new Date().toISOString(),
   manifestHash: sha256(manifestSource),
   sourceManifest: "experiments/EXP_002/GATE_2B_WORLD_MANIFEST_v0.1.json",
   totals: { generalization: 12, stress: 8, events: 600, validProviderCalls: 500, reusedResponses: 80 },
