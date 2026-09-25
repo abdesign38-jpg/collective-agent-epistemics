@@ -35,4 +35,4 @@ The preserved archive and audit artifacts remain the authoritative record of the
 - **Gate 2C — Broader model/config replication** — future / not yet prospectively designed.
 - **Gate 3 — Architecture intervention evaluation** — future.
 
-Do not promote secondary Gate 2A or Gate 2B observations into new causal interventions before the current gate is completed and audited.
+Do not promote secondary Gate 2A or Gate 2B observations into causal interventions without a separately versioned prospective design.

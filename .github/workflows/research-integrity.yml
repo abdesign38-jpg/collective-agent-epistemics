@@ -14,8 +14,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Python
+      - name: Set up Python for offline harness compatibility / integrity validation
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
