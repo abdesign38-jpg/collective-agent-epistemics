@@ -9,4 +9,4 @@ The production interface uses the repository-backed EXP-002 snapshot and does no
 - `fragment.template.html`
 - `fixture.json`
 
-The two artwork files are referenced by the application at `/assets/bee-agent.webp` and `/assets/lab-stage.webp`. They must be copied into `visual_replay/public/assets/` for the supplied artwork to render. The attachment viewer exposes the files, but this container does not expose their binary bytes as writable filesystem paths.
+The two artwork files are referenced by the application at `/assets/bee-agent.webp` and `/assets/lab-stage.webp`. They must be copied into `visualization/epistemic-hive/public/assets/` for the supplied artwork to render. The attachment viewer exposes the files, but this container does not expose their binary bytes as writable filesystem paths.

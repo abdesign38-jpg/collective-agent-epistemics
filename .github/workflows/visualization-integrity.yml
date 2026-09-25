@@ -1,0 +1,64 @@
+name: Visualization Integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'collective-agent-epistemics/visualization/**'
+      - 'collective-agent-epistemics/experiments/EXP_002/GATE_2B_WORLD_MANIFEST_v0.1.json'
+      - 'collective-agent-epistemics/experiments/EXP_002/audits/gate_2b/**'
+      - 'collective-agent-epistemics/experiments/EXP_002/results/archive/gate_2b/**'
+      - '.github/workflows/visualization-integrity.yml'
+      - '.github/workflows/pages.yml'
+
+jobs:
+  visualization-integrity:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: collective-agent-epistemics/visualization/epistemic-hive/package-lock.json
+
+      - name: Install visualization dependencies
+        working-directory: collective-agent-epistemics/visualization/epistemic-hive
+        run: npm ci
+
+      - name: Regenerate replay snapshot
+        working-directory: collective-agent-epistemics/visualization/epistemic-hive
+        run: npm run build:replay
+
+      - name: Verify generated replay is unchanged
+        run: |
+          git diff --exit-code -- collective-agent-epistemics/visualization/epistemic-hive/src/data/generatedReplay.ts
+
+      - name: Verify protected scientific domains are untouched
+        run: |
+          set -e
+          science_status="$(git status --porcelain --untracked-files=all -- \
+            collective-agent-epistemics/experiments \
+            collective-agent-epistemics/research \
+            collective-agent-epistemics/src \
+            collective-agent-epistemics/tests \
+            collective-agent-epistemics/schemas)"
+
+          if [ -n "$science_status" ]; then
+            echo "Visualization generation touched protected scientific domains:"
+            echo "$science_status"
+            exit 1
+          fi
+
+      - name: Build visualization
+        working-directory: collective-agent-epistemics/visualization/epistemic-hive
+        run: npm run build

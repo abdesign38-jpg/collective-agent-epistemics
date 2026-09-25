@@ -17,6 +17,7 @@ npm run build
 
 ## Scope and guardrails
 
-- This UI is a visualization shell and currently uses synthetic sample data.
-- It does not make model calls and does not alter frozen scientific runtime paths.
+- This UI is a repository-backed visualization of committed EXP-002 evidence and derived replay state.
+- It reads the frozen scientific manifest and audit artifacts without altering scientific runtime paths.
+- It does not make model calls and does not write to the experimental evidence tree.
 - Agent epistemic state, transmitted messages, and network evidence state remain distinct in copy and structure.
