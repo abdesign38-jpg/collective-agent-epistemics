@@ -1,11 +1,30 @@
 import { createHash } from "node:crypto";
+import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const appRoot = dirname(dirname(fileURLToPath(import.meta.url)));
-const projectRoot = dirname(dirname(appRoot));
+const projectRoot = resolve(appRoot, "..", "..");
 const experimentRoot = join(projectRoot, "experiments", "EXP_002");
+
+const assertProjectRoot = () => {
+  const requiredPaths = [
+    join(projectRoot, "experiments"),
+    join(projectRoot, "research"),
+    join(projectRoot, "src"),
+    join(projectRoot, "tests"),
+    join(projectRoot, "schemas")
+  ];
+
+  for (const required of requiredPaths) {
+    if (!existsSync(required)) {
+      throw new Error(`Invalid project root: expected ${required} to exist, resolved to ${projectRoot}.`);
+    }
+  }
+};
+
+assertProjectRoot();
 const manifestPath = join(experimentRoot, "GATE_2B_WORLD_MANIFEST_v0.1.json");
 const auditPaths = {
   generalization: join(experimentRoot, "audits", "gate_2b", "generalization_set_001", "EXP_002_GATE_2B_GENERALIZATION_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json"),
@@ -50,6 +69,16 @@ const setDefinitions = [
   { key: "generalization_set_001", id: "generalization", label: "Generalization" },
   { key: "stress_set_001", id: "stress", label: "Stress" }
 ];
+
+if (!existsSync(manifestPath)) {
+  throw new Error(`Manifest not found at expected project path: ${manifestPath}`);
+}
+
+for (const [set, path] of Object.entries(auditPaths)) {
+  if (!existsSync(path)) {
+    throw new Error(`Audit file not found for ${set}: ${path}`);
+  }
+}
 
 const manifestSource = await readFile(manifestPath, "utf8");
 const manifest = JSON.parse(manifestSource);
@@ -100,7 +129,7 @@ for (const definition of setDefinitions) {
       trajectoryDifference: pairedDifferences.some(Boolean),
       archivePath: auditRecord.archive_path,
       attempt,
-      auditPath: auditPaths[definition.id].replace(`${projectRoot}/`, ""),
+      auditPath: relative(projectRoot, auditPaths[definition.id]).split(sep).join("/"),
       sourceHash: sha256(source),
       conditions
     });
