@@ -18,20 +18,21 @@ Gate 2A is closed at scientific checkpoint:
 The formal same-world result covers 15 runs under the frozen W01 configuration.
 Do not reopen Gate 2A unless a genuine data-integrity or protocol-invalidating issue is discovered.
 
-## Gate 2B — Multiple worlds / misleading evidence — plan frozen / not yet executed
+## Gate 2B — Multiple worlds / misleading evidence — closed
 
-The prospective Gate 2B design is frozen in:
+Gate 2B is closed under the frozen EXP-002 v0.1 design at scientific checkpoint:
+
+`80d6db044118965c5e763c9a876e04ef45239ef3`
+
+The prospective Gate 2B design is preserved in:
 
 [GATE_2B_PLAN_v0.1.md](experiments/EXP_002/GATE_2B_PLAN_v0.1.md)
 
-Before any Gate 2B real-model call, materialize and commit the exact deterministic
-world manifest defined by the plan. Gate 2B changes world/evidence realization only;
-the frozen EXP-002 runtime and protocol remain unchanged.
+The preserved archive and audit artifacts remain the authoritative record of the completed multi-world analysis. The frozen EXP-002 runtime and protocol remain unchanged.
 
 ## Future gates
 
-- **Gate 2C — Broader model/config replication** — not yet executed.
-- **Gate 3 — Architecture intervention evaluation** — not yet executed.
+- **Gate 2C — Broader model/config replication** — future / not yet prospectively designed.
+- **Gate 3 — Architecture intervention evaluation** — future.
 
-Do not promote secondary Gate 2A or Gate 2B observations into new causal interventions
-before the current gate is completed and audited.
+Do not promote secondary Gate 2A or Gate 2B observations into new causal interventions before the current gate is completed and audited.

@@ -16,10 +16,14 @@ and [replication plan](experiments/EXP_002/REPLICATION_PLAN_v0.1.md).
 
 ## Current project state
 
-- **EXP-001** — synthetic harness validation.
-- **EXP-002** — real-model recursive communication experiment.
-- **EXP-002 v0.1** — frozen at the implementation used for Pilot 002.
-- **Current phase** — exact same-world stochastic replication.
+- **EXP-001** — complete.
+- **EXP-002 v0.1** — frozen.
+- **Gate 2A** — closed under the frozen EXP-002 v0.1 design.
+- **Gate 2B** — closed under the frozen EXP-002 v0.1 design.
+- **Gate 2C** — future / not yet prospectively designed.
+- **Gate 3** — future.
+
+This documentation reflects the current repository state as committed. It does not introduce new scientific conclusions beyond the preserved gate closures and their audit artifacts.
 
 ## EXP-001 conditions
 
