@@ -15,6 +15,7 @@ interface AppState {
 }
 
 const anchorWorldId = "G2B_GEN001_seed_1114638083";
+const assetBase = `${import.meta.env.BASE_URL}assets/`;
 const chapters: Array<{ view: View; label: string }> = [
   { view: "intro", label: "Experiment" },
   { view: "origin", label: "Origin / W01" },
@@ -136,7 +137,11 @@ const render = (state: AppState): string => `<div class="eh-app ${state.reducedM
 
 export const mountApp = (root: HTMLElement): void => {
   let state = { ...initialState };
-  const rerender = () => { root.innerHTML = render(state); decorateHiveCells(root); };
+  const rerender = () => {
+    root.style.setProperty("--lab-stage-art", `url("${assetBase}lab-stage.webp")`);
+    root.innerHTML = render(state).replaceAll('"/assets/', `"${assetBase}`);
+    decorateHiveCells(root);
+  };
   root.addEventListener("click", (input) => {
     const button = (input.target as HTMLElement).closest<HTMLButtonElement>("button[data-action]");
     if (!button) return;

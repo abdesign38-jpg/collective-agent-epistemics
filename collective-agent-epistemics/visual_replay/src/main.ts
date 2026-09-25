@@ -26,6 +26,7 @@ import "./styles/replay-grid.css";
 import "./styles/stage-center-label.css";
 import "./styles/replay-caption-reference.css";
 import "./styles/replay-difference-offset.css";
+import "./styles/pages-assets.css";
 
 import { mountApp } from "./app/App";
 
