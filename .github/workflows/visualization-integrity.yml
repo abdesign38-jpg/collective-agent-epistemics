@@ -9,6 +9,10 @@ on:
       - 'collective-agent-epistemics/experiments/EXP_002/GATE_2B_WORLD_MANIFEST_v0.1.json'
       - 'collective-agent-epistemics/experiments/EXP_002/audits/gate_2b/**'
       - 'collective-agent-epistemics/experiments/EXP_002/results/archive/gate_2b/**'
+      - 'collective-agent-epistemics/experiments/EXP_001/synthetic_worlds.json'
+      - 'collective-agent-epistemics/experiments/EXP_002/audits/pilots/EXP_002_PILOT_002_AUDIT_v0.1.json'
+      - 'collective-agent-epistemics/experiments/EXP_002/audits/synthesis/EXP_002_SAME_WORLD_SYNTHESIS_v0.1.json'
+      - 'collective-agent-epistemics/experiments/EXP_002/audits/gate_2b/synthesis/EXP_002_GATE_2B_SYNTHESIS_v0.1.json'
       - '.github/workflows/visualization-integrity.yml'
       - '.github/workflows/pages.yml'
 
@@ -37,11 +41,15 @@ jobs:
 
       - name: Regenerate replay snapshot
         working-directory: collective-agent-epistemics/visualization/epistemic-hive
-        run: npm run build:replay
+        run: npm run build:data
 
       - name: Verify generated replay is unchanged
         run: |
           git diff --exit-code -- collective-agent-epistemics/visualization/epistemic-hive/src/data/generatedReplay.ts
+
+      - name: Verify generated research index is unchanged
+        run: |
+          git diff --exit-code -- collective-agent-epistemics/visualization/epistemic-hive/src/data/generatedResearchIndex.ts
 
       - name: Verify protected scientific domains are untouched
         run: |
