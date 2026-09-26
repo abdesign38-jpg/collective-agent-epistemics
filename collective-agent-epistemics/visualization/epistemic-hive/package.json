@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build:replay": "node tools/build-replay-snapshot.mjs",
+    "build:research-index": "node tools/build-research-index.mjs",
+    "build:data": "npm run build:replay && npm run build:research-index",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
