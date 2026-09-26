@@ -48,6 +48,10 @@ const pilot = loaded.pilot002.value;
 const gate2a = loaded.gate2a.value;
 const gate2b = loaded.gate2b.value;
 
+if (typeof gate2b.research_framework?.umbrella_question !== "string" || gate2b.research_framework.umbrella_question.trim() === "") {
+  fail("Gate 2B research_framework.umbrella_question is missing or empty.");
+}
+
 requireEqual(exp001Worlds.length, 4, "EXP-001 world count");
 requireEqual(gate2a.sets.replication_set_001 + gate2a.sets.replication_set_002, gate2a.formal_runs, "Gate 2A denominator");
 requireEqual(gate2a.pilot_002_in_formal_denominator, false, "Pilot 002 formal denominator exclusion");
@@ -65,7 +69,7 @@ requireEqual(gate2b.stress_summary.n, 8, "Gate 2B stress worlds");
 const index = {
   schemaVersion: "0.1",
   authority: "derived visualization metadata; not scientific authority",
-  researchQuestion: "As inference depth and inter-agent recursion increase without new independent evidence, what happens to epistemic lineage, calibration, confidence, and convergence?",
+  researchQuestion: gate2b.research_framework.umbrella_question,
   sources: Object.fromEntries(Object.entries(loaded).map(([key, item]) => [key, sourceRecord(sourcePaths[key], item.source)])),
   experiments: {
     exp001: {
@@ -92,7 +96,8 @@ const index = {
         world: pilot.run_identity.world,
         rounds: pilot.run_identity.rounds,
         executionPolicy: pilot.run_identity.execution_policy,
-        eventCounts: pilot.call_accounting,
+        eventCounts: pilot.integrity.event_counts,
+        callAccounting: pilot.call_accounting,
         finalAnswers: pilot.run_identity.final_answers,
         archivePath: pilot.preservation.path,
         formalDenominator: gate2a.pilot_002_in_formal_denominator

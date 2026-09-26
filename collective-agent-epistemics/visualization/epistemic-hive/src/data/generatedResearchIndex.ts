@@ -127,6 +127,12 @@ export const generatedResearchIndex = {
         "rounds": 4,
         "executionPolicy": "paired",
         "eventCounts": {
+          "free": 13,
+          "lineage": 13,
+          "macro": 4,
+          "total": 30
+        },
+        "callAccounting": {
           "actual_model_call_count": 25,
           "expected_model_call_count": 25,
           "shared_seed_calls": 1,
