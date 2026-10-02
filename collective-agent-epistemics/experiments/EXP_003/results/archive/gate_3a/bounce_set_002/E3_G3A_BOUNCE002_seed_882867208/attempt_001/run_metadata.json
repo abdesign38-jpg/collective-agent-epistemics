@@ -1,0 +1,101 @@
+{
+  "experiment": "EXP-003",
+  "run_class": "gate_3a_real_model",
+  "execution_policy": "paired",
+  "world_count": 1,
+  "adapter_name": "openai",
+  "provider": "openai",
+  "requested_model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "sdk_version": "3.16.2",
+  "timeout_seconds": 60.0,
+  "store": false,
+  "max_retries": 0,
+  "probe": false,
+  "fallbacks": false,
+  "prompt_version": "exp003-v0.1",
+  "schema_version": "exp003-agent-response-v0.1",
+  "python_version": "3.14.2",
+  "timestamp_utc": "2026-10-02T22:40:23.880659+00:00",
+  "trial_count": 1,
+  "rounds": 3,
+  "seed": 882867208,
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "topology_name": "bounce",
+  "topology": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "B"
+    ],
+    [
+      "B",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ]
+  ],
+  "regrounding": true,
+  "focal_agent": "C",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "worlds": [
+    {
+      "world_id": "EXP_003_W01",
+      "seed": 882867208,
+      "truth": "A",
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "observed_state": "A",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "adapter_metadata": {
+    "provider": "openai",
+    "requested_model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "timeout_seconds": 60.0,
+    "store": false,
+    "max_retries": 0,
+    "probe": true,
+    "prompt_version": "exp003-v0.1",
+    "schema_version": "exp003-agent-response-v0.1",
+    "sdk_version": "3.16.2",
+    "fallbacks": false
+  },
+  "execution_metadata": {
+    "actual_model_call_count": 25,
+    "reused_response_count": 5,
+    "input_tokens_actual": 5580,
+    "output_tokens_actual": 2599,
+    "total_tokens_actual": 8179,
+    "fallback_events": 0,
+    "served_models": [
+      "gpt-5.6-sol"
+    ]
+  },
+  "note": "Exploratory real-model run. Not confirmatory evidence.",
+  "config_fingerprint": "07134810d53e2b1dbb34cfd4f30d0948d1a62fbbb0f037cc26827fa25cc86213"
+}

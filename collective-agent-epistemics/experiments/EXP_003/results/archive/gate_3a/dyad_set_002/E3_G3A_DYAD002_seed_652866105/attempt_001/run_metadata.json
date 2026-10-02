@@ -1,0 +1,93 @@
+{
+  "experiment": "EXP-003",
+  "run_class": "gate_3a_real_model",
+  "execution_policy": "paired",
+  "world_count": 1,
+  "adapter_name": "openai",
+  "provider": "openai",
+  "requested_model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "sdk_version": "3.16.2",
+  "timeout_seconds": 60.0,
+  "store": false,
+  "max_retries": 0,
+  "probe": false,
+  "fallbacks": false,
+  "prompt_version": "exp003-v0.1",
+  "schema_version": "exp003-agent-response-v0.1",
+  "python_version": "3.14.2",
+  "timestamp_utc": "2026-10-02T22:32:19.338318+00:00",
+  "trial_count": 1,
+  "rounds": 6,
+  "seed": 652866105,
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "topology_name": "dyad",
+  "topology": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ]
+  ],
+  "regrounding": true,
+  "focal_agent": "B",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "worlds": [
+    {
+      "world_id": "EXP_003_W01",
+      "seed": 652866105,
+      "truth": "A",
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "observed_state": "A",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "adapter_metadata": {
+    "provider": "openai",
+    "requested_model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "timeout_seconds": 60.0,
+    "store": false,
+    "max_retries": 0,
+    "probe": true,
+    "prompt_version": "exp003-v0.1",
+    "schema_version": "exp003-agent-response-v0.1",
+    "sdk_version": "3.16.2",
+    "fallbacks": false
+  },
+  "execution_metadata": {
+    "actual_model_call_count": 25,
+    "reused_response_count": 3,
+    "input_tokens_actual": 5695,
+    "output_tokens_actual": 2752,
+    "total_tokens_actual": 8447,
+    "fallback_events": 0,
+    "served_models": [
+      "gpt-5.6-sol"
+    ]
+  },
+  "note": "Exploratory real-model run. Not confirmatory evidence.",
+  "config_fingerprint": "4273e7ad43b579ed52c46494fbaf055a06e73a9e60d08662cbd525bedd369180"
+}
