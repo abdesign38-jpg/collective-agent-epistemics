@@ -1,0 +1,24 @@
+{
+  "gate": "3A",
+  "set": "ring_control_set_001",
+  "canonical_id": "E3_G3A_RING001_seed_1146035841",
+  "seed": 1146035841,
+  "attempt": 1,
+  "frozen_config": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12,
+    "rounds": 4,
+    "probe": false,
+    "topology": "ring",
+    "root_mode": "single"
+  },
+  "manifest_sha256": "3350f4efc8155d103f6109f1ecb594499dc591f068bb732b0cdca96c7314d5cd",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "timestamp_utc": "2026-10-02T20:04:22.946466+00:00",
+  "status": "technical_failure"
+}
