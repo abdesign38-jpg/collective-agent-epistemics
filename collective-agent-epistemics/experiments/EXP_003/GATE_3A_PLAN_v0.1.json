@@ -5,11 +5,11 @@
   "status": "DRAFT",
   "status_note": "Set to FROZEN only in the commit that fills every anchor below. The orchestrator refuses live execution otherwise.",
   "anchors": {
-    "gate2b_closure_checkpoint": null,
-    "frozen_runtime": null,
+    "gate2b_closure_checkpoint": "80d6db044118965c5e763c9a876e04ef45239ef3",
+    "frozen_runtime": "c54563bbb3f17e49c70e8e4f2e3a0369910d3c15",
     "protocol_tag": "exp-003-protocol-v0.1",
     "plan_freeze_commit": null,
-    "derivation_anchor": null
+    "derivation_anchor": "80d6db044118965c5e763c9a876e04ef45239ef3|exp-003-protocol-v0.1|GATE_3A_PLAN_v0.1"
   },
   "controlled_configuration": {
     "provider": "openai",

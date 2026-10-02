@@ -10,8 +10,8 @@ Gate 3A does not modify EXP-002, its frozen runtime, its archives or its audits.
 
 ## Scientific anchors (to fill at freeze)
 
-- EXP-002 Gate 2B closure checkpoint: `<sha of exp-002-gate2b-closed-v0.1>`
-- Frozen EXP-003 runtime: `<sha>`
+- EXP-002 Gate 2B closure checkpoint: `80d6db044118965c5e763c9a876e04ef45239ef3` (tag `exp-002-gate2b-closed-v0.1`)
+- Frozen EXP-003 runtime: `c54563bbb3f17e49c70e8e4f2e3a0369910d3c15` (tag `exp-003-protocol-v0.1`)
 - Frozen protocol tag: `exp-003-protocol-v0.1`
 - Model: `gpt-5.6-sol`, the EXP-002 model
 - Reasoning effort: `medium`
@@ -106,10 +106,10 @@ Focal, paired by world across arms:
 
 ## Seed derivation
 
-Anchor (exact ASCII, filled at freeze):
+Anchor (exact ASCII):
 
 ```text
-<gate2b closure sha>|exp-003-protocol-v0.1|GATE_3A_PLAN_v0.1
+80d6db044118965c5e763c9a876e04ef45239ef3|exp-003-protocol-v0.1|GATE_3A_PLAN_v0.1
 ```
 
 `candidate_seed` and `order_key` are the Gate 2B functions, implemented in `manifest.py`. Exclusions: seed `42` and the 20 Gate 2B seeds, because `single` generation reproduces those truth/E1 realizations exactly. Set 001 ring seeds come from `candidate_seed("G3A_RING001", ordinal, nonce)`, ordinals 1..12, unfiltered; the other Set 001 arms inherit them (`--seeds-from`). Set 002 ring seeds come from `candidate_seed("G3A_RING002", ordinal, nonce)` with every Set 001 seed added to the exclusions; the other Set 002 arms inherit them. All eight manifests are derived with zero model calls and committed before the first call. Set 002 manifests may be derived at freeze or at Set 001 closure, but their derivation rule is fixed here.
