@@ -20,3 +20,11 @@ experiments/EXP_002/results/*.csv
 experiments/EXP_002/results/run_metadata.json
 
 !experiments/EXP_002/results/.gitkeep
+experiments/EXP_003/results/*.jsonl
+experiments/EXP_003/results/*.csv
+experiments/EXP_003/results/run_metadata.json
+
+!experiments/EXP_003/results/.gitkeep
+
+experiments/EXP_003/results/preflight/
+experiments/EXP_003/results/archive/*/campaign_status.json

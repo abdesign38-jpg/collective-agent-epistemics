@@ -1,0 +1,41 @@
+{
+  "plan_version": "GATE_3C_PLAN_v0.1",
+  "experiment": "EXP-003",
+  "gate": "3C",
+  "status": "DRAFT",
+  "anchors": {
+    "gate3a_closure_checkpoint": null,
+    "gate3b_closure_checkpoint": null,
+    "frozen_runtime": null,
+    "protocol_tag": "exp-003-protocol-v0.1",
+    "plan_freeze_commit": null,
+    "derivation_anchor": null
+  },
+  "controlled_configuration": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12
+  },
+  "exclusions": {"seeds": [], "note": "No new seeds: every arm inherits from Gate 3A Set 001 or Gate 3B Set 001, so each world has a re-grounded and a detached execution."},
+  "stages": {"set_001": "paired detachment of every Gate 3A and 3B Set 001 shape"},
+  "arms": [
+    {"stage": "set_001", "set_id": "ring_detached_set_001", "manifest_label": "G3C_RINGDET001", "topology": "ring_detached", "root_mode": "single",
+     "rounds": 4, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "3A:ring_control_set_001",
+     "manifest": "GATE_3C_MANIFEST_RINGDET001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "solo_detached_set_001", "manifest_label": "G3C_SOLODET001", "topology": "solo_detached", "root_mode": "single",
+     "rounds": 12, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "3A:ring_control_set_001",
+     "manifest": "GATE_3C_MANIFEST_SOLODET001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "dyad_detached_set_001", "manifest_label": "G3C_DYADDET001", "topology": "dyad_detached", "root_mode": "single",
+     "rounds": 6, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "3A:ring_control_set_001",
+     "manifest": "GATE_3C_MANIFEST_DYADDET001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "bounce_detached_set_001", "manifest_label": "G3C_BOUNCEDET001", "topology": "bounce_detached", "root_mode": "single",
+     "rounds": 3, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "3A:ring_control_set_001",
+     "manifest": "GATE_3C_MANIFEST_BOUNCEDET001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "diamond_detached_set_001", "manifest_label": "G3C_DIAMONDDET001", "topology": "diamond_detached", "root_mode": "single",
+     "rounds": 4, "probe": true, "worlds": 12, "selection": "inherited", "seeds_from": "3B:diamond_set_001",
+     "manifest": "GATE_3C_MANIFEST_DIAMONDDET001_v0.1.json", "optional": false, "calls_per_world": 33}
+  ]
+}
