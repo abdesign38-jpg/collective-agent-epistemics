@@ -2,7 +2,7 @@
 
 ## Status
 
-**PLAN DRAFT / NOT FROZEN / NOT EXECUTED**
+**FROZEN.** Anchors filled and JSON twin set to `FROZEN` in the freeze commits (anchor fill `fe5e025468f6b912677fc7074a8f4afb44f2d756`; this status flip names that commit as `plan_freeze_commit`). No Gate 3A real-model call had been made before this commit.
 
 This document becomes a frozen plan only when it is committed together with the runtime commit it names, the protocol tag `exp-003-protocol-v0.1`, and the anchors below filled in, with its machine-readable twin `GATE_3A_PLAN_v0.1.json` set to `FROZEN` in the same commit. Until then it is a design. No Gate 3A real-model call may be made before that commit.
 
