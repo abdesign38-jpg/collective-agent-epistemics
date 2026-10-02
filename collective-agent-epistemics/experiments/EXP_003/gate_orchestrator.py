@@ -186,6 +186,10 @@ def verify_committed_unchanged(path: Path, label: str) -> None:
     This is the EXP-003 form of Gate 2B's canonical-artifact check: world membership and
     configuration must come from a committed, frozen file, never from a working-tree edit.
     """
+    # Resolve first: git interprets a relative pathspec against cwd, and cwd is set to the
+    # file's own directory below, so a relative path such as experiments/EXP_003/plan.json
+    # would be looked up as experiments/EXP_003/experiments/EXP_003/plan.json and fail.
+    path = Path(path).resolve()
     try:
         tracked = subprocess.run(["git", "ls-files", "--error-unmatch", str(path)], cwd=path.parent,
                                  capture_output=True)

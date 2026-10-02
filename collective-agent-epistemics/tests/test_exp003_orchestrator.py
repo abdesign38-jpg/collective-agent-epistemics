@@ -230,6 +230,27 @@ class CampaignTests(unittest.TestCase):
         self.assertEqual(set_directory_name(arm, plan, anthropic), "ring_control_set_001_anthropic")
         self.assertEqual(set_directory_name(arm, plan, stub), "ring_control_set_001")
 
+    def test_committed_unchanged_check_accepts_relative_and_absolute_paths(self):
+        """Regression: a relative plan path must not be re-rooted under its own directory."""
+        import os
+        import subprocess
+        from experiments.EXP_003.gate_orchestrator import verify_committed_unchanged
+        repo_file = Path(__file__).resolve().parents[1] / "experiments" / "EXP_002" / "protocol.md"
+        self.assertTrue(repo_file.exists())
+        inside_git = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], cwd=repo_file.parent,
+                                    capture_output=True, text=True).stdout.strip() == "true"
+        if not inside_git:
+            self.skipTest("requires a git checkout; this tree is an export")
+        verify_committed_unchanged(repo_file, "absolute")  # must not raise
+        cwd = os.getcwd()
+        try:
+            os.chdir(repo_file.parents[2])  # collective-agent-epistemics/
+            verify_committed_unchanged(Path("experiments/EXP_002/protocol.md"), "relative")  # must not raise
+        finally:
+            os.chdir(cwd)
+        with self.assertRaises(GateIntegrityError):
+            verify_committed_unchanged(Path(tempfile.gettempdir()) / "definitely-not-tracked.json", "untracked")
+
     def test_gate_specific_run_classes(self):
         from experiments.EXP_003.gate_orchestrator import run_class_for
         self.assertEqual(run_class_for("3A", True), "gate_3a_real_model")
