@@ -1,0 +1,400 @@
+{
+  "experiment": "EXP-003",
+  "set_id": "G3A_RING002",
+  "anchor": "80d6db044118965c5e763c9a876e04ef45239ef3|exp-003-protocol-v0.1|GATE_3A_PLAN_v0.1",
+  "topology": "ring",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "excluded_seeds": [
+    42,
+    154869395,
+    170961959,
+    208630909,
+    217181935,
+    319975066,
+    515022515,
+    652310877,
+    683505103,
+    874625177,
+    945922859,
+    948364460,
+    950201606,
+    961840741,
+    1027876222,
+    1043406990,
+    1114638083,
+    1117385864,
+    1146035841,
+    1211074116,
+    1247992891,
+    1257399226,
+    1265697921,
+    1280872600,
+    1296650177,
+    1353126068,
+    1523495488,
+    1531843854,
+    1662733804,
+    1779995607,
+    1813269025,
+    1925941366,
+    1926897563
+  ],
+  "selection": {
+    "scheme": "unfiltered",
+    "count": 12,
+    "selection": [
+      {
+        "ordinal": 1,
+        "nonce": 0,
+        "seed": 1468093150
+      },
+      {
+        "ordinal": 2,
+        "nonce": 0,
+        "seed": 28092603
+      },
+      {
+        "ordinal": 3,
+        "nonce": 0,
+        "seed": 588710334
+      },
+      {
+        "ordinal": 4,
+        "nonce": 0,
+        "seed": 1138823197
+      },
+      {
+        "ordinal": 5,
+        "nonce": 0,
+        "seed": 818285910
+      },
+      {
+        "ordinal": 6,
+        "nonce": 0,
+        "seed": 1792403557
+      },
+      {
+        "ordinal": 7,
+        "nonce": 0,
+        "seed": 1032002992
+      },
+      {
+        "ordinal": 8,
+        "nonce": 0,
+        "seed": 1246964244
+      },
+      {
+        "ordinal": 9,
+        "nonce": 0,
+        "seed": 652866105
+      },
+      {
+        "ordinal": 10,
+        "nonce": 0,
+        "seed": 245389550
+      },
+      {
+        "ordinal": 11,
+        "nonce": 0,
+        "seed": 882867208
+      },
+      {
+        "ordinal": 12,
+        "nonce": 0,
+        "seed": 1582931821
+      }
+    ]
+  },
+  "worlds": [
+    {
+      "canonical_id": "E3_G3A_RING002_seed_818285910",
+      "seed": 818285910,
+      "internal_world_id": "EXP_003_W_818285910",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "08fe4ca91f86119a5d8f06fde85c5d1950080bb33cbc990beac8fbadbfd3ac46",
+      "execution_order": 1
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_588710334",
+      "seed": 588710334,
+      "internal_world_id": "EXP_003_W_588710334",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "1a8655a180f58d559804347e33c97837d17bdab48345b5bd2e3d186a9f7ee5e3",
+      "execution_order": 2
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1246964244",
+      "seed": 1246964244,
+      "internal_world_id": "EXP_003_W_1246964244",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "2d1bffde5af78d1e4384dd001c8a9bf73477491b339c20447aca23473e480229",
+      "execution_order": 3
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1138823197",
+      "seed": 1138823197,
+      "internal_world_id": "EXP_003_W_1138823197",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "348dcb7d49afd6c1b923d7ff92fbd039415865fd5acc0fcd97bbb49b2d8be9ff",
+      "execution_order": 4
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_882867208",
+      "seed": 882867208,
+      "internal_world_id": "EXP_003_W_882867208",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "48ea8252c21eda8083a851c97d017ea54e757c216cc94c8ae52e803873f23a4d",
+      "execution_order": 5
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1468093150",
+      "seed": 1468093150,
+      "internal_world_id": "EXP_003_W_1468093150",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "754d19a4409c0d23cc0f7cefec98be3796695e6c708b34ad41509428cd3db6a8",
+      "execution_order": 6
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1032002992",
+      "seed": 1032002992,
+      "internal_world_id": "EXP_003_W_1032002992",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "904716fb372aa912a2b3aa9b593c5600541ce87cc82338384ce1f1420d9fd40b",
+      "execution_order": 7
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_245389550",
+      "seed": 245389550,
+      "internal_world_id": "EXP_003_W_245389550",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "9b4cb48eaef35ebb8f7943addfa87f5208587730aeae36b46090cbbe6b803818",
+      "execution_order": 8
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_652866105",
+      "seed": 652866105,
+      "internal_world_id": "EXP_003_W_652866105",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "9b6f49462374aafeb797b52cbda4e86166bcedf5041ecc9dafd6a7991a81c71b",
+      "execution_order": 9
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_28092603",
+      "seed": 28092603,
+      "internal_world_id": "EXP_003_W_28092603",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "b8fda44eec1ff812264d069c6590897c0e3b6a431c73c0f6d4a57901a0eade4d",
+      "execution_order": 10
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1582931821",
+      "seed": 1582931821,
+      "internal_world_id": "EXP_003_W_1582931821",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "bea01205e866b5b257cfa905c49576e515c132250ee80ede7cb69ba90ba3082a",
+      "execution_order": 11
+    },
+    {
+      "canonical_id": "E3_G3A_RING002_seed_1792403557",
+      "seed": 1792403557,
+      "internal_world_id": "EXP_003_W_1792403557",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "fa78b97a9b2676dbec94dca6e9c04369700b6cb7fac031f7a259a527fa457870",
+      "execution_order": 12
+    }
+  ],
+  "model_calls_made": 0
+}
