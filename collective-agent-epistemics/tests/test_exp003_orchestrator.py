@@ -71,7 +71,11 @@ class PlanTests(unittest.TestCase):
         for name, totals in expected.items():
             plan = load_plan(EXP003 / name)
             arms = plan_arms(plan, EXP003 / name)
-            self.assertEqual(plan["status"], "DRAFT", name)
+            # A plan is DRAFT until the owner freezes it. A FROZEN plan must have every anchor filled.
+            self.assertIn(plan["status"], ("DRAFT", "FROZEN"), name)
+            if plan["status"] == "FROZEN":
+                empty = [k for k, v in plan["anchors"].items() if not v]
+                self.assertEqual(empty, [], f"{name}: FROZEN plan with empty anchors")
             self.assertTrue(all(not a.optional for a in arms), f"{name}: no optional arms remain")
             for arm, raw in zip(arms, plan["arms"]):
                 self.assertEqual(expected_actual_calls(arm), raw["calls_per_world"], f"{name}:{arm.set_id}")
