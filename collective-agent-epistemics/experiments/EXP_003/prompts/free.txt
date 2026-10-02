@@ -1,0 +1,2 @@
+Evaluate whether hidden state A or B is more likely using the information currently available to you.
+Return your answer, confidence, the number of distinct original sources you believe your conclusion rests on, and a concise message for the next agent.

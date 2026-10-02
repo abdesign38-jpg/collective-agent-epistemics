@@ -1,0 +1,41 @@
+{
+  "plan_version": "GATE_3D_PLAN_v0.1",
+  "experiment": "EXP-003",
+  "gate": "3D",
+  "status": "DRAFT",
+  "anchors": {
+    "gate3b_closure_checkpoint": null,
+    "gate3c_closure_or_deferral": null,
+    "frozen_runtime": null,
+    "protocol_tag": "exp-003-protocol-v0.1",
+    "plan_freeze_commit": null,
+    "derivation_anchor": null
+  },
+  "controlled_configuration": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12
+  },
+  "exclusions": {"seeds": [42], "note": "Add the 20 Gate 2B seeds and all Gate 3A/3B/3C seeds before deriving manifests."},
+  "stages": {"set_001": "bridged hives with their unbridged controls on the same worlds"},
+  "arms": [
+    {"stage": "set_001", "set_id": "shared_root_set_001", "manifest_label": "G3D_SHARED001", "topology": "hives_bridged", "root_mode": "shared",
+     "rounds": 4, "probe": true, "worlds": 8, "selection": "unfiltered", "seeds_from": null,
+     "manifest": "GATE_3D_MANIFEST_SHARED001_v0.1.json", "optional": false, "calls_per_world": 66},
+    {"stage": "set_001", "set_id": "isolated_shared_root_set_001", "manifest_label": "G3D_ISOSHARED001", "topology": "hives_isolated", "root_mode": "shared",
+     "rounds": 4, "probe": true, "worlds": 8, "selection": "inherited", "seeds_from": "shared_root_set_001",
+     "manifest": "GATE_3D_MANIFEST_ISOSHARED001_v0.1.json", "optional": false, "calls_per_world": 66,
+     "note": "Control: same worlds, no bridge. The only difference from shared_root_set_001 is the two cross-hive edges."},
+    {"stage": "set_001", "set_id": "dual_root_set_001", "manifest_label": "G3D_DUAL001", "topology": "hives_bridged", "root_mode": "dual",
+     "rounds": 4, "probe": true, "worlds": 16, "selection": "stratified_2_per_cell", "seeds_from": null,
+     "manifest": "GATE_3D_MANIFEST_DUAL001_v0.1.json", "optional": false, "calls_per_world": 66,
+     "note": "Reported by cell: agreeing cells and conflicting cells are separate arms in the markdown plan."},
+    {"stage": "set_001", "set_id": "isolated_dual_root_set_001", "manifest_label": "G3D_ISODUAL001", "topology": "hives_isolated", "root_mode": "dual",
+     "rounds": 4, "probe": true, "worlds": 16, "selection": "inherited", "seeds_from": "dual_root_set_001",
+     "manifest": "GATE_3D_MANIFEST_ISODUAL001_v0.1.json", "optional": false, "calls_per_world": 66,
+     "note": "Control: same worlds, no bridge. Each hive is then a single-root diamond on its own sensor."}
+  ]
+}

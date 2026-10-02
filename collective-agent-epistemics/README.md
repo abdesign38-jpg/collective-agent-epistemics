@@ -22,6 +22,7 @@ and [replication plan](experiments/EXP_002/REPLICATION_PLAN_v0.1.md).
 - **Gate 2B** — closed under the frozen EXP-002 v0.1 design.
 - **Gate 2C** — future / not yet prospectively designed.
 - **Gate 3** — future.
+- **EXP-003** — draft harness and prospective plans for a topology ladder (Gates 3A bounce, 3B diamond, 3C detached, 3D hives); not frozen; no real-model calls made. See [experiments/EXP_003/README.md](experiments/EXP_003/README.md).
 
 This documentation reflects the current repository state as committed. It does not introduce new scientific conclusions beyond the preserved gate closures and their audit artifacts.
 

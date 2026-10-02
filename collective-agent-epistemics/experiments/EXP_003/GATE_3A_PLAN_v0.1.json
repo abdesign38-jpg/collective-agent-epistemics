@@ -1,0 +1,65 @@
+{
+  "plan_version": "GATE_3A_PLAN_v0.1",
+  "experiment": "EXP-003",
+  "gate": "3A",
+  "status": "DRAFT",
+  "status_note": "Set to FROZEN only in the commit that fills every anchor below. The orchestrator refuses live execution otherwise.",
+  "anchors": {
+    "gate2b_closure_checkpoint": null,
+    "frozen_runtime": null,
+    "protocol_tag": "exp-003-protocol-v0.1",
+    "plan_freeze_commit": null,
+    "derivation_anchor": null
+  },
+  "controlled_configuration": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12
+  },
+  "exclusions": {
+    "seeds": [42],
+    "note": "Add the 20 Gate 2B seeds from GATE_2B_WORLD_MANIFEST_v0.1.json before deriving manifests. Set 002 additionally excludes every Set 001 seed."
+  },
+  "stages": {
+    "set_001": "discovery: four matched topologies on 12 unfiltered worlds",
+    "set_002": "replication: the same four topologies on 12 new unfiltered worlds, same frozen design; runs regardless of Set 001 results and only after Set 001 closes"
+  },
+  "arms": [
+    {"stage": "set_001", "set_id": "ring_control_set_001", "manifest_label": "G3A_RING001", "topology": "ring", "root_mode": "single",
+     "rounds": 4, "probe": false, "worlds": 12, "selection": "unfiltered", "seeds_from": null,
+     "manifest": "GATE_3A_MANIFEST_RING001_v0.1.json", "optional": false, "calls_per_world": 25,
+     "note": "Contemporary ring. Paired with the other Set 001 arms by seed; compared with the 36 historical EXP-002 ring runs as a model-drift observation only."},
+    {"stage": "set_001", "set_id": "solo_control_set_001", "manifest_label": "G3A_SOLO001", "topology": "solo", "root_mode": "single",
+     "rounds": 12, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_001",
+     "manifest": "GATE_3A_MANIFEST_SOLO001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "dyad_set_001", "manifest_label": "G3A_DYAD001", "topology": "dyad", "root_mode": "single",
+     "rounds": 6, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_001",
+     "manifest": "GATE_3A_MANIFEST_DYAD001_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "bounce_set_001", "manifest_label": "G3A_BOUNCE001", "topology": "bounce", "root_mode": "single",
+     "rounds": 3, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_001",
+     "manifest": "GATE_3A_MANIFEST_BOUNCE001_v0.1.json", "optional": false, "calls_per_world": 25},
+
+    {"stage": "set_002", "set_id": "ring_control_set_002", "manifest_label": "G3A_RING002", "topology": "ring", "root_mode": "single",
+     "rounds": 4, "probe": false, "worlds": 12, "selection": "unfiltered", "seeds_from": null,
+     "manifest": "GATE_3A_MANIFEST_RING002_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_002", "set_id": "solo_control_set_002", "manifest_label": "G3A_SOLO002", "topology": "solo", "root_mode": "single",
+     "rounds": 12, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_002",
+     "manifest": "GATE_3A_MANIFEST_SOLO002_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_002", "set_id": "dyad_set_002", "manifest_label": "G3A_DYAD002", "topology": "dyad", "root_mode": "single",
+     "rounds": 6, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_002",
+     "manifest": "GATE_3A_MANIFEST_DYAD002_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_002", "set_id": "bounce_set_002", "manifest_label": "G3A_BOUNCE002", "topology": "bounce", "root_mode": "single",
+     "rounds": 3, "probe": false, "worlds": 12, "selection": "inherited", "seeds_from": "ring_control_set_002",
+     "manifest": "GATE_3A_MANIFEST_BOUNCE002_v0.1.json", "optional": false, "calls_per_world": 25}
+  ],
+  "historical_baseline": {
+    "experiment": "EXP-002",
+    "topology": "ring",
+    "runs": 36,
+    "archive": "experiments/EXP_002/results/archive",
+    "note": "Retrospective evidence, not a Gate 3A denominator. Probe-off single-inbound prompts are byte-identical (tests/test_exp003.py). ring_control_set_001 versus these runs measures model drift over time; it is a secondary observation."
+  }
+}

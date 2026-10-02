@@ -1,0 +1,56 @@
+{
+  "plan_version": "GATE_3B_PLAN_v0.1",
+  "experiment": "EXP-003",
+  "gate": "3B",
+  "status": "DRAFT",
+  "anchors": {
+    "gate3a_closure_checkpoint": null,
+    "frozen_runtime": null,
+    "protocol_tag": "exp-003-protocol-v0.1",
+    "plan_freeze_commit": null,
+    "derivation_anchor": null
+  },
+  "controlled_configuration": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12
+  },
+  "exclusions": {"seeds": [42], "note": "Add the 20 Gate 2B seeds and all Gate 3A seeds before deriving manifests. Set 002 additionally excludes every Set 001 seed."},
+  "stages": {
+    "set_001": "discovery",
+    "set_002": "replication of the diamond and dual-root arms on new worlds; runs regardless of Set 001 results and only after Set 001 closes"
+  },
+  "matrix": {
+    "note": "Rows are arms; FREE and LINEAGE columns come from paired execution within each arm. The reference at D is .70 with one root and about .845 (agreeing) or .50 (conflicting) with two.",
+    "cells": [
+      {"roots_at_D": 1, "condition": "FREE", "arm": "diamond_set_001", "tests": "does D mistake redundancy for independence"},
+      {"roots_at_D": 1, "condition": "LINEAGE", "arm": "diamond_set_001", "tests": "does the envelope correct the dependency"},
+      {"roots_at_D": 2, "condition": "FREE", "arm": "dual_root_set_001", "tests": "positive control: genuine corroboration raises D toward the two-root reference"},
+      {"roots_at_D": 2, "condition": "LINEAGE", "arm": "dual_root_set_001", "tests": "the envelope must not suppress genuinely independent evidence"}
+    ]
+  },
+  "arms": [
+    {"stage": "set_001", "set_id": "diamond_set_001", "manifest_label": "G3B_GEN001", "topology": "diamond", "root_mode": "single",
+     "rounds": 4, "probe": true, "worlds": 12, "selection": "unfiltered", "seeds_from": null,
+     "manifest": "GATE_3B_MANIFEST_GEN001_v0.1.json", "optional": false, "calls_per_world": 33},
+    {"stage": "set_001", "set_id": "dual_root_set_001", "manifest_label": "G3B_DUAL001", "topology": "diamond", "root_mode": "dual",
+     "rounds": 4, "probe": true, "worlds": 16, "selection": "stratified_2_per_cell", "seeds_from": null,
+     "manifest": "GATE_3B_MANIFEST_DUAL001_v0.1.json", "optional": false, "calls_per_world": 33},
+    {"stage": "set_001", "set_id": "solo_control_set_003", "manifest_label": "G3B_SOLO003", "topology": "solo", "root_mode": "single",
+     "rounds": 12, "probe": true, "worlds": 12, "selection": "inherited", "seeds_from": "diamond_set_001",
+     "manifest": "GATE_3B_MANIFEST_SOLO003_v0.1.json", "optional": false, "calls_per_world": 25},
+    {"stage": "set_001", "set_id": "probe_off_set_001", "manifest_label": "G3B_PROBEOFF001", "topology": "diamond", "root_mode": "single",
+     "rounds": 4, "probe": false, "worlds": 4, "selection": "inherited_first_4", "seeds_from": "diamond_set_001",
+     "manifest": "GATE_3B_MANIFEST_PROBEOFF001_v0.1.json", "optional": false, "calls_per_world": 33},
+
+    {"stage": "set_002", "set_id": "diamond_set_002", "manifest_label": "G3B_GEN002", "topology": "diamond", "root_mode": "single",
+     "rounds": 4, "probe": true, "worlds": 12, "selection": "unfiltered", "seeds_from": null,
+     "manifest": "GATE_3B_MANIFEST_GEN002_v0.1.json", "optional": false, "calls_per_world": 33},
+    {"stage": "set_002", "set_id": "dual_root_set_002", "manifest_label": "G3B_DUAL002", "topology": "diamond", "root_mode": "dual",
+     "rounds": 4, "probe": true, "worlds": 16, "selection": "stratified_2_per_cell", "seeds_from": null,
+     "manifest": "GATE_3B_MANIFEST_DUAL002_v0.1.json", "optional": false, "calls_per_world": 33}
+  ]
+}

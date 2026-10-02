@@ -19,3 +19,4 @@ The current empirical observation registry begins with [EXP_002_pilot_observatio
 - **Gate 2B** — closed under the frozen EXP-002 v0.1 design
 - **Gate 2C** — future / not yet prospectively designed
 - **Gate 3** — future
+- **EXP-003** — prospective fan-in design drafted (`experiments/EXP_003/`); not frozen; not executed
