@@ -1,0 +1,97 @@
+{
+  "experiment": "EXP-003",
+  "run_class": "gate_3a_real_model",
+  "execution_policy": "paired",
+  "world_count": 1,
+  "adapter_name": "openai",
+  "provider": "openai",
+  "requested_model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "sdk_version": "3.16.2",
+  "timeout_seconds": 60.0,
+  "store": false,
+  "max_retries": 0,
+  "probe": false,
+  "fallbacks": false,
+  "prompt_version": "exp003-v0.1",
+  "schema_version": "exp003-agent-response-v0.1",
+  "python_version": "3.14.2",
+  "timestamp_utc": "2026-10-02T20:33:06.444920+00:00",
+  "trial_count": 1,
+  "rounds": 4,
+  "seed": 683505103,
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "topology_name": "ring",
+  "topology": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ]
+  ],
+  "regrounding": true,
+  "focal_agent": "C",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "worlds": [
+    {
+      "world_id": "EXP_003_W01",
+      "seed": 683505103,
+      "truth": "A",
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "observed_state": "A",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "adapter_metadata": {
+    "provider": "openai",
+    "requested_model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "timeout_seconds": 60.0,
+    "store": false,
+    "max_retries": 0,
+    "probe": true,
+    "prompt_version": "exp003-v0.1",
+    "schema_version": "exp003-agent-response-v0.1",
+    "sdk_version": "3.16.2",
+    "fallbacks": false
+  },
+  "execution_metadata": {
+    "actual_model_call_count": 25,
+    "reused_response_count": 4,
+    "input_tokens_actual": 5593,
+    "output_tokens_actual": 2765,
+    "total_tokens_actual": 8358,
+    "fallback_events": 0,
+    "served_models": [
+      "gpt-5.6-sol"
+    ]
+  },
+  "note": "Exploratory real-model run. Not confirmatory evidence.",
+  "config_fingerprint": "fc0a16de6e6e51010f53e7df6e3c03a8e6ff686eeb4fe3fe422d21711cd74da2"
+}

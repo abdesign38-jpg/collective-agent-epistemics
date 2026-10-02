@@ -1,0 +1,24 @@
+{
+  "gate": "3A",
+  "set": "dyad_set_001",
+  "canonical_id": "E3_G3A_DYAD001_seed_1117385864",
+  "seed": 1117385864,
+  "attempt": 1,
+  "frozen_config": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12,
+    "rounds": 6,
+    "probe": false,
+    "topology": "dyad",
+    "root_mode": "single"
+  },
+  "manifest_sha256": "eaa74865ed2eac00f5efc31da22ba4734df1f5852ff3c9ab18c6b916d233fc3f",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "timestamp_utc": "2026-10-02T20:51:55.647004+00:00",
+  "status": "technical_failure"
+}
