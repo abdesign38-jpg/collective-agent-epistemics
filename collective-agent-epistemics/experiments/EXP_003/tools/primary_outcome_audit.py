@@ -840,6 +840,12 @@ def render_historical_markdown(r: dict[str, Any]) -> str:
 # CLI
 # --------------------------------------------------------------------------------------
 
+def output_paths(stem: Path) -> tuple[Path, Path]:
+    """`<stem>.json` and `<stem>.md`. Not Path.with_suffix, which would read the `.1` of
+    `_v0.1` as a suffix and drop it (the first live run was renamed by hand for this)."""
+    return Path(f"{stem}.json"), Path(f"{stem}.md")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan", type=Path, default=EXP003 / "GATE_3A_PLAN_v0.1.json")
@@ -862,8 +868,9 @@ def main() -> None:
         corpus_file = args.corpus_audit or corpus_audit_path(gate, stage, args.out_dir)
         report = historical_observation(args.plan, args.set_id, archive_root, corpus_file, args.exp002_archive)
         stem = out_dir / f"EXP_003_GATE_{gate.upper()}_HISTORICAL_RING_OBSERVATION_v0.1"
-        stem.with_suffix(".json").write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
-        stem.with_suffix(".md").write_text(render_historical_markdown(report), encoding="utf-8")
+        json_path, md_path = output_paths(stem)
+        json_path.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
+        md_path.write_text(render_historical_markdown(report), encoding="utf-8")
         print(f"SECONDARY OBSERVATION written: contemporary {report['contemporary_worlds']} worlds vs historical {report['historical_runs']} runs")
         print(f"wrote {stem}.json and .md")
         return
@@ -873,8 +880,9 @@ def main() -> None:
     corpus_file = args.corpus_audit or corpus_audit_path(gate, args.stage, args.out_dir)
     report = audit_stage(args.plan, args.stage, archive_root, corpus_file)
     stem = out_dir / f"EXP_003_GATE_{gate.upper()}_{args.stage.upper()}_PRIMARY_OUTCOME_AUDIT_v0.1"
-    stem.with_suffix(".json").write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
-    stem.with_suffix(".md").write_text(render_markdown(report), encoding="utf-8")
+    json_path, md_path = output_paths(stem)
+    json_path.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
+    md_path.write_text(render_markdown(report), encoding="utf-8")
     verdicts = ", ".join(f"{k}={report['expectations'][k]['verdict']}" for k in ("E1", "E2", "E3", "E4", "E5"))
     print(f"{report['status']}: {sum(s['worlds'] for s in report['sets'].values())} worlds; {verdicts}")
     print(f"wrote {stem}.json and .md")
