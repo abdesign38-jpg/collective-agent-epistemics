@@ -21,8 +21,9 @@ and [replication plan](experiments/EXP_002/REPLICATION_PLAN_v0.1.md).
 - **Gate 2A** — closed under the frozen EXP-002 v0.1 design.
 - **Gate 2B** — closed under the frozen EXP-002 v0.1 design.
 - **Gate 2C** — future / not yet prospectively designed.
-- **Gate 3** — future.
-- **EXP-003** — draft harness and prospective plans for a topology ladder (Gates 3A bounce, 3B diamond, 3C detached, 3D hives); not frozen; no real-model calls made. See [experiments/EXP_003/README.md](experiments/EXP_003/README.md).
+- **EXP-003 v0.1** — frozen (tag `exp-003-protocol-v0.1`); a topology ladder (Gates 3A matched topologies, 3B diamond, 3C detached, 3D hives). See [experiments/EXP_003/README.md](experiments/EXP_003/README.md).
+- **Gate 3A** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3a-closed-v0.1`): ring, solo, dyad and bounce on the same worlds, two pre-registered stages, 96 worlds archived and audited. Findings are recorded in [research/observations/EXP_003_gate_3a_observations_v0.1.md](research/observations/EXP_003_gate_3a_observations_v0.1.md).
+- **Gates 3B, 3C, 3D** — prospective plans drafted; not frozen; no real-model calls made.
 
 This documentation reflects the current repository state as committed. It does not introduce new scientific conclusions beyond the preserved gate closures and their audit artifacts.
 
@@ -82,6 +83,6 @@ research hypothesis. It validates that we can measure:
 - confidence change without new independent evidence
 - macro stopping behavior
 
-The next research phase is replication of the frozen EXP-002 configuration. Future
-worlds, models, and architecture interventions remain gated until that replication
-and audit are complete.
+EXP-002 replication and audit are complete (Gate 2B). EXP-003 Gate 3A is closed. The
+next research phase is Gate 3B (diamond fan-in), which runs only after its plan is
+frozen and its manifests committed; no gate is redesigned after its results are seen.

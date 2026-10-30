@@ -29,6 +29,8 @@ Repository
 - Gate 2A — closed
 - Gate 2B — closed under the frozen EXP-002 v0.1 design
 - Gate 2C — future / not yet prospectively designed
-- Gate 3 — future
+- EXP-003 v0.1 — frozen (tag `exp-003-protocol-v0.1`)
+- Gate 3A — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3a-closed-v0.1`)
+- Gates 3B, 3C, 3D — prospective plans drafted; not frozen; not executed
 
 This root README is navigation-only and does not duplicate detailed scientific outcomes or protocol history.
