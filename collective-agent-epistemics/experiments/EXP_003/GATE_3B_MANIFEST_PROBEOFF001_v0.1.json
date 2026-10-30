@@ -1,0 +1,114 @@
+{
+  "experiment": "EXP-003",
+  "set_id": "G3B_PROBEOFF001",
+  "anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1",
+  "topology": "diamond",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "excluded_seeds": [],
+  "selection": {
+    "scheme": "inherited",
+    "from_set_id": "G3B_GEN001",
+    "from_anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1",
+    "first": 4
+  },
+  "worlds": [
+    {
+      "canonical_id": "E3_G3B_PROBEOFF001_seed_1672462843",
+      "seed": 1672462843,
+      "internal_world_id": "EXP_003_W_1672462843",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN001:001",
+      "execution_order": 1
+    },
+    {
+      "canonical_id": "E3_G3B_PROBEOFF001_seed_63901144",
+      "seed": 63901144,
+      "internal_world_id": "EXP_003_W_63901144",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN001:002",
+      "execution_order": 2
+    },
+    {
+      "canonical_id": "E3_G3B_PROBEOFF001_seed_323832400",
+      "seed": 323832400,
+      "internal_world_id": "EXP_003_W_323832400",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN001:003",
+      "execution_order": 3
+    },
+    {
+      "canonical_id": "E3_G3B_PROBEOFF001_seed_1566825802",
+      "seed": 1566825802,
+      "internal_world_id": "EXP_003_W_1566825802",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN001:004",
+      "execution_order": 4
+    }
+  ],
+  "model_calls_made": 0
+}

@@ -1,0 +1,1206 @@
+{
+  "experiment": "EXP-003",
+  "set_id": "G3B_DUAL002",
+  "anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1",
+  "topology": "diamond",
+  "root_mode": "dual",
+  "sensor_reliability": 0.7,
+  "excluded_seeds": [
+    42,
+    28092603,
+    63901144,
+    153299879,
+    154869395,
+    170961959,
+    187031691,
+    208630909,
+    217181935,
+    245389550,
+    264003842,
+    277459948,
+    319975066,
+    323832400,
+    452662356,
+    503343741,
+    515022515,
+    588710334,
+    617684863,
+    652310877,
+    652866105,
+    683505103,
+    743291108,
+    745425377,
+    786534487,
+    805591371,
+    818285910,
+    874625177,
+    882867208,
+    945922859,
+    948364460,
+    950201606,
+    961840741,
+    1027876222,
+    1032002992,
+    1043406990,
+    1074206943,
+    1114638083,
+    1117385864,
+    1138823197,
+    1146035841,
+    1211074116,
+    1230824526,
+    1246964244,
+    1247992891,
+    1257399226,
+    1265697921,
+    1280872600,
+    1292406070,
+    1296650177,
+    1353126068,
+    1430476680,
+    1468093150,
+    1476859861,
+    1523495488,
+    1531843854,
+    1566825802,
+    1582931821,
+    1617711318,
+    1662733804,
+    1672462843,
+    1686133698,
+    1703800204,
+    1779995607,
+    1792403557,
+    1813269025,
+    1925941366,
+    1926897563,
+    1975068904,
+    2020380812,
+    2036696995,
+    2105050229,
+    2106030015
+  ],
+  "selection": {
+    "scheme": "stratified",
+    "per_cell": 2,
+    "cells": [
+      "A/A/A",
+      "A/A/B",
+      "A/B/A",
+      "A/B/B",
+      "B/A/A",
+      "B/A/B",
+      "B/B/A",
+      "B/B/B"
+    ],
+    "scan": [
+      {
+        "scan_index": 1,
+        "seed": 1068989073,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 2,
+        "seed": 1264392180,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 3,
+        "seed": 216987976,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 4,
+        "seed": 1322584095,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 5,
+        "seed": 479525595,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 6,
+        "seed": 2082756798,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 7,
+        "seed": 510230685,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 8,
+        "seed": 1443779878,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 9,
+        "seed": 2017093923,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 10,
+        "seed": 1529272906,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 11,
+        "seed": 1629652161,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 12,
+        "seed": 1587692757,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 13,
+        "seed": 1150363503,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 14,
+        "seed": 932346348,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 15,
+        "seed": 1542324962,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 16,
+        "seed": 1109622288,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 17,
+        "seed": 1319386074,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 18,
+        "seed": 1171415378,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 19,
+        "seed": 834365622,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 20,
+        "seed": 1948840115,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 21,
+        "seed": 1592124614,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 22,
+        "seed": 508907085,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 23,
+        "seed": 2126827006,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 24,
+        "seed": 1239609585,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 25,
+        "seed": 1276817866,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 26,
+        "seed": 998498048,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 27,
+        "seed": 80913935,
+        "truth": "B",
+        "cell": "B/A/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 28,
+        "seed": 682613140,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 29,
+        "seed": 2031909695,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 30,
+        "seed": 1499076861,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 31,
+        "seed": 1535222566,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 32,
+        "seed": 1614821534,
+        "truth": "B",
+        "cell": "B/A/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 33,
+        "seed": 936625699,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 34,
+        "seed": 70347931,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 35,
+        "seed": 1375806936,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 36,
+        "seed": 1067576268,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 37,
+        "seed": 1377030909,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 38,
+        "seed": 953471877,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 39,
+        "seed": 1231161368,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 40,
+        "seed": 1139418906,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 41,
+        "seed": 850432240,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 42,
+        "seed": 1076016318,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 43,
+        "seed": 1761851777,
+        "truth": "A",
+        "cell": "A/B/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 44,
+        "seed": 1516256562,
+        "truth": "B",
+        "cell": "B/A/A",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 45,
+        "seed": 1461978360,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 46,
+        "seed": 325990573,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 47,
+        "seed": 889660319,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 48,
+        "seed": 1420307176,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 49,
+        "seed": 1943818421,
+        "truth": "B",
+        "cell": "B/A/B",
+        "accepted": true,
+        "reason": null
+      },
+      {
+        "scan_index": 50,
+        "seed": 568586138,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 51,
+        "seed": 890076130,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 52,
+        "seed": 629670652,
+        "truth": "B",
+        "cell": "B/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 53,
+        "seed": 557377094,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 54,
+        "seed": 1683518020,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 55,
+        "seed": 887276972,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 56,
+        "seed": 1912875094,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 57,
+        "seed": 1209909970,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 58,
+        "seed": 1549934442,
+        "truth": "A",
+        "cell": "A/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 59,
+        "seed": 1234769691,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 60,
+        "seed": 77680237,
+        "truth": "A",
+        "cell": "A/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 61,
+        "seed": 889402154,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 62,
+        "seed": 1094362318,
+        "truth": "B",
+        "cell": "B/A/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 63,
+        "seed": 1050344340,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 64,
+        "seed": 1096741404,
+        "truth": "B",
+        "cell": "B/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 65,
+        "seed": 168046656,
+        "truth": "A",
+        "cell": "A/A/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 66,
+        "seed": 1765756109,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 67,
+        "seed": 11516989,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 68,
+        "seed": 2082292914,
+        "truth": "B",
+        "cell": "B/B/B",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 69,
+        "seed": 405482754,
+        "truth": "B",
+        "cell": "B/B/A",
+        "accepted": false,
+        "reason": "cell_full"
+      },
+      {
+        "scan_index": 70,
+        "seed": 1119880167,
+        "truth": "A",
+        "cell": "A/B/B",
+        "accepted": true,
+        "reason": null
+      }
+    ]
+  },
+  "worlds": [
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1761851777",
+      "seed": 1761851777,
+      "internal_world_id": "EXP_003_W_1761851777",
+      "truth": "A",
+      "observed": [
+        "B",
+        "B"
+      ],
+      "cell": "A/B/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "038ca8393716c99a69f0256bd2b9bf3585a5729b4475e1056f1bd6188a782dac",
+      "execution_order": 1
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1516256562",
+      "seed": 1516256562,
+      "internal_world_id": "EXP_003_W_1516256562",
+      "truth": "B",
+      "observed": [
+        "A",
+        "A"
+      ],
+      "cell": "B/A/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "1820d7d0c6a559f3ccaf779841737f8abd251288be88be7aa0475b9472192e6d",
+      "execution_order": 2
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1614821534",
+      "seed": 1614821534,
+      "internal_world_id": "EXP_003_W_1614821534",
+      "truth": "B",
+      "observed": [
+        "A",
+        "A"
+      ],
+      "cell": "B/A/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "36342f3dc8c905ec237b132046eef8d774eaaf8f62e5dfd714e994b65b6a8cad",
+      "execution_order": 3
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1943818421",
+      "seed": 1943818421,
+      "internal_world_id": "EXP_003_W_1943818421",
+      "truth": "B",
+      "observed": [
+        "A",
+        "B"
+      ],
+      "cell": "B/A/B",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "3aaa12c7954b3dda64f39cbcbfe3eb9007afd1d926f727d9abd09de0bce654e3",
+      "execution_order": 4
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_2082756798",
+      "seed": 2082756798,
+      "internal_world_id": "EXP_003_W_2082756798",
+      "truth": "B",
+      "observed": [
+        "B",
+        "B"
+      ],
+      "cell": "B/B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "63ecaf4dc96785aa53624389fcc4e6e79e138a275500a09f15344d2fceae4847",
+      "execution_order": 5
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1068989073",
+      "seed": 1068989073,
+      "internal_world_id": "EXP_003_W_1068989073",
+      "truth": "B",
+      "observed": [
+        "B",
+        "B"
+      ],
+      "cell": "B/B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "770ecfb0b62abde155af9818bb8aa793b7960a8230e7be1b70f6f27c6d1386d0",
+      "execution_order": 6
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1150363503",
+      "seed": 1150363503,
+      "internal_world_id": "EXP_003_W_1150363503",
+      "truth": "B",
+      "observed": [
+        "B",
+        "A"
+      ],
+      "cell": "B/B/A",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "87a4ce210faf5eb9f2f03bbe181a3faa4a31f3531e8ce6353ecda92b5ae99a75",
+      "execution_order": 7
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1587692757",
+      "seed": 1587692757,
+      "internal_world_id": "EXP_003_W_1587692757",
+      "truth": "A",
+      "observed": [
+        "A",
+        "B"
+      ],
+      "cell": "A/A/B",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "89f826a23151fc4089dcf4d89e70c0dadb20de2911455b4a7c408a9cbe5aacba",
+      "execution_order": 8
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1264392180",
+      "seed": 1264392180,
+      "internal_world_id": "EXP_003_W_1264392180",
+      "truth": "A",
+      "observed": [
+        "A",
+        "B"
+      ],
+      "cell": "A/A/B",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "999cc97ace5a1863e33d4f1b50ac87f5b4c763b9522b4d1ce9dc09a2fcfb2035",
+      "execution_order": 9
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_2017093923",
+      "seed": 2017093923,
+      "internal_world_id": "EXP_003_W_2017093923",
+      "truth": "A",
+      "observed": [
+        "A",
+        "A"
+      ],
+      "cell": "A/A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "a70656ef3d0a27b7330aa669450d11d690d73d3b16627314b3b94e9d1320350b",
+      "execution_order": 10
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_216987976",
+      "seed": 216987976,
+      "internal_world_id": "EXP_003_W_216987976",
+      "truth": "A",
+      "observed": [
+        "B",
+        "A"
+      ],
+      "cell": "A/B/A",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "a7ae34865b7dd281f876b0d9aa8ec60283bb06142d8663b9328b3ee4739dfc10",
+      "execution_order": 11
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1119880167",
+      "seed": 1119880167,
+      "internal_world_id": "EXP_003_W_1119880167",
+      "truth": "A",
+      "observed": [
+        "B",
+        "B"
+      ],
+      "cell": "A/B/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "ce406829cf608747310744e7ebe7875b794602d7bd3a0be32b126bce567c1dcf",
+      "execution_order": 12
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1629652161",
+      "seed": 1629652161,
+      "internal_world_id": "EXP_003_W_1629652161",
+      "truth": "A",
+      "observed": [
+        "A",
+        "A"
+      ],
+      "cell": "A/A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "d88b27de8644080a358f0629ba1c9416faaaf93a1bf7f43dbea4f45532862ec6",
+      "execution_order": 13
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_1322584095",
+      "seed": 1322584095,
+      "internal_world_id": "EXP_003_W_1322584095",
+      "truth": "A",
+      "observed": [
+        "B",
+        "A"
+      ],
+      "cell": "A/B/A",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "e696a4e70cbf30e81f7565159017179221a883f07b3b1bba4dc41ee786804f80",
+      "execution_order": 14
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_80913935",
+      "seed": 80913935,
+      "internal_world_id": "EXP_003_W_80913935",
+      "truth": "B",
+      "observed": [
+        "A",
+        "B"
+      ],
+      "cell": "B/A/B",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "e95de89072dc43c11f4146938962927c7a7e2d1f0a4128d3aa91e8e029d53f7a",
+      "execution_order": 15
+    },
+    {
+      "canonical_id": "E3_G3B_DUAL002_seed_479525595",
+      "seed": 479525595,
+      "internal_world_id": "EXP_003_W_479525595",
+      "truth": "B",
+      "observed": [
+        "B",
+        "A"
+      ],
+      "cell": "B/B/A",
+      "alignment": "mixed",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "source": "sensor_2",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "C"
+          ]
+        }
+      ],
+      "order_key": "fc82299cc7cfef74a143802bb9bf43a0a5f30bfaa0108ac42a94220e0a26fb73",
+      "execution_order": 16
+    }
+  ],
+  "model_calls_made": 0
+}

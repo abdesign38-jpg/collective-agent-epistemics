@@ -1,0 +1,412 @@
+{
+  "experiment": "EXP-003",
+  "set_id": "G3B_GEN001",
+  "anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1",
+  "topology": "diamond",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "excluded_seeds": [
+    42,
+    28092603,
+    154869395,
+    170961959,
+    208630909,
+    217181935,
+    245389550,
+    319975066,
+    515022515,
+    588710334,
+    652310877,
+    652866105,
+    683505103,
+    818285910,
+    874625177,
+    882867208,
+    945922859,
+    948364460,
+    950201606,
+    961840741,
+    1027876222,
+    1032002992,
+    1043406990,
+    1114638083,
+    1117385864,
+    1138823197,
+    1146035841,
+    1211074116,
+    1246964244,
+    1247992891,
+    1257399226,
+    1265697921,
+    1280872600,
+    1296650177,
+    1353126068,
+    1468093150,
+    1523495488,
+    1531843854,
+    1582931821,
+    1662733804,
+    1779995607,
+    1792403557,
+    1813269025,
+    1925941366,
+    1926897563
+  ],
+  "selection": {
+    "scheme": "unfiltered",
+    "count": 12,
+    "selection": [
+      {
+        "ordinal": 1,
+        "nonce": 0,
+        "seed": 187031691
+      },
+      {
+        "ordinal": 2,
+        "nonce": 0,
+        "seed": 743291108
+      },
+      {
+        "ordinal": 3,
+        "nonce": 0,
+        "seed": 2020380812
+      },
+      {
+        "ordinal": 4,
+        "nonce": 0,
+        "seed": 63901144
+      },
+      {
+        "ordinal": 5,
+        "nonce": 0,
+        "seed": 277459948
+      },
+      {
+        "ordinal": 6,
+        "nonce": 0,
+        "seed": 745425377
+      },
+      {
+        "ordinal": 7,
+        "nonce": 0,
+        "seed": 1686133698
+      },
+      {
+        "ordinal": 8,
+        "nonce": 0,
+        "seed": 323832400
+      },
+      {
+        "ordinal": 9,
+        "nonce": 0,
+        "seed": 1566825802
+      },
+      {
+        "ordinal": 10,
+        "nonce": 0,
+        "seed": 1292406070
+      },
+      {
+        "ordinal": 11,
+        "nonce": 0,
+        "seed": 1672462843
+      },
+      {
+        "ordinal": 12,
+        "nonce": 0,
+        "seed": 1476859861
+      }
+    ]
+  },
+  "worlds": [
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_1672462843",
+      "seed": 1672462843,
+      "internal_world_id": "EXP_003_W_1672462843",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "1d155a91504c7aa39489c9644747fe009004f43e1ac53320a78e7d938380618a",
+      "execution_order": 1
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_63901144",
+      "seed": 63901144,
+      "internal_world_id": "EXP_003_W_63901144",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "38b508fafec22ee21c9a9027be6196c3e0832b28c666062c0d3983869aba41d5",
+      "execution_order": 2
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_323832400",
+      "seed": 323832400,
+      "internal_world_id": "EXP_003_W_323832400",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "3c938cec433c3d01316490cb4ff45161e639ffd876e2f36383cfa263906827d6",
+      "execution_order": 3
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_1566825802",
+      "seed": 1566825802,
+      "internal_world_id": "EXP_003_W_1566825802",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "5026683801a5d7f6cbbca927c1cfdc0e531b1872a46ba650d177412fbc5098b3",
+      "execution_order": 4
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_277459948",
+      "seed": 277459948,
+      "internal_world_id": "EXP_003_W_277459948",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "7d6ec48f061617810e40c486eb9da546d3be5cd994e1c3fb897a19908ee062f5",
+      "execution_order": 5
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_743291108",
+      "seed": 743291108,
+      "internal_world_id": "EXP_003_W_743291108",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "7f01d5000aa2c625f81960d31933406003029880f127f4ef768928e2f234ff7d",
+      "execution_order": 6
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_2020380812",
+      "seed": 2020380812,
+      "internal_world_id": "EXP_003_W_2020380812",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "8ef9580846515c4444a6f078f81c215db1f63c9c3051f80470ab2b464cbc6967",
+      "execution_order": 7
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_1292406070",
+      "seed": 1292406070,
+      "internal_world_id": "EXP_003_W_1292406070",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "98c44821c2b157c9b6b54d77723af05998aeb33c73eafb3fabd834c851214e2e",
+      "execution_order": 8
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_187031691",
+      "seed": 187031691,
+      "internal_world_id": "EXP_003_W_187031691",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "be5e485fc3e1ef22dd0c7f165b7e87164c9abeff7a85e9a294d4f2eefea30b48",
+      "execution_order": 9
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_1476859861",
+      "seed": 1476859861,
+      "internal_world_id": "EXP_003_W_1476859861",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "dc0cf4e1621802c48d64a607318201e33d1a2fb55233af051d655a46b518d45f",
+      "execution_order": 10
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_745425377",
+      "seed": 745425377,
+      "internal_world_id": "EXP_003_W_745425377",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "de5eed47b35fb275f2e6627d39dfdf065c704921d6c87f3bfaac867d55af3892",
+      "execution_order": 11
+    },
+    {
+      "canonical_id": "E3_G3B_GEN001_seed_1686133698",
+      "seed": 1686133698,
+      "internal_world_id": "EXP_003_W_1686133698",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "e9137e322132c7b37d12bae8126da31216d6b5ca152bf07dfc5f6b9359a4ef84",
+      "execution_order": 12
+    }
+  ],
+  "model_calls_made": 0
+}
