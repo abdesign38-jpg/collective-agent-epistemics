@@ -1,0 +1,113 @@
+diff --git a/collective-agent-epistemics/experiments/EXP_003/manifest.py b/collective-agent-epistemics/experiments/EXP_003/manifest.py
+index e0a545d..31cb945 100644
+--- a/collective-agent-epistemics/experiments/EXP_003/manifest.py
++++ b/collective-agent-epistemics/experiments/EXP_003/manifest.py
+@@ -127,18 +127,30 @@ def build_manifest(
+     excluded: set[int],
+     reliability: float = 0.70,
+     seeds_from: dict[str, Any] | None = None,
++    inherit_first: int | None = None,
+ ) -> dict[str, Any]:
+     get_topology(topology)  # validate
+     if seeds_from is not None:
+         # Paired set: reuse another set's seeds and execution order verbatim so that each
+         # world has one execution per arm and the arms differ in topology/root mode only.
++        # With inherit_first=N only the first N worlds in the source's execution order are
++        # taken (a plan's "inherited_first_N" selection); order and seeds are still verbatim.
++        source_worlds = sorted(seeds_from["worlds"], key=lambda w: w["execution_order"])
++        if inherit_first is not None:
++            if not 1 <= inherit_first <= len(source_worlds):
++                raise ValueError(f"inherit_first must be between 1 and {len(source_worlds)}, got {inherit_first}")
++            source_worlds = source_worlds[:inherit_first]
+         worlds = [
+             describe_world(w["seed"], set_id, topology, root_mode, reliability, anchor)
+-            for w in sorted(seeds_from["worlds"], key=lambda w: w["execution_order"])
++            for w in source_worlds
+         ]
+         for index, world in enumerate(worlds, start=1):
+             world["execution_order"] = index
+             world["order_key"] = f"inherited:{seeds_from['set_id']}:{index:03d}"
++        selection: dict[str, Any] = {"scheme": "inherited", "from_set_id": seeds_from["set_id"],
++                                     "from_anchor": seeds_from.get("anchor")}
++        if inherit_first is not None:
++            selection["first"] = inherit_first
+         return {
+             "experiment": "EXP-003",
+             "set_id": set_id,
+@@ -147,8 +159,7 @@ def build_manifest(
+             "root_mode": root_mode,
+             "sensor_reliability": reliability,
+             "excluded_seeds": sorted(excluded),
+-            "selection": {"scheme": "inherited", "from_set_id": seeds_from["set_id"],
+-                          "from_anchor": seeds_from.get("anchor")},
++            "selection": selection,
+             "worlds": worlds,
+             "model_calls_made": 0,
+         }
+@@ -205,7 +216,9 @@ def manifest_markdown(manifest: dict[str, Any]) -> str:
+             f"{'/'.join(w['observed'])} | {w['cell']} | {w['alignment']} |"
+         )
+     if manifest["selection"]["scheme"] == "inherited":
+-        lines += ["", f"Seeds and execution order inherited verbatim from `{manifest['selection']['from_set_id']}`."]
++        first = manifest["selection"].get("first")
++        lines += ["", (f"Seeds and execution order inherited verbatim from `{manifest['selection']['from_set_id']}`"
++                       + (f", first {first} worlds only." if first else "."))]
+     if manifest["selection"]["scheme"] == "stratified":
+         lines += ["", "## Selection scan", "", "| Scan | Seed | Cell | Accepted | Reason |", "|---:|---:|---|---|---|"]
+         for row in manifest["selection"]["scan"]:
+@@ -230,13 +243,18 @@ def main() -> None:
+     parser.add_argument("--reliability", type=float, default=0.70)
+     parser.add_argument("--seeds-from", type=Path, default=None,
+                         help="paired set: reuse this manifest's seeds and execution order")
++    parser.add_argument("--inherit-first", type=int, default=None,
++                        help="with --seeds-from: take only the first N worlds of the source, in its execution order")
+     parser.add_argument("--out", type=Path, required=True, help="output path without extension")
+     args = parser.parse_args()
+ 
++    if args.inherit_first is not None and args.seeds_from is None:
++        parser.error("--inherit-first requires --seeds-from")
+     seeds_from = json.loads(args.seeds_from.read_text(encoding="utf-8")) if args.seeds_from else None
+     manifest = build_manifest(
+         args.anchor, args.set_id, args.topology, args.root_mode, args.count,
+         args.per_cell, args.cells, set(args.exclude), args.reliability, seeds_from=seeds_from,
++        inherit_first=args.inherit_first,
+     )
+     args.out.parent.mkdir(parents=True, exist_ok=True)
+     # Append, never with_suffix: version strings like v0.1 contain a dot.
+diff --git a/collective-agent-epistemics/tests/test_exp003_orchestrator.py b/collective-agent-epistemics/tests/test_exp003_orchestrator.py
+index 7fbf34e..6c8dde4 100644
+--- a/collective-agent-epistemics/tests/test_exp003_orchestrator.py
++++ b/collective-agent-epistemics/tests/test_exp003_orchestrator.py
+@@ -13,7 +13,7 @@ from experiments.EXP_003.gate_orchestrator import (
+     set_directory_name,
+     verify_plan_and_manifest,
+ )
+-from experiments.EXP_003.manifest import build_manifest
++from experiments.EXP_003.manifest import build_manifest, manifest_markdown
+ 
+ HERE = Path(__file__).resolve().parent
+ EXP003 = HERE.parent / "experiments" / "EXP_003"
+@@ -121,6 +121,23 @@ class PlanTests(unittest.TestCase):
+         self.assertTrue(all(w["canonical_id"].startswith("E3_G3A_SOLO001_seed_") for w in solo["worlds"]))
+         self.assertEqual([w["truth"] for w in solo["worlds"]], [w["truth"] for w in bounce["worlds"]])
+ 
++    def test_inherited_first_n_takes_the_source_prefix_in_execution_order(self):
++        # Gate 3B's probe-off arm is "the first 4 Arm 1 worlds in execution order".
++        source = build_manifest(ANCHOR, "G3B_GEN001", "diamond", "single", 6, None, None, set())
++        subset = build_manifest(ANCHOR, "G3B_PROBEOFF001", "diamond", "single", 0, None, None, set(),
++                                seeds_from=source, inherit_first=4)
++        self.assertEqual([w["seed"] for w in subset["worlds"]], [w["seed"] for w in source["worlds"]][:4])
++        self.assertEqual([w["execution_order"] for w in subset["worlds"]], [1, 2, 3, 4])
++        self.assertEqual(subset["selection"], {"scheme": "inherited", "from_set_id": "G3B_GEN001",
++                                               "from_anchor": ANCHOR, "first": 4})
++        self.assertIn("first 4 worlds only", manifest_markdown(subset))
++        # Without inherit_first the behaviour is unchanged: every source world, no "first" key.
++        full = build_manifest(ANCHOR, "G3B_SOLO003", "solo", "single", 0, None, None, set(), seeds_from=source)
++        self.assertEqual(len(full["worlds"]), 6)
++        self.assertNotIn("first", full["selection"])
++        with self.assertRaises(ValueError):
++            build_manifest(ANCHOR, "X", "diamond", "single", 0, None, None, set(), seeds_from=source, inherit_first=7)
++
+ 
+ class CampaignTests(unittest.TestCase):
+     def _binding(self, mode="dedup"):
