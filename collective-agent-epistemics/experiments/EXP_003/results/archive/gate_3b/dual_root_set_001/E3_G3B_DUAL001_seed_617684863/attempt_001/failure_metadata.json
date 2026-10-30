@@ -1,0 +1,24 @@
+{
+  "gate": "3B",
+  "set": "dual_root_set_001",
+  "canonical_id": "E3_G3B_DUAL001_seed_617684863",
+  "seed": 617684863,
+  "attempt": 1,
+  "frozen_config": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12,
+    "rounds": 4,
+    "probe": true,
+    "topology": "diamond",
+    "root_mode": "dual"
+  },
+  "manifest_sha256": "956f555d49d2b32e4cf7790467709f330f1247895335b814d2074398a17c8eb1",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "timestamp_utc": "2026-10-30T22:05:26.306161+00:00",
+  "status": "technical_failure"
+}
