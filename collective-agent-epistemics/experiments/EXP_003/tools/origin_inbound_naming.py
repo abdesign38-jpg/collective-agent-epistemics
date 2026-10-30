@@ -1,0 +1,76 @@
+"""Origin firings versus whether the inbound message named the sensor (read-only, Gate 3A).
+
+A descriptive observation tool, not an audit: it tabulates, for every post-seed firing of the
+source agent A in the archived Gate 3A worlds, the archived provenance mark `source_named` of
+the message A had just received against the direction of A's own firing (at reference,
+discount, inflation). Every quantity is an archived value or arithmetic over archived values;
+the direction rule is the Gate 3A analysis spec's (certainty excess, tolerance 1e-6). Stages
+are reported separately. No test, no threshold.
+
+Usage:
+    python -m experiments.EXP_003.tools.origin_inbound_naming
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from collections import Counter
+from pathlib import Path
+
+from ..gate_orchestrator import DEFAULT_ARCHIVE_ROOT
+from .primary_outcome_audit import certainty_excess, classify
+
+AGENT = "A"
+
+
+def observed_state(seed_event: dict) -> str:
+    for line in seed_event["model_visible_input"].splitlines():
+        if line.startswith("Observed state:"):
+            return line.split(":", 1)[1].strip()
+    raise ValueError("seed firing without a direct observation")
+
+
+def tabulate(archive_root: Path, gate: str = "gate_3a") -> dict:
+    table: dict[tuple, Counter] = {}
+    for events_path in sorted((archive_root / gate).glob("*/*/attempt_*/events.jsonl")):
+        set_id = events_path.parents[2].name
+        topology = set_id.split("_")[0]
+        if topology == "solo":
+            continue  # the solo origin receives only its own message
+        records = [json.loads(line) for line in events_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        for condition in ("free", "lineage"):
+            events = sorted((r for r in records if r["condition"] == condition), key=lambda r: int(r["visible_message_id"][1:]))
+            observed = observed_state(events[0])
+            for index, event in enumerate(events):
+                if index == 0 or event["sender"] != AGENT:
+                    continue
+                inbound = events[index - 1]
+                kind = classify(certainty_excess(float(event["metrics"]["p_a"]), float(event["metrics"]["reference_p_a"]), observed))
+                key = (set_id, condition, bool(inbound["provenance"]["source_named"]))
+                table.setdefault(key, Counter())[kind] += 1
+    return {"|".join(str(k) for k in key): dict(v) for key, v in sorted(table.items())}
+
+
+def render(table: dict) -> str:
+    lines = ["| Set | Condition | Inbound names the sensor | A firings | inflation | at reference | discount |",
+             "|---|---|---|---:|---:|---:|---:|"]
+    for key, counts in table.items():
+        set_id, condition, named = key.split("|")
+        n = sum(counts.values())
+        lines.append(f"| `{set_id}` | {condition} | {'yes' if named == 'True' else 'no'} | {n} | {counts.get('inflation', 0)} | "
+                     f"{counts.get('at_reference', 0)} | {counts.get('discount', 0)} |")
+    return "\n".join(lines)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--archive-root", type=Path, default=DEFAULT_ARCHIVE_ROOT)
+    args = parser.parse_args()
+    table = tabulate(args.archive_root)
+    print(render(table))
+    print()
+    print(json.dumps(table, indent=1))
+
+
+if __name__ == "__main__":
+    main()
