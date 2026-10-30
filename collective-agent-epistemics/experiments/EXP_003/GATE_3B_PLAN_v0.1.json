@@ -2,12 +2,12 @@
   "plan_version": "GATE_3B_PLAN_v0.1",
   "experiment": "EXP-003",
   "gate": "3B",
-  "status": "DRAFT",
+  "status": "FROZEN",
   "anchors": {
     "gate3a_closure_checkpoint": "1daa069af7000613ba06af35714bc22764c1f409",
     "frozen_runtime": "c54563bbb3f17e49c70e8e4f2e3a0369910d3c15",
     "protocol_tag": "exp-003-protocol-v0.1",
-    "plan_freeze_commit": null,
+    "plan_freeze_commit": "e4526dfd3b3bc58fe2334bb85b106b45423a6a03",
     "derivation_anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1"
   },
   "controlled_configuration": {

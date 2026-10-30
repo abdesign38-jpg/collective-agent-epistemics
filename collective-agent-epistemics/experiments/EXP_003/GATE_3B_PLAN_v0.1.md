@@ -2,9 +2,7 @@
 
 ## Status
 
-**PLAN DRAFT / NOT FROZEN / NOT EXECUTED**
-
-Gate 3B may be frozen only after Gate 3A is closed. It adds the fourth agent.
+**FROZEN.** Anchors filled and JSON twin set to `FROZEN` in the freeze commits (anchor fill e4526dfd3b3bc58fe2334bb85b106b45423a6a03; this status flip names that commit as `plan_freeze_commit`). Gate 3A is closed (`exp-003-gate3a-closed-v0.1`). No Gate 3B real-model call had been made before this commit.
 
 ## Scientific anchors (to fill at freeze)
 
