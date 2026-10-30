@@ -127,18 +127,30 @@ def build_manifest(
     excluded: set[int],
     reliability: float = 0.70,
     seeds_from: dict[str, Any] | None = None,
+    inherit_first: int | None = None,
 ) -> dict[str, Any]:
     get_topology(topology)  # validate
     if seeds_from is not None:
         # Paired set: reuse another set's seeds and execution order verbatim so that each
         # world has one execution per arm and the arms differ in topology/root mode only.
+        # With inherit_first=N only the first N worlds in the source's execution order are
+        # taken (a plan's "inherited_first_N" selection); order and seeds are still verbatim.
+        source_worlds = sorted(seeds_from["worlds"], key=lambda w: w["execution_order"])
+        if inherit_first is not None:
+            if not 1 <= inherit_first <= len(source_worlds):
+                raise ValueError(f"inherit_first must be between 1 and {len(source_worlds)}, got {inherit_first}")
+            source_worlds = source_worlds[:inherit_first]
         worlds = [
             describe_world(w["seed"], set_id, topology, root_mode, reliability, anchor)
-            for w in sorted(seeds_from["worlds"], key=lambda w: w["execution_order"])
+            for w in source_worlds
         ]
         for index, world in enumerate(worlds, start=1):
             world["execution_order"] = index
             world["order_key"] = f"inherited:{seeds_from['set_id']}:{index:03d}"
+        selection: dict[str, Any] = {"scheme": "inherited", "from_set_id": seeds_from["set_id"],
+                                     "from_anchor": seeds_from.get("anchor")}
+        if inherit_first is not None:
+            selection["first"] = inherit_first
         return {
             "experiment": "EXP-003",
             "set_id": set_id,
@@ -147,8 +159,7 @@ def build_manifest(
             "root_mode": root_mode,
             "sensor_reliability": reliability,
             "excluded_seeds": sorted(excluded),
-            "selection": {"scheme": "inherited", "from_set_id": seeds_from["set_id"],
-                          "from_anchor": seeds_from.get("anchor")},
+            "selection": selection,
             "worlds": worlds,
             "model_calls_made": 0,
         }
@@ -205,7 +216,9 @@ def manifest_markdown(manifest: dict[str, Any]) -> str:
             f"{'/'.join(w['observed'])} | {w['cell']} | {w['alignment']} |"
         )
     if manifest["selection"]["scheme"] == "inherited":
-        lines += ["", f"Seeds and execution order inherited verbatim from `{manifest['selection']['from_set_id']}`."]
+        first = manifest["selection"].get("first")
+        lines += ["", (f"Seeds and execution order inherited verbatim from `{manifest['selection']['from_set_id']}`"
+                       + (f", first {first} worlds only." if first else "."))]
     if manifest["selection"]["scheme"] == "stratified":
         lines += ["", "## Selection scan", "", "| Scan | Seed | Cell | Accepted | Reason |", "|---:|---:|---|---|---|"]
         for row in manifest["selection"]["scan"]:
@@ -230,13 +243,18 @@ def main() -> None:
     parser.add_argument("--reliability", type=float, default=0.70)
     parser.add_argument("--seeds-from", type=Path, default=None,
                         help="paired set: reuse this manifest's seeds and execution order")
+    parser.add_argument("--inherit-first", type=int, default=None,
+                        help="with --seeds-from: take only the first N worlds of the source, in its execution order")
     parser.add_argument("--out", type=Path, required=True, help="output path without extension")
     args = parser.parse_args()
 
+    if args.inherit_first is not None and args.seeds_from is None:
+        parser.error("--inherit-first requires --seeds-from")
     seeds_from = json.loads(args.seeds_from.read_text(encoding="utf-8")) if args.seeds_from else None
     manifest = build_manifest(
         args.anchor, args.set_id, args.topology, args.root_mode, args.count,
         args.per_cell, args.cells, set(args.exclude), args.reliability, seeds_from=seeds_from,
+        inherit_first=args.inherit_first,
     )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     # Append, never with_suffix: version strings like v0.1 contain a dot.

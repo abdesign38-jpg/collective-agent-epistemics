@@ -13,7 +13,7 @@ from experiments.EXP_003.gate_orchestrator import (
     set_directory_name,
     verify_plan_and_manifest,
 )
-from experiments.EXP_003.manifest import build_manifest
+from experiments.EXP_003.manifest import build_manifest, manifest_markdown
 
 HERE = Path(__file__).resolve().parent
 EXP003 = HERE.parent / "experiments" / "EXP_003"
@@ -120,6 +120,23 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(solo["selection"]["scheme"], "inherited")
         self.assertTrue(all(w["canonical_id"].startswith("E3_G3A_SOLO001_seed_") for w in solo["worlds"]))
         self.assertEqual([w["truth"] for w in solo["worlds"]], [w["truth"] for w in bounce["worlds"]])
+
+    def test_inherited_first_n_takes_the_source_prefix_in_execution_order(self):
+        # Gate 3B's probe-off arm is "the first 4 Arm 1 worlds in execution order".
+        source = build_manifest(ANCHOR, "G3B_GEN001", "diamond", "single", 6, None, None, set())
+        subset = build_manifest(ANCHOR, "G3B_PROBEOFF001", "diamond", "single", 0, None, None, set(),
+                                seeds_from=source, inherit_first=4)
+        self.assertEqual([w["seed"] for w in subset["worlds"]], [w["seed"] for w in source["worlds"]][:4])
+        self.assertEqual([w["execution_order"] for w in subset["worlds"]], [1, 2, 3, 4])
+        self.assertEqual(subset["selection"], {"scheme": "inherited", "from_set_id": "G3B_GEN001",
+                                               "from_anchor": ANCHOR, "first": 4})
+        self.assertIn("first 4 worlds only", manifest_markdown(subset))
+        # Without inherit_first the behaviour is unchanged: every source world, no "first" key.
+        full = build_manifest(ANCHOR, "G3B_SOLO003", "solo", "single", 0, None, None, set(), seeds_from=source)
+        self.assertEqual(len(full["worlds"]), 6)
+        self.assertNotIn("first", full["selection"])
+        with self.assertRaises(ValueError):
+            build_manifest(ANCHOR, "X", "diamond", "single", 0, None, None, set(), seeds_from=source, inherit_first=7)
 
 
 class CampaignTests(unittest.TestCase):
