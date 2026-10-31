@@ -1,0 +1,109 @@
+{
+  "experiment": "EXP-003",
+  "run_class": "gate_3b_real_model",
+  "execution_policy": "paired",
+  "world_count": 1,
+  "adapter_name": "openai",
+  "provider": "openai",
+  "requested_model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "sdk_version": "3.16.2",
+  "timeout_seconds": 60.0,
+  "store": false,
+  "max_retries": 0,
+  "probe": true,
+  "fallbacks": false,
+  "prompt_version": "exp003-v0.1",
+  "schema_version": "exp003-agent-response-v0.1",
+  "python_version": "3.14.2",
+  "timestamp_utc": "2026-10-31T16:34:13.512924+00:00",
+  "trial_count": 1,
+  "rounds": 4,
+  "seed": 723648650,
+  "conditions": [
+    "free",
+    "lineage",
+    "macro"
+  ],
+  "topology_name": "diamond",
+  "topology": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "A",
+      "C"
+    ],
+    [
+      "B",
+      "D"
+    ],
+    [
+      "C",
+      "D"
+    ],
+    [
+      "D",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ],
+    [
+      "A",
+      "C"
+    ]
+  ],
+  "regrounding": true,
+  "focal_agent": "D",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "worlds": [
+    {
+      "world_id": "EXP_003_W01",
+      "seed": 723648650,
+      "truth": "A",
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "observed_state": "B",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "adapter_metadata": {
+    "provider": "openai",
+    "requested_model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "timeout_seconds": 60.0,
+    "store": false,
+    "max_retries": 0,
+    "probe": true,
+    "prompt_version": "exp003-v0.1",
+    "schema_version": "exp003-agent-response-v0.1",
+    "sdk_version": "3.16.2",
+    "fallbacks": false
+  },
+  "execution_metadata": {
+    "actual_model_call_count": 33,
+    "reused_response_count": 5,
+    "input_tokens_actual": 7899,
+    "output_tokens_actual": 3963,
+    "total_tokens_actual": 11862,
+    "fallback_events": 0,
+    "served_models": [
+      "gpt-5.6-sol"
+    ]
+  },
+  "note": "Exploratory real-model run. Not confirmatory evidence.",
+  "config_fingerprint": "024c17ee35cae3e91d534f53354a9e0c00a8e0ae7ac722d16a81742937e42337"
+}
