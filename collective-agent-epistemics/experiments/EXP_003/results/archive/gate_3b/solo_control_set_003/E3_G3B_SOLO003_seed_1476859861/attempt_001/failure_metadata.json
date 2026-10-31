@@ -1,0 +1,24 @@
+{
+  "gate": "3B",
+  "set": "solo_control_set_003",
+  "canonical_id": "E3_G3B_SOLO003_seed_1476859861",
+  "seed": 1476859861,
+  "attempt": 1,
+  "frozen_config": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12,
+    "rounds": 12,
+    "probe": true,
+    "topology": "solo",
+    "root_mode": "single"
+  },
+  "manifest_sha256": "5d34fb7e3986398a4354a09e45c5699d9dc145aaa5592d44703d76bbf908bee2",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "timestamp_utc": "2026-10-30T22:53:31.268196+00:00",
+  "status": "technical_failure"
+}
