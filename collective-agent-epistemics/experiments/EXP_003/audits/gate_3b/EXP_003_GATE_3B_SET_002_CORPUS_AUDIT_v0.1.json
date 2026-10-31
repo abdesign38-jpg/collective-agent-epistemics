@@ -1,0 +1,579 @@
+{
+  "experiment": "EXP-003",
+  "gate": "3B",
+  "stage": "set_002",
+  "plan_version": "GATE_3B_PLAN_v0.1",
+  "plan_status": "FROZEN",
+  "plan_sha256": "5cea3ad5959b1ecfa9080f3bfad834b75366d9841fa6739e965bf69e0036a672",
+  "anchors": {
+    "gate3a_closure_checkpoint": "1daa069af7000613ba06af35714bc22764c1f409",
+    "frozen_runtime": "c54563bbb3f17e49c70e8e4f2e3a0369910d3c15",
+    "protocol_tag": "exp-003-protocol-v0.1",
+    "plan_freeze_commit": "e4526dfd3b3bc58fe2334bb85b106b45423a6a03",
+    "derivation_anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1"
+  },
+  "controlled_configuration": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12
+  },
+  "archive_root": "experiments/EXP_003/results/archive",
+  "head_commit": "b31f992a5cd17b73cd35978ce82da37bdae00908",
+  "frozen_runtime_drift": "none",
+  "expected_run_class": "gate_3b_real_model",
+  "sets": {
+    "diamond_set_002": {
+      "topology": "diamond",
+      "root_mode": "single",
+      "rounds": 4,
+      "probe": true,
+      "manifest": "GATE_3B_MANIFEST_GEN002_v0.1.json",
+      "manifest_sha256": "2449fcb6556202c2d1e0cc0d375efb5e0f55dca2a5a8a82f52a794cb20c1f041",
+      "manifest_last_commit": "481c2b370b94e5b59465aa3dc3fc28bab516a88a",
+      "planned_worlds": 12,
+      "complete_worlds": 12,
+      "calls_per_world_expected": 33,
+      "events_per_world_expected": 39,
+      "actual_calls": 396,
+      "tokens": 138975,
+      "worlds": [
+        {
+          "execution_order": 1,
+          "canonical_id": "E3_G3B_GEN002_seed_316127362",
+          "seed": 316127362,
+          "cell": "B/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "aa12f127df11f3cff5e604e5fa59bb5c1e3548861aa46123745f0f0f7f22015d",
+            "summary.csv": "fc251e74c754bb68eeedf5210940fa0629582351d3d97ca97cb2b119b5cd5350",
+            "run_metadata.json": "c12601147af37a0929578630eea8ccf3628ea2b8631d725977ff75f806dc762d"
+          }
+        },
+        {
+          "execution_order": 2,
+          "canonical_id": "E3_G3B_GEN002_seed_710597220",
+          "seed": 710597220,
+          "cell": "B/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "eebece2f8bd15483a91df0f3a29c6ef030cd1ccb173a78fed5998c2752ae3692",
+            "summary.csv": "b23596b9009fa28014318ba7dbed43efefd7f92268c44d9e1b979ef620fe5032",
+            "run_metadata.json": "8ff867431176f5511772a9760ffc66090889c1e24c8570847f9c60544926da75"
+          }
+        },
+        {
+          "execution_order": 3,
+          "canonical_id": "E3_G3B_GEN002_seed_962632369",
+          "seed": 962632369,
+          "cell": "A/A",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "3c6c1fdb964c2412c0e6e5685aeff4244ba31766d8270bd9f166f0cc6a5a6665",
+            "summary.csv": "f7601c5e19a10fb9dfd3d31d9ad800e3f9025cb3cd257310cd120bc110546599",
+            "run_metadata.json": "e01b97d2615589bc483f90941627320ce7f3da83eb427585631fcca36c960edb"
+          }
+        },
+        {
+          "execution_order": 4,
+          "canonical_id": "E3_G3B_GEN002_seed_241955308",
+          "seed": 241955308,
+          "cell": "B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "3000d3b0c7572d9afc03c0862d9f754d94c0e0e73f2479676c85d8863e3c321e",
+            "summary.csv": "d3fa879f9b2c562901d795095472827862c118c14c1c9e8880b51dde27df8cdd",
+            "run_metadata.json": "b03a9dfeb717754abaf84e9dfe0a428484e2212423bd247271817213c8ec0e7c"
+          }
+        },
+        {
+          "execution_order": 5,
+          "canonical_id": "E3_G3B_GEN002_seed_723648650",
+          "seed": 723648650,
+          "cell": "A/B",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "af9a499559983c08b0c05aaf5abb02668e41912cd683e824d767445bbba1d6c7",
+            "summary.csv": "c479a707c7778db3263198fd25234503597b770f17b2ecf324c32d344c063c5f",
+            "run_metadata.json": "83d89b3b755df3fe30e2281fec6b69d6719df709a1d6a8f81aa753f9460aceea"
+          }
+        },
+        {
+          "execution_order": 6,
+          "canonical_id": "E3_G3B_GEN002_seed_1054956113",
+          "seed": 1054956113,
+          "cell": "B/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "da9b25171614cbf11b4bcc2a51b408e61e5172c779ec72c21f0404d4a742c577",
+            "summary.csv": "76114897789c9571ff38a63d72e18dac7c33ad7364ecd648b069779f1185b06e",
+            "run_metadata.json": "fa19b3f247586b02184784c6cb0a87287fd772201f56a9e32f4dccda72877e55"
+          }
+        },
+        {
+          "execution_order": 7,
+          "canonical_id": "E3_G3B_GEN002_seed_1831325112",
+          "seed": 1831325112,
+          "cell": "B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "d11056fc968aa85171485482c4e2ad885e8e0cb495e277dfa20223d521925a9f",
+            "summary.csv": "182e005c186f79d93883b8f9e49839ca6b6a1f5bf999c9951259a249fea0f36a",
+            "run_metadata.json": "b4129658512454ac76a22fb77f5e2fcc6497b717185ef3e0a1f647a9a0032431"
+          }
+        },
+        {
+          "execution_order": 8,
+          "canonical_id": "E3_G3B_GEN002_seed_374607106",
+          "seed": 374607106,
+          "cell": "B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "6d9e7c775336aaca35de1634b1933f31902908a4277ea832e28787119a4f5d47",
+            "summary.csv": "c6fc46cd9eb3cf7a011e12f8f9230a28295effdff10ec5cd55bfb763220f08ef",
+            "run_metadata.json": "0caac61712fc7d2481623181fcd6cd81493fd9eda557e44b10ee63812495b292"
+          }
+        },
+        {
+          "execution_order": 9,
+          "canonical_id": "E3_G3B_GEN002_seed_443947794",
+          "seed": 443947794,
+          "cell": "B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "535bc80d57f5cf66f307f773500c832b6446d06a31c9e4137ce2ba680d64c52f",
+            "summary.csv": "fce507691e85b2a243a0aa15f4ec85500e92c15163b8d42098fc13654e7cec74",
+            "run_metadata.json": "648647b011ee67b0a541cff67a724ff17d5864a5f1b2e21f48b84f9f648dd18a"
+          }
+        },
+        {
+          "execution_order": 10,
+          "canonical_id": "E3_G3B_GEN002_seed_533125286",
+          "seed": 533125286,
+          "cell": "A/B",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "285c50a0cd4c43236bfbd7b640389d918801e605611a41d5615279e75fb50770",
+            "summary.csv": "06b3952393ad7fbf59610d6e4d43e80c0efd3d21e539ae66905481ac0ff653c2",
+            "run_metadata.json": "89ee36067049f6cc1fed326a3742060f5dcee5c17c020643a1666ebeb8912680"
+          }
+        },
+        {
+          "execution_order": 11,
+          "canonical_id": "E3_G3B_GEN002_seed_633201644",
+          "seed": 633201644,
+          "cell": "B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "3b58f8e4879964d6578877b053c4f4a971b5a3342d219f853b3f71e4a3e832aa",
+            "summary.csv": "8f7d1eac2bd203aae36d8b26dadd22fd0bbc0cd2c77590568b2db8bc6f3aa660",
+            "run_metadata.json": "966d52bb39c7fc25f1470eb78e64d7acc2dd5e8b9e7dd90003f459e2bdfa4a44"
+          }
+        },
+        {
+          "execution_order": 12,
+          "canonical_id": "E3_G3B_GEN002_seed_1092129420",
+          "seed": 1092129420,
+          "cell": "B/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "b23f76706f77ec4feb01b3b3181ed6366c071c15b2e0b1614960716708d1479a",
+            "summary.csv": "e121aef38976265a6d86efdd16a1be851fb2a39a740b50f9a00327c550a901f2",
+            "run_metadata.json": "87fe80ed7e207b1282205fec46b33ef7f6557663bafe0e9f09ec9986b7631efb"
+          }
+        }
+      ]
+    },
+    "dual_root_set_002": {
+      "topology": "diamond",
+      "root_mode": "dual",
+      "rounds": 4,
+      "probe": true,
+      "manifest": "GATE_3B_MANIFEST_DUAL002_v0.1.json",
+      "manifest_sha256": "26f224f13df358b60995e1554b9b72a120ead5406c04e991a9f91daddefbda2c",
+      "manifest_last_commit": "481c2b370b94e5b59465aa3dc3fc28bab516a88a",
+      "planned_worlds": 16,
+      "complete_worlds": 16,
+      "calls_per_world_expected": 33,
+      "events_per_world_expected": 43,
+      "actual_calls": 528,
+      "tokens": 232758,
+      "worlds": [
+        {
+          "execution_order": 1,
+          "canonical_id": "E3_G3B_DUAL002_seed_1761851777",
+          "seed": 1761851777,
+          "cell": "A/B/B",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "c75f2f43c0cbd8d4258bc4d7c5ccc6bb7d7264eb21b3346976aaef41d1d8a069",
+            "summary.csv": "c5ff36f428f04ddf4acc5d4238d94a5b074696bb3c42519244d94c718344f2d7",
+            "run_metadata.json": "859116a0ee31376c46da1a6cb93b11bbcee4a253105a7a895d6642e00f1fc36b"
+          }
+        },
+        {
+          "execution_order": 2,
+          "canonical_id": "E3_G3B_DUAL002_seed_1516256562",
+          "seed": 1516256562,
+          "cell": "B/A/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "09d9668c0b262dbb69f34568ddcc3c7867fd794817273546d7397d84a9f6e7e7",
+            "summary.csv": "cb614bbd1333c1b49656571076ba3091c5ae9214e6bd350fdd7ecb41ff88aedf",
+            "run_metadata.json": "11d69101993aeedd34a14a37d50d0e762a5376e2063c3454a56f81fdda3c389f"
+          }
+        },
+        {
+          "execution_order": 3,
+          "canonical_id": "E3_G3B_DUAL002_seed_1614821534",
+          "seed": 1614821534,
+          "cell": "B/A/A",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "847be837f8e87667129eefebc630d77b807eb4bbd071f824badd2f44090e36a5",
+            "summary.csv": "7fc267bf1a90225bb9e34e266269eda6dc85fb87ecd3d27179707cfdbdcea81e",
+            "run_metadata.json": "4833459ea82b368b604ce930f384c810c48af8f96382bcf494d4b5c832426c86"
+          }
+        },
+        {
+          "execution_order": 4,
+          "canonical_id": "E3_G3B_DUAL002_seed_1943818421",
+          "seed": 1943818421,
+          "cell": "B/A/B",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "3a8dad8830875f86476f2cf18cb638df11360bd5ee15b42f0e4058ce37035e74",
+            "summary.csv": "6570bf1a4e7bcbf701fab22c5392f8ac51c317626a0c1b0a780c1ffe1a95c0e7",
+            "run_metadata.json": "2cdfcf1a309fb708f1fc50d6aae4c444c2224c427cad69f6e2b0c0aa736c8924"
+          }
+        },
+        {
+          "execution_order": 5,
+          "canonical_id": "E3_G3B_DUAL002_seed_2082756798",
+          "seed": 2082756798,
+          "cell": "B/B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "0fcd61c2a0cf58489b01c2d6a747c92722361c7e6ab08a600f6f0608b1e9afcc",
+            "summary.csv": "51ab1f1015dbc6c2a4d4b38d62a6fe14898a51ab8b02796478d19afec1e8ea1d",
+            "run_metadata.json": "684181ae6d799073147dfa287a2476933061110e0344e1c23214cf46efe7b2ce"
+          }
+        },
+        {
+          "execution_order": 6,
+          "canonical_id": "E3_G3B_DUAL002_seed_1068989073",
+          "seed": 1068989073,
+          "cell": "B/B/B",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "2f9bb6b4289296032da2b9886404b3faaf7a46320ef8074a1bc2f7eea86b84f2",
+            "summary.csv": "cd5cee92e8d5daa32f2d26d6e4be2f36e2ec7618977628497bd2ba71884b4673",
+            "run_metadata.json": "2e5bacd4a711a9778a40a7bb1ff48d7aa971000579f9d5a17f78d88c65b4661e"
+          }
+        },
+        {
+          "execution_order": 7,
+          "canonical_id": "E3_G3B_DUAL002_seed_1150363503",
+          "seed": 1150363503,
+          "cell": "B/B/A",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "6fd5fd7afb920ee223f05f00c3fb1598be57f6fa45ae48e730ba7bb5d0b5f142",
+            "summary.csv": "6d6f7c2bc3c1bb2e869e99ffe5969717e2bcfb7191c342672517016dcf59f141",
+            "run_metadata.json": "d8740c16788d73dfd2a1fc3c4eeced1c4c0ddc2ba27c11ef28ed7603165a5070"
+          }
+        },
+        {
+          "execution_order": 8,
+          "canonical_id": "E3_G3B_DUAL002_seed_1587692757",
+          "seed": 1587692757,
+          "cell": "A/A/B",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "da579b252f3a325b340b25cd52236539b31919acb92519728916d2a4046f378b",
+            "summary.csv": "5c83ae18d3bc2f72916f86b9e3464c2ee77e452999eb2453f0177c82f9595a66",
+            "run_metadata.json": "03f13f8a2e4df58bc5232eb78595317eb91c2e07bca70f1ab6d321c86250b11c"
+          }
+        },
+        {
+          "execution_order": 9,
+          "canonical_id": "E3_G3B_DUAL002_seed_1264392180",
+          "seed": 1264392180,
+          "cell": "A/A/B",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "16a92ee9bee75a8c70803b845413f36c1db1cc9d6be1f3cea57b4be12c4fe727",
+            "summary.csv": "095123e0791b681ce72227cac005d6e5441efc1571fe8f172a59044a6b8d3610",
+            "run_metadata.json": "35bc43bccff6c0ab9291ae62150aca3f217306261289b2ce796794ff32061df8"
+          }
+        },
+        {
+          "execution_order": 10,
+          "canonical_id": "E3_G3B_DUAL002_seed_2017093923",
+          "seed": 2017093923,
+          "cell": "A/A/A",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "5d3c0753f0d136b3555e6bd74dab836f9ebdca7926c21cc53e00754754776854",
+            "summary.csv": "1f70048122f0a55b8ee98acb12b85da6b7f7767c446e20640c2753a3340fd550",
+            "run_metadata.json": "6fbda6401c4be1b7c20323aea3836b974227bf011338bf180244c6fec1ead489"
+          }
+        },
+        {
+          "execution_order": 11,
+          "canonical_id": "E3_G3B_DUAL002_seed_216987976",
+          "seed": 216987976,
+          "cell": "A/B/A",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "cf921d6dd445a9106fb62b0ea867d97071a7b1f9850615423aade78e937101a0",
+            "summary.csv": "c63037da785fb25b741bafca7131a56ee310333b73a507105d38fc6dca179483",
+            "run_metadata.json": "a2044569c5788f945eec6868d580435e09cfcf15f9cd5d1ccda21059eaa98cbe"
+          }
+        },
+        {
+          "execution_order": 12,
+          "canonical_id": "E3_G3B_DUAL002_seed_1119880167",
+          "seed": 1119880167,
+          "cell": "A/B/B",
+          "alignment": "misleading",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "c3911c696243a5dfd4c9b1521697182b7ad4c8c5871668635c1cb9bc703d3630",
+            "summary.csv": "671f08c7460fb0ea52fc565d366ba99a03b620ea05d01a67003d75b42a326bc5",
+            "run_metadata.json": "56fc747ce77ead6001bd4a42a329043376e100ca67fb250062ee0629c84bd0c4"
+          }
+        },
+        {
+          "execution_order": 13,
+          "canonical_id": "E3_G3B_DUAL002_seed_1629652161",
+          "seed": 1629652161,
+          "cell": "A/A/A",
+          "alignment": "aligned",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "2e6b59300f1d574a1f2928448bee22de1590804755362cf90491e1901b02343b",
+            "summary.csv": "e0513f587f08adec0d92552516b4dd9318b53922549702885fdef0592b1f7100",
+            "run_metadata.json": "b5ee2a5913177ba93c98f9bbd8339b4b2c1827c13551b7af8cfd458e27c20ff7"
+          }
+        },
+        {
+          "execution_order": 14,
+          "canonical_id": "E3_G3B_DUAL002_seed_1322584095",
+          "seed": 1322584095,
+          "cell": "A/B/A",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "b254499862897bcb11725371b3ecea174b258a363eb538619eaaaf34f5bf1ebf",
+            "summary.csv": "c1a287b5b7444469e0a53d1a6827301945bcd4bbcba1a8ba14260e6671eed64e",
+            "run_metadata.json": "7d870c92da7dbf0ebcad5e45d6cbea3028804a107093f153760ea75ae081aa20"
+          }
+        },
+        {
+          "execution_order": 15,
+          "canonical_id": "E3_G3B_DUAL002_seed_80913935",
+          "seed": 80913935,
+          "cell": "B/A/B",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "e6999646649a9717d3c8200099baa68fe51aafd0d82532e19d73fca81accf172",
+            "summary.csv": "4f3677e2e13097720885fcbcf55d0569962fcc272d48ba51ec76e0f1e523bc5d",
+            "run_metadata.json": "bc37b24cb76a08920c7269eafb082947cf1c8a7ced1975b0090c2a0ec70b1b51"
+          }
+        },
+        {
+          "execution_order": 16,
+          "canonical_id": "E3_G3B_DUAL002_seed_479525595",
+          "seed": 479525595,
+          "cell": "B/B/A",
+          "alignment": "mixed",
+          "attempts_present": [
+            "attempt_001"
+          ],
+          "complete": [
+            "attempt_001"
+          ],
+          "raw_file_sha256": {
+            "events.jsonl": "3acdb2c737cb15d1702d5a6d0a35e266cd089ef16ec3f8402d9fe7f68a4794b9",
+            "summary.csv": "e00b4c6b7332e46b22ca1dc1efd49dd2cf3b48f5c63c38d5fd92a3c70ae83eb3",
+            "run_metadata.json": "13a22a18a3fa449596270d2510abfb401ffbd039e0a483f7f550a8149b9a3faf"
+          }
+        }
+      ]
+    }
+  },
+  "technical_failures": [],
+  "totals": {
+    "planned_worlds": 28,
+    "complete_worlds": 28,
+    "actual_calls": 924,
+    "tokens": 371733,
+    "failure_records": 0
+  },
+  "problems": [],
+  "status": "PASS",
+  "scientific_boundary": "No answer, confidence, P(A), Brier, message, provenance mark, excess, FIS, DSCD, FREE/LINEAGE comparison or any other outcome was read, computed or reported. This audit establishes that data collection for the stage is complete and technically sound. It is not an interpretation.",
+  "timestamp_utc": "2026-10-31T17:07:39.977655+00:00"
+}
