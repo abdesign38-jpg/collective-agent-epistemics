@@ -1,0 +1,2172 @@
+{
+  "experiment": "EXP-003",
+  "gate": "3B",
+  "kind": "SYNTHESIS",
+  "version": "v0.1",
+  "sources": {
+    "set_001": {
+      "path": "experiments/EXP_003/audits/gate_3b/EXP_003_GATE_3B_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "6b2fd641bd8a91c3b94707648e1e6360e535a1ff93bc80a4fb00186f0724ff5d"
+    },
+    "set_001_corpus": {
+      "path": "experiments/EXP_003/audits/gate_3b/EXP_003_GATE_3B_SET_001_CORPUS_AUDIT_v0.1.json",
+      "sha256": "69fce27cd911bf884488498e0f1b6e7f08ca52022efbb3528102ae2c85e24dfd"
+    },
+    "set_002": {
+      "path": "experiments/EXP_003/audits/gate_3b/EXP_003_GATE_3B_SET_002_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "75b231927edd76cc104331b1ac9157b5ddeaea834bf3cf5c66acd642ae5ddda4"
+    },
+    "set_002_corpus": {
+      "path": "experiments/EXP_003/audits/gate_3b/EXP_003_GATE_3B_SET_002_CORPUS_AUDIT_v0.1.json",
+      "sha256": "1ad6ffa30765eb8ecad65133dc5f9fd9e7558f87ca9962bbd2384c16aa7116c1"
+    },
+    "gate3a_set_001": {
+      "path": "experiments/EXP_003/audits/gate_3a/EXP_003_GATE_3A_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "f43e47fc82867184ad2782f1f14e03510ce3334168ba52e2cd82c96adba37367"
+    },
+    "gate3a_set_002": {
+      "path": "experiments/EXP_003/audits/gate_3a/EXP_003_GATE_3A_SET_002_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "c3a1ccd9ea0d9c2e13f1ad621d269de608134ad87de67db552087eba72ad3cc1"
+    }
+  },
+  "head_commit": "62761dde2337980960e06276f564e1d5e8d54745",
+  "spec_versions": [
+    "EXP-003-GATE-3B-PRIMARY-OUTCOME-AUDIT-SPEC-v0.1"
+  ],
+  "expectations": {
+    "E1": {
+      "verdicts": {
+        "set_001": "consistent",
+        "set_002": "consistent"
+      },
+      "agree": true,
+      "quantities": {
+        "set_001": {
+          "arm1_worlds_with_FREE_D_excess_above_tolerance": 2,
+          "worlds": 12,
+          "tolerance": 0.01
+        },
+        "set_002": {
+          "arm1_worlds_with_FREE_D_excess_above_tolerance": 4,
+          "worlds": 12,
+          "tolerance": 0.01
+        }
+      }
+    },
+    "E2": {
+      "verdicts": {
+        "set_001": "consistent",
+        "set_002": "consistent"
+      },
+      "agree": true,
+      "quantities": {
+        "set_001": {
+          "worlds_where_LINEAGE_mean_D_excess_exceeds_FREE": 1,
+          "worlds": 12,
+          "majority": 7
+        },
+        "set_002": {
+          "worlds_where_LINEAGE_mean_D_excess_exceeds_FREE": 2,
+          "worlds": 12,
+          "majority": 7
+        }
+      }
+    },
+    "E3": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "quantities": {
+        "set_001": {
+          "by_condition": {
+            "free": {
+              "concordant": 0,
+              "excess_without_FIS": 2,
+              "FIS_without_excess": 0,
+              "D_firings": 48
+            },
+            "lineage": {
+              "concordant": 0,
+              "excess_without_FIS": 2,
+              "FIS_without_excess": 0,
+              "D_firings": 48
+            }
+          }
+        },
+        "set_002": {
+          "by_condition": {
+            "free": {
+              "concordant": 0,
+              "excess_without_FIS": 5,
+              "FIS_without_excess": 0,
+              "D_firings": 48
+            },
+            "lineage": {
+              "concordant": 0,
+              "excess_without_FIS": 3,
+              "FIS_without_excess": 0,
+              "D_firings": 48
+            }
+          }
+        }
+      }
+    },
+    "E4": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "quantities": {
+        "set_001": {
+          "by_condition": {
+            "free": {
+              "marked_firings": 16,
+              "excess_rate_marked": 0.0,
+              "clean_firings": 32,
+              "excess_rate_clean": 0.0625
+            },
+            "lineage": {
+              "marked_firings": 6,
+              "excess_rate_marked": 0.0,
+              "clean_firings": 42,
+              "excess_rate_clean": 0.047619
+            }
+          }
+        },
+        "set_002": {
+          "by_condition": {
+            "free": {
+              "marked_firings": 9,
+              "excess_rate_marked": 0.0,
+              "clean_firings": 39,
+              "excess_rate_clean": 0.128205
+            },
+            "lineage": {
+              "marked_firings": 5,
+              "excess_rate_marked": 0.2,
+              "clean_firings": 43,
+              "excess_rate_clean": 0.046512
+            }
+          }
+        }
+      }
+    },
+    "E5": {
+      "verdicts": {
+        "set_001": "consistent",
+        "set_002": "consistent"
+      },
+      "agree": true,
+      "quantities": {
+        "set_001": {
+          "agreeing_worlds": 8,
+          "conflicting_worlds": 8,
+          "tolerance": 0.01,
+          "free": {
+            "classes": {
+              "two_root": 22,
+              "single_root": 4,
+              "other": 3,
+              "over": 3
+            },
+            "modal": "two_root"
+          },
+          "lineage": {
+            "classes": {
+              "two_root": 14,
+              "single_root": 4,
+              "other": 10,
+              "over": 4
+            },
+            "modal": "two_root"
+          },
+          "conflicting_stratum_departure": {
+            "free": -0.049063,
+            "lineage": -0.010313
+          }
+        },
+        "set_002": {
+          "agreeing_worlds": 8,
+          "conflicting_worlds": 8,
+          "tolerance": 0.01,
+          "free": {
+            "classes": {
+              "two_root": 23,
+              "single_root": 5,
+              "other": 3,
+              "over": 1
+            },
+            "modal": "two_root"
+          },
+          "lineage": {
+            "classes": {
+              "two_root": 12,
+              "other": 13,
+              "single_root": 4,
+              "over": 3
+            },
+            "modal": "other"
+          },
+          "conflicting_stratum_departure": {
+            "free": -0.0175,
+            "lineage": -0.007812
+          }
+        }
+      }
+    },
+    "E6": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "not assessable"
+      },
+      "agree": false,
+      "quantities": {
+        "set_001": {
+          "comparisons": 8,
+          "gaps_over_tolerance": 4,
+          "tolerance": 0.02
+        },
+        "set_002": {}
+      }
+    },
+    "E7": {
+      "verdict": "consistent",
+      "flat_band": 0.005,
+      "cells": [
+        {
+          "cell": "arm1_free",
+          "label": "Arm 1 FREE",
+          "quantity": "mean_certainty_excess",
+          "means": {
+            "set_001": 0.002708,
+            "set_002": 0.007708
+          },
+          "signs": {
+            "set_001": "flat",
+            "set_002": "positive"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "arm1_lineage",
+          "label": "Arm 1 LINEAGE",
+          "quantity": "mean_certainty_excess",
+          "means": {
+            "set_001": -0.010625,
+            "set_002": -0.005833
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "arm2_agreeing_free",
+          "label": "Arm 2 agreeing FREE",
+          "quantity": "mean_certainty_excess",
+          "means": {
+            "set_001": -0.019672,
+            "set_002": -0.026391
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "arm2_agreeing_lineage",
+          "label": "Arm 2 agreeing LINEAGE",
+          "quantity": "mean_certainty_excess",
+          "means": {
+            "set_001": -0.042484,
+            "set_002": -0.043422
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "arm2_conflicting_free",
+          "label": "Arm 2 conflicting FREE",
+          "quantity": "mean_departure_toward_e1",
+          "means": {
+            "set_001": -0.049063,
+            "set_002": -0.0175
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "arm2_conflicting_lineage",
+          "label": "Arm 2 conflicting LINEAGE",
+          "quantity": "mean_departure_toward_e1",
+          "means": {
+            "set_001": -0.010313,
+            "set_002": -0.007812
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        }
+      ],
+      "reversed_cells": [],
+      "rule": "per cell, the sign of the stage mean (certainty excess, or departure toward E1's state for the conflicting cells), means within \u00b1.005 of zero counted as flat; contradicted if any cell is positive in one stage and negative in the other"
+    }
+  },
+  "arm_aggregates": [
+    {
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "free",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 48,
+        "discount": 1,
+        "inflation": 2,
+        "at_reference": 45,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.002708,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 48,
+        "discount": 9,
+        "inflation": 2,
+        "at_reference": 37,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.010625,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 8,
+        "at_reference": 40,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.015,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 8,
+        "mean_reported_distinct_sources": 1.166667
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "dual_root_set_001",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "free",
+      "stratum": "agreeing",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 14,
+        "inflation": 18,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.019672,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 2,
+        "mean_reported_distinct_sources": 1.9375
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 16,
+        "inflation": 16,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.026859,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 3,
+        "mean_reported_distinct_sources": 1.96875
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "dual_root_set_001",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "free",
+      "stratum": "conflicting",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": -0.049063,
+        "fis_positive_events": 10,
+        "mean_reported_distinct_sources": 2.40625
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": -0.015,
+        "fis_positive_events": 13,
+        "mean_reported_distinct_sources": 2.5
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "dual_root_set_001",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "agreeing",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 21,
+        "inflation": 11,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.042484,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 2.0
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 18,
+        "inflation": 14,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.013859,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 15,
+        "mean_reported_distinct_sources": 2.46875
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "dual_root_set_001",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "conflicting",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": -0.010313,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.9375
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": 0.135,
+        "fis_positive_events": 10,
+        "mean_reported_distinct_sources": 2.0625
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "solo_control_set_003",
+      "topology": "solo",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "free",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 0,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": null
+      },
+      "A_post_seed": {
+        "events": 144,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 144,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "solo_control_set_003",
+      "topology": "solo",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 0,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": null
+      },
+      "A_post_seed": {
+        "events": 144,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 144,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": false,
+      "condition": "free",
+      "stratum": "None",
+      "worlds": 4,
+      "D": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 2,
+        "at_reference": 14,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0125,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 16,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      }
+    },
+    {
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": false,
+      "condition": "lineage",
+      "stratum": "None",
+      "worlds": 4,
+      "D": {
+        "events": 16,
+        "discount": 6,
+        "inflation": 1,
+        "at_reference": 9,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.02125,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 5,
+        "at_reference": 11,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.023125,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 5,
+        "mean_reported_distinct_sources": 1.3125
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "free",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 5,
+        "at_reference": 43,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.007708,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.0,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "root_mode": "single",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "None",
+      "worlds": 12,
+      "D": {
+        "events": 48,
+        "discount": 7,
+        "inflation": 3,
+        "at_reference": 38,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.005833,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.0
+      },
+      "A_post_seed": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 7,
+        "at_reference": 41,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": 0.013333,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 7,
+        "mean_reported_distinct_sources": 1.145833
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "dual_root_set_002",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "free",
+      "stratum": "agreeing",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 15,
+        "inflation": 17,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.026391,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 1.84375
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 15,
+        "inflation": 17,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.032422,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 1,
+        "mean_reported_distinct_sources": 1.875
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "dual_root_set_002",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "free",
+      "stratum": "conflicting",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": -0.0175,
+        "fis_positive_events": 1,
+        "mean_reported_distinct_sources": 1.96875
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": 0.016875,
+        "fis_positive_events": 3,
+        "mean_reported_distinct_sources": 2.09375
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "dual_root_set_002",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "agreeing",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 20,
+        "inflation": 12,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.043422,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 2,
+        "mean_reported_distinct_sources": 2.09375
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 18,
+        "inflation": 14,
+        "at_reference": 0,
+        "departure_from_even_events": 0,
+        "mean_certainty_excess": -0.012266,
+        "mean_departure_toward_e1": null,
+        "fis_positive_events": 20,
+        "mean_reported_distinct_sources": 2.65625
+      }
+    },
+    {
+      "stage": "set_002",
+      "set": "dual_root_set_002",
+      "topology": "diamond",
+      "root_mode": "dual",
+      "probe": true,
+      "condition": "lineage",
+      "stratum": "conflicting",
+      "worlds": 8,
+      "D": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": -0.007812,
+        "fis_positive_events": 0,
+        "mean_reported_distinct_sources": 2.0
+      },
+      "A_post_seed": {
+        "events": 32,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 0,
+        "departure_from_even_events": 32,
+        "mean_certainty_excess": null,
+        "mean_departure_toward_e1": 0.119688,
+        "fis_positive_events": 15,
+        "mean_reported_distinct_sources": 2.34375
+      }
+    }
+  ],
+  "probe_reactivity": {
+    "set_001": {
+      "comparisons": 8,
+      "gaps_over_tolerance": 4,
+      "gaps": [
+        {
+          "seed": 1672462843,
+          "condition": "free",
+          "gap": 0.0
+        },
+        {
+          "seed": 1672462843,
+          "condition": "lineage",
+          "gap": 0.045
+        },
+        {
+          "seed": 63901144,
+          "condition": "free",
+          "gap": 0.05
+        },
+        {
+          "seed": 63901144,
+          "condition": "lineage",
+          "gap": 0.025
+        },
+        {
+          "seed": 323832400,
+          "condition": "free",
+          "gap": 0.0
+        },
+        {
+          "seed": 323832400,
+          "condition": "lineage",
+          "gap": 0.035
+        },
+        {
+          "seed": 1566825802,
+          "condition": "free",
+          "gap": 0.02
+        },
+        {
+          "seed": 1566825802,
+          "condition": "lineage",
+          "gap": 0.005
+        }
+      ]
+    },
+    "set_002": {
+      "comparisons": 0,
+      "gaps_over_tolerance": 0,
+      "gaps": []
+    }
+  },
+  "solo_control": {
+    "set_001": {
+      "world_conditions": 24,
+      "with_any_deviation": 0,
+      "fis_positive_events": 0,
+      "firings": 288
+    },
+    "set_002": {
+      "world_conditions": 0,
+      "with_any_deviation": 0,
+      "fis_positive_events": 0,
+      "firings": 0
+    }
+  },
+  "secondary_inbound_naming": {
+    "set_001": {
+      "diamond_set_001": {
+        "free": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 14,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 14,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 3,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 3,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 31,
+                "discount": 1,
+                "inflation": 2,
+                "at_reference": 28,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.004194,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 15,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 15,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 33,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 33,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        },
+        "lineage": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 23,
+                "discount": 8,
+                "inflation": 1,
+                "at_reference": 14,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.021739,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 3,
+                "discount": 0,
+                "inflation": 1,
+                "at_reference": 2,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.006667,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 22,
+                "discount": 1,
+                "inflation": 0,
+                "at_reference": 21,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.001364,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 26,
+                "discount": 0,
+                "inflation": 8,
+                "at_reference": 18,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.027692,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 8,
+                "mean_reported_distinct_sources": 1.307692
+              },
+              "1": {
+                "events": 22,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 22,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        }
+      },
+      "dual_root_set_001": {
+        "free": {
+          "agreeing": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 1,
+                "discount": 0,
+                "inflation": 1,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.000172,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 9,
+                "discount": 4,
+                "inflation": 5,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.033161,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.777778
+              },
+              "2": {
+                "events": 22,
+                "discount": 10,
+                "inflation": 12,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.015055,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 2,
+                "mean_reported_distinct_sources": 2.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 7,
+                "discount": 3,
+                "inflation": 4,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.014114,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 1,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 25,
+                "discount": 13,
+                "inflation": 12,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.030428,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 2,
+                "mean_reported_distinct_sources": 1.96
+              }
+            }
+          },
+          "conflicting": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 6,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 6,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.095,
+                "fis_positive_events": 3,
+                "mean_reported_distinct_sources": 2.5
+              },
+              "1": {
+                "events": 15,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 15,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.059333,
+                "fis_positive_events": 4,
+                "mean_reported_distinct_sources": 2.333333
+              },
+              "2": {
+                "events": 11,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 11,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.01,
+                "fis_positive_events": 3,
+                "mean_reported_distinct_sources": 2.454545
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 17,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 17,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.015882,
+                "fis_positive_events": 9,
+                "mean_reported_distinct_sources": 2.529412
+              },
+              "1": {
+                "events": 15,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 15,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.014,
+                "fis_positive_events": 4,
+                "mean_reported_distinct_sources": 2.466667
+              }
+            }
+          }
+        },
+        "lineage": {
+          "agreeing": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 2,
+                "discount": 2,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.004828,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 12,
+                "discount": 7,
+                "inflation": 5,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.048578,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "2": {
+                "events": 18,
+                "discount": 12,
+                "inflation": 6,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.042606,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 16,
+                "discount": 6,
+                "inflation": 10,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.020547,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 14,
+                "mean_reported_distinct_sources": 2.875
+              },
+              "1": {
+                "events": 16,
+                "discount": 12,
+                "inflation": 4,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.048266,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 1,
+                "mean_reported_distinct_sources": 2.0625
+              }
+            }
+          },
+          "conflicting": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 2,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 2,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.025,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 17,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 17,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.015294,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.882353
+              },
+              "2": {
+                "events": 13,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 13,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.001538,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 21,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 21,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.189048,
+                "fis_positive_events": 10,
+                "mean_reported_distinct_sources": 2.095238
+              },
+              "1": {
+                "events": 11,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 11,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.031818,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              }
+            }
+          }
+        }
+      },
+      "probe_off_set_001": {
+        "free": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 4,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 4,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 12,
+                "discount": 0,
+                "inflation": 2,
+                "at_reference": 10,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.016667,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 4,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 4,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 12,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 12,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        },
+        "lineage": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 10,
+                "discount": 5,
+                "inflation": 1,
+                "at_reference": 4,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.029,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 6,
+                "discount": 1,
+                "inflation": 0,
+                "at_reference": 5,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.008333,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 10,
+                "discount": 0,
+                "inflation": 5,
+                "at_reference": 5,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.037,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 5,
+                "mean_reported_distinct_sources": 1.5
+              },
+              "1": {
+                "events": 6,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 6,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        }
+      }
+    },
+    "set_002": {
+      "diamond_set_002": {
+        "free": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 9,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 9,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 39,
+                "discount": 0,
+                "inflation": 5,
+                "at_reference": 34,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.009487,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 9,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 9,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 39,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 39,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        },
+        "lineage": {
+          "None": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 16,
+                "discount": 4,
+                "inflation": 1,
+                "at_reference": 11,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.01625,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "1": {
+                "events": 6,
+                "discount": 1,
+                "inflation": 0,
+                "at_reference": 5,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.005,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              },
+              "2": {
+                "events": 26,
+                "discount": 2,
+                "inflation": 2,
+                "at_reference": 22,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.000385,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 22,
+                "discount": 0,
+                "inflation": 7,
+                "at_reference": 15,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.029091,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 7,
+                "mean_reported_distinct_sources": 1.318182
+              },
+              "1": {
+                "events": 26,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 26,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.0,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.0
+              }
+            }
+          }
+        }
+      },
+      "dual_root_set_002": {
+        "free": {
+          "agreeing": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 1,
+                "discount": 0,
+                "inflation": 1,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": 0.000172,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 5,
+                "discount": 4,
+                "inflation": 1,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.087828,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.4
+              },
+              "2": {
+                "events": 26,
+                "discount": 11,
+                "inflation": 15,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.015597,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.923077
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 4,
+                "discount": 1,
+                "inflation": 3,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.015578,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 1,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 28,
+                "discount": 14,
+                "inflation": 14,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.034828,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.857143
+              }
+            }
+          },
+          "conflicting": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 7,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 7,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.0,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 14,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 14,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.031429,
+                "fis_positive_events": 1,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "2": {
+                "events": 11,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 11,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.010909,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.909091
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 19,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 19,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.027368,
+                "fis_positive_events": 2,
+                "mean_reported_distinct_sources": 2.105263
+              },
+              "1": {
+                "events": 13,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 13,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.001538,
+                "fis_positive_events": 1,
+                "mean_reported_distinct_sources": 2.076923
+              }
+            }
+          }
+        },
+        "lineage": {
+          "agreeing": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 2,
+                "discount": 2,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.074828,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 14,
+                "discount": 11,
+                "inflation": 3,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.069471,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 1.928571
+              },
+              "2": {
+                "events": 16,
+                "discount": 7,
+                "inflation": 9,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.016703,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 2,
+                "mean_reported_distinct_sources": 2.25
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 25,
+                "discount": 13,
+                "inflation": 12,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.013748,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 18,
+                "mean_reported_distinct_sources": 2.68
+              },
+              "1": {
+                "events": 7,
+                "discount": 5,
+                "inflation": 2,
+                "at_reference": 0,
+                "departure_from_even_events": 0,
+                "mean_certainty_excess": -0.006971,
+                "mean_departure_toward_e1": null,
+                "fis_positive_events": 2,
+                "mean_reported_distinct_sources": 2.571429
+              }
+            }
+          },
+          "conflicting": {
+            "D_by_inbound_naming_sensor": {
+              "0": {
+                "events": 3,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 3,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.003333,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "1": {
+                "events": 19,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 19,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.01,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              },
+              "2": {
+                "events": 10,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 10,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": -0.005,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              }
+            },
+            "A_by_inbound_naming_sensor": {
+              "0": {
+                "events": 26,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 26,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.139615,
+                "fis_positive_events": 15,
+                "mean_reported_distinct_sources": 2.423077
+              },
+              "1": {
+                "events": 6,
+                "discount": 0,
+                "inflation": 0,
+                "at_reference": 0,
+                "departure_from_even_events": 6,
+                "mean_certainty_excess": null,
+                "mean_departure_toward_e1": 0.033333,
+                "fis_positive_events": 0,
+                "mean_reported_distinct_sources": 2.0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "final_state": [
+    {
+      "stage": "set_001",
+      "world_conditions": 132,
+      "final_answer_differs_from_E1": 10,
+      "final_confidence_distribution": {
+        "0.50": 4,
+        "0.51": 1,
+        "0.53": 1,
+        "0.56": 1,
+        "0.58": 2,
+        "0.60": 1,
+        "0.62": 2,
+        "0.70": 92,
+        "0.71": 1,
+        "0.74": 1,
+        "0.75": 1,
+        "0.76": 2,
+        "0.78": 3,
+        "0.80": 3,
+        "0.82": 3,
+        "0.84": 7,
+        "0.85": 3,
+        "0.90": 3,
+        "0.93": 1
+      },
+      "accuracy_by_E1_alignment": {
+        "aligned": "88/93",
+        "misleading": "5/39"
+      },
+      "macro_stop_triggered": 44,
+      "macro_worlds": 44,
+      "macro_all_responses_reused": 44,
+      "strata": {
+        "diamond_set_001": {
+          "None": 12
+        },
+        "dual_root_set_001": {
+          "conflicting": 8,
+          "agreeing": 8
+        },
+        "solo_control_set_003": {
+          "None": 12
+        },
+        "probe_off_set_001": {
+          "None": 4
+        }
+      }
+    },
+    {
+      "stage": "set_002",
+      "world_conditions": 84,
+      "final_answer_differs_from_E1": 4,
+      "final_confidence_distribution": {
+        "0.50": 10,
+        "0.52": 1,
+        "0.55": 1,
+        "0.58": 1,
+        "0.62": 1,
+        "0.64": 1,
+        "0.67": 1,
+        "0.68": 1,
+        "0.70": 41,
+        "0.72": 1,
+        "0.74": 1,
+        "0.75": 1,
+        "0.78": 3,
+        "0.80": 3,
+        "0.82": 3,
+        "0.83": 1,
+        "0.84": 8,
+        "0.85": 2,
+        "0.86": 2,
+        "0.93": 1
+      },
+      "accuracy_by_E1_alignment": {
+        "aligned": "41/42",
+        "misleading": "3/42"
+      },
+      "macro_stop_triggered": 28,
+      "macro_worlds": 28,
+      "macro_all_responses_reused": 28,
+      "strata": {
+        "diamond_set_002": {
+          "None": 12
+        },
+        "dual_root_set_002": {
+          "agreeing": 8,
+          "conflicting": 8
+        }
+      }
+    }
+  ],
+  "gate3a_bridge": [
+    {
+      "gate": "3A",
+      "stage": "set_001",
+      "set": "ring_control_set_001",
+      "topology": "ring",
+      "probe": false,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_001",
+      "set": "ring_control_set_001",
+      "topology": "ring",
+      "probe": false,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 8,
+        "at_reference": 40
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_001",
+      "set": "bounce_set_001",
+      "topology": "bounce",
+      "probe": false,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 36,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 36
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_001",
+      "set": "bounce_set_001",
+      "topology": "bounce",
+      "probe": false,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 36,
+        "discount": 0,
+        "inflation": 3,
+        "at_reference": 33
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_002",
+      "set": "ring_control_set_002",
+      "topology": "ring",
+      "probe": false,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_002",
+      "set": "ring_control_set_002",
+      "topology": "ring",
+      "probe": false,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 8,
+        "at_reference": 40
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_002",
+      "set": "bounce_set_002",
+      "topology": "bounce",
+      "probe": false,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 36,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 36
+      }
+    },
+    {
+      "gate": "3A",
+      "stage": "set_002",
+      "set": "bounce_set_002",
+      "topology": "bounce",
+      "probe": false,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 36,
+        "discount": 0,
+        "inflation": 2,
+        "at_reference": 34
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "probe": false,
+      "condition": "free",
+      "position": "D",
+      "counts": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 2,
+        "at_reference": 14
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "probe": false,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 16
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "probe": false,
+      "condition": "lineage",
+      "position": "D",
+      "counts": {
+        "events": 16,
+        "discount": 6,
+        "inflation": 1,
+        "at_reference": 9
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "probe_off_set_001",
+      "topology": "diamond",
+      "probe": false,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 16,
+        "discount": 0,
+        "inflation": 5,
+        "at_reference": 11
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "free",
+      "position": "D",
+      "counts": {
+        "events": 48,
+        "discount": 1,
+        "inflation": 2,
+        "at_reference": 45
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "lineage",
+      "position": "D",
+      "counts": {
+        "events": 48,
+        "discount": 9,
+        "inflation": 2,
+        "at_reference": 37
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_001",
+      "set": "diamond_set_001",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 8,
+        "at_reference": 40
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "free",
+      "position": "D",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 5,
+        "at_reference": 43
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "free",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 0,
+        "at_reference": 48
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "lineage",
+      "position": "D",
+      "counts": {
+        "events": 48,
+        "discount": 7,
+        "inflation": 3,
+        "at_reference": 38
+      }
+    },
+    {
+      "gate": "3B",
+      "stage": "set_002",
+      "set": "diamond_set_002",
+      "topology": "diamond",
+      "probe": true,
+      "condition": "lineage",
+      "position": "A post-seed",
+      "counts": {
+        "events": 48,
+        "discount": 0,
+        "inflation": 7,
+        "at_reference": 41
+      }
+    }
+  ],
+  "closure_rule": {
+    "both stages' manifests prospectively frozen": "yes: plan status FROZEN, anchors all filled",
+    "every world in all six arms has a valid archived execution or a documented technical failure": "yes: corpus audits set_001: PASS; set_002: PASS, 72/72 complete, 3 technical failure record(s) preserved",
+    "raw outputs immutable": "yes: SHA-256 per raw file recorded in each corpus audit and re-checked by each primary-outcome audit",
+    "predefined primary outcomes audited": "yes: 2 stage audit(s) under EXP-003-GATE-3B-PRIMARY-OUTCOME-AUDIT-SPEC-v0.1",
+    "arms, stages and strata reported separately": "yes: per-arm, per-stratum tables in each stage audit; this synthesis keeps one column per stage",
+    "Gate 3A comparison recorded as a secondary placement": "yes: Gate 3A bounce and ring positions copied from the committed Gate 3A audits, no verdict",
+    "negative results retained": "yes: 5 contradicted expectation verdict(s) across the stages stand as written"
+  },
+  "boundary": "Mechanical cross-stage placement of two pre-registered audits. No pooling of stages or strata, no test, no threshold beyond the spec's E7 flat band, no causal claim. The Gate 3A placement is secondary and carries no verdict. The relation to the hypothesis is written separately under research/observations/.",
+  "timestamp_utc": "2026-10-31T17:21:29.532839+00:00"
+}
