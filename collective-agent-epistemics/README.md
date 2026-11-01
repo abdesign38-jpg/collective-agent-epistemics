@@ -23,7 +23,8 @@ and [replication plan](experiments/EXP_002/REPLICATION_PLAN_v0.1.md).
 - **Gate 2C** — future / not yet prospectively designed.
 - **EXP-003 v0.1** — frozen (tag `exp-003-protocol-v0.1`); a topology ladder (Gates 3A matched topologies, 3B diamond, 3C detached, 3D hives). See [experiments/EXP_003/README.md](experiments/EXP_003/README.md).
 - **Gate 3A** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3a-closed-v0.1`): ring, solo, dyad and bounce on the same worlds, two pre-registered stages, 96 worlds archived and audited. Findings are recorded in [research/observations/EXP_003_gate_3a_observations_v0.1.md](research/observations/EXP_003_gate_3a_observations_v0.1.md).
-- **Gates 3B, 3C, 3D** — prospective plans drafted; not frozen; no real-model calls made.
+- **Gate 3B** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3b-closed-v0.1`): the diamond fan-in with a two-root positive control, a probe-off arm and a probe-on solo control, two pre-registered stages, 72 worlds archived and audited, analysis rules committed before any value existed. Findings are recorded in [research/observations/EXP_003_gate_3b_observations_v0.1.md](research/observations/EXP_003_gate_3b_observations_v0.1.md).
+- **Gates 3C, 3D** — prospective plans drafted; not frozen; no real-model calls made.
 
 This documentation reflects the current repository state as committed. It does not introduce new scientific conclusions beyond the preserved gate closures and their audit artifacts.
 
@@ -83,6 +84,6 @@ research hypothesis. It validates that we can measure:
 - confidence change without new independent evidence
 - macro stopping behavior
 
-EXP-002 replication and audit are complete (Gate 2B). EXP-003 Gate 3A is closed. The
-next research phase is Gate 3B (diamond fan-in), which runs only after its plan is
-frozen and its manifests committed; no gate is redesigned after its results are seen.
+EXP-002 replication and audit are complete (Gate 2B). EXP-003 Gates 3A and 3B are closed. The
+next research phase is Gate 3C (the same shapes without re-grounding), which runs only after its
+plan is frozen and its manifests committed; no gate is redesigned after its results are seen.

@@ -1,6 +1,6 @@
 # EXP-003 Protocol v0.1
 
-**Status:** v0.1 FROZEN at tag `exp-003-protocol-v0.1` (runtime `c54563b`). Gate 3A executed and closed under it (`exp-003-gate3a-closed-v0.1`). The content below is unchanged since the freeze.
+**Status:** v0.1 FROZEN at tag `exp-003-protocol-v0.1` (runtime `c54563b`). Gates 3A and 3B executed and closed under it (`exp-003-gate3a-closed-v0.1`, `exp-003-gate3b-closed-v0.1`). The content below is unchanged since the freeze.
 
 EXP-003 is a new experiment, not a new EXP-002 gate, because it changes network topology, the number of independent evidence roots, and source re-grounding. Under [REPOSITORY_RESEARCH_STRUCTURE_v0.2](../../research/REPOSITORY_RESEARCH_STRUCTURE_v0.2.md) each of those changes requires a new experiment number. The frozen EXP-002 v0.1 runtime is not modified.
 
