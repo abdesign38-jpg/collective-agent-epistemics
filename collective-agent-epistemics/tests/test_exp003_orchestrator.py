@@ -219,6 +219,8 @@ class CampaignTests(unittest.TestCase):
             self.assertTrue(first_ok and second_failed)
             record = json.loads((world_dirs[1] / "attempt_001" / "failure_metadata.json").read_text())
             self.assertEqual(record["status"], "technical_failure")
+            self.assertEqual(record["exception_type"], "RuntimeError")
+            self.assertEqual(record["cause_chain"], [])   # the synthetic failure wraps nothing
             status = json.loads((root / "gate_3a" / "campaign_status.json").read_text())
             self.assertFalse(status["all_required_sets_complete"])
             self.assertEqual(status["sets"]["bounce_set_001"]["failed"], 1)
@@ -230,6 +232,25 @@ class CampaignTests(unittest.TestCase):
                                  authorize_retry=True, max_worlds=None, include_optional=False)
             self.assertTrue(str(dests[1]).endswith("attempt_002"))
             self.assertTrue((world_dirs[1] / "attempt_001" / "failure_metadata.json").exists())
+
+    def test_failure_record_lists_the_wrapped_provider_cause(self):
+        from experiments.EXP_003.gate_orchestrator import _exception_causes
+
+        class FakeAPIStatusError(Exception):
+            status_code = 429
+
+        try:
+            try:
+                raise FakeAPIStatusError("insufficient_quota: billing hard limit reached")
+            except FakeAPIStatusError as inner:
+                raise RuntimeError("OpenAI Responses request failed") from inner
+        except RuntimeError as wrapped:
+            chain = _exception_causes(wrapped)
+        self.assertEqual(len(chain), 1)
+        self.assertEqual(chain[0]["type"], "FakeAPIStatusError")
+        self.assertEqual(chain[0]["status_code"], 429)
+        self.assertIn("insufficient_quota", chain[0]["message"])
+        self.assertEqual(_exception_causes(RuntimeError("bare")), [])
 
     def test_live_requires_frozen_anchors(self):
         with tempfile.TemporaryDirectory() as tmp:

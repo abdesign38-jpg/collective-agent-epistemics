@@ -383,10 +383,25 @@ def _write_failure_record(dest: Path, task: WorldTask, arm: Arm, plan: dict[str,
                           "topology": arm.topology, "root_mode": arm.root_mode},
         "manifest_sha256": sha256_file(manifest_path),
         "exception_type": type(exc).__name__, "exception_message": str(exc),
+        "cause_chain": _exception_causes(exc),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "status": "technical_failure",
     }
     (dest / "failure_metadata.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+
+
+def _exception_causes(exc: BaseException, limit: int = 5) -> list[dict[str, Any]]:
+    """The chained causes behind a wrapped exception (adapters wrap provider errors), so a failure
+    record says what actually failed: type, message (truncated) and an HTTP status when present."""
+    causes: list[dict[str, Any]] = []
+    seen: set[int] = set()
+    cause = exc.__cause__ or exc.__context__
+    while cause is not None and id(cause) not in seen and len(causes) < limit:
+        seen.add(id(cause))
+        causes.append({"type": type(cause).__name__, "message": str(cause)[:500],
+                       "status_code": getattr(cause, "status_code", None)})
+        cause = cause.__cause__ or cause.__context__
+    return causes
 
 
 def run_and_archive_world(task: WorldTask, arm: Arm, plan: dict[str, Any], binding: ProviderBinding, *,
