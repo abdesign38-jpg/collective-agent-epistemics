@@ -1,0 +1,886 @@
+{
+  "experiment": "EXP-003",
+  "gate": "3C",
+  "kind": "SYNTHESIS",
+  "version": "v0.1",
+  "sources": {
+    "set_001": {
+      "path": "experiments/EXP_003/audits/gate_3c/EXP_003_GATE_3C_SET_001_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "7ca623fc362ae8b05750d232bd05e79aa813388d903454ae8e83b807e95b2053"
+    },
+    "set_001_corpus": {
+      "path": "experiments/EXP_003/audits/gate_3c/EXP_003_GATE_3C_SET_001_CORPUS_AUDIT_v0.1.json",
+      "sha256": "b4f6ef16c6cd27fb3eceec96706b43530026c6395b93848893e55528cdcff9b7"
+    },
+    "set_002": {
+      "path": "experiments/EXP_003/audits/gate_3c/EXP_003_GATE_3C_SET_002_PRIMARY_OUTCOME_AUDIT_v0.1.json",
+      "sha256": "f76eb5198db7733c5986141c8651eab7f2e92524a8bc7267d704ee8ee1099b9f"
+    },
+    "set_002_corpus": {
+      "path": "experiments/EXP_003/audits/gate_3c/EXP_003_GATE_3C_SET_002_CORPUS_AUDIT_v0.1.json",
+      "sha256": "444d5a6f81fb3933d5cb10fcb274a4aaf791d50b6c256d524ccbb0c5624bc92b"
+    }
+  },
+  "head_commit": "ae0519861c3b552da9a0d1c18998c0ad08452961",
+  "spec_versions": [
+    "EXP-003-GATE-3C-PRIMARY-OUTCOME-AUDIT-SPEC-v0.1"
+  ],
+  "expectations": {
+    "E1": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (same-window twins)",
+        "set_002": "qualified (historical twins)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "ring_detached_set_001": "contradicted",
+            "solo_detached_set_001": "not assessable",
+            "dyad_detached_set_001": "consistent",
+            "bounce_detached_set_001": "consistent",
+            "diamond_detached_set_001": "contradicted"
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "ring_detached_set_002": "consistent",
+            "solo_detached_set_002": "not assessable",
+            "dyad_detached_set_002": "consistent",
+            "bounce_detached_set_002": "consistent",
+            "diamond_detached_set_002": "contradicted"
+          }
+        }
+      }
+    },
+    "E2": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (within-detached)",
+        "set_002": "primary (within-detached)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "ring_detached_set_001": "consistent",
+            "solo_detached_set_001": "consistent",
+            "dyad_detached_set_001": "consistent",
+            "bounce_detached_set_001": "consistent",
+            "diamond_detached_set_001": "contradicted"
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "ring_detached_set_002": "consistent",
+            "solo_detached_set_002": "consistent",
+            "dyad_detached_set_002": "consistent",
+            "bounce_detached_set_002": "consistent",
+            "diamond_detached_set_002": "contradicted"
+          }
+        }
+      }
+    },
+    "E3a": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (same-window twins)",
+        "set_002": "qualified (historical twins)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "ring_detached_set_001": "consistent",
+            "solo_detached_set_001": "consistent",
+            "dyad_detached_set_001": "consistent",
+            "bounce_detached_set_001": "consistent",
+            "diamond_detached_set_001": "contradicted"
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "ring_detached_set_002": "consistent",
+            "solo_detached_set_002": "consistent",
+            "dyad_detached_set_002": "consistent",
+            "bounce_detached_set_002": "consistent",
+            "diamond_detached_set_002": "contradicted"
+          }
+        }
+      }
+    },
+    "E3b": {
+      "verdicts": {
+        "set_001": "consistent",
+        "set_002": "contradicted"
+      },
+      "agree": false,
+      "standing": {
+        "set_001": "primary (same-window twins)",
+        "set_002": "qualified (historical twins)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "ring_detached_set_001": "consistent",
+            "solo_detached_set_001": "consistent",
+            "dyad_detached_set_001": "consistent",
+            "bounce_detached_set_001": "consistent",
+            "diamond_detached_set_001": "consistent"
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "ring_detached_set_002": "consistent",
+            "solo_detached_set_002": "consistent",
+            "dyad_detached_set_002": "consistent",
+            "bounce_detached_set_002": "consistent",
+            "diamond_detached_set_002": "contradicted"
+          }
+        }
+      }
+    },
+    "E4": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (within-detached)",
+        "set_002": "primary (within-detached)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "solo_detached_set_001": "contradicted"
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "solo_detached_set_002": "contradicted"
+          }
+        }
+      }
+    },
+    "E5": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (within-detached)",
+        "set_002": "primary (within-detached)"
+      },
+      "quantities": {
+        "set_001": {
+          "lineage_discount_rate_by_shape": {
+            "ring": 0.472222,
+            "solo": 0.5,
+            "dyad": 0.520833,
+            "bounce": 0.541667
+          },
+          "required_order": [
+            "ring",
+            "bounce",
+            "dyad",
+            "solo"
+          ]
+        },
+        "set_002": {
+          "lineage_discount_rate_by_shape": {
+            "ring": 0.465278,
+            "solo": 0.458333,
+            "dyad": 0.486111,
+            "bounce": 0.513889
+          },
+          "required_order": [
+            "ring",
+            "bounce",
+            "dyad",
+            "solo"
+          ]
+        }
+      }
+    },
+    "E6": {
+      "verdicts": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "agree": true,
+      "standing": {
+        "set_001": "primary (within-detached)",
+        "set_002": "primary (within-detached)"
+      },
+      "quantities": {
+        "set_001": {
+          "by_arm": {
+            "ring_detached_set_001": "consistent",
+            "bounce_detached_set_001": "consistent",
+            "diamond_detached_set_001": "contradicted"
+          },
+          "tiers": {
+            "ring_detached_set_001": 1,
+            "bounce_detached_set_001": 1,
+            "diamond_detached_set_001": 2
+          }
+        },
+        "set_002": {
+          "by_arm": {
+            "ring_detached_set_002": "consistent",
+            "bounce_detached_set_002": "consistent",
+            "diamond_detached_set_002": "contradicted"
+          },
+          "tiers": {
+            "ring_detached_set_002": 1,
+            "bounce_detached_set_002": 1,
+            "diamond_detached_set_002": 2
+          }
+        }
+      }
+    },
+    "E7": {
+      "verdict": "consistent",
+      "flat_band": 0.005,
+      "cells": [
+        {
+          "cell": "ring_free",
+          "shape": "ring",
+          "condition": "free",
+          "means": {
+            "set_001": -0.018333,
+            "set_002": -0.018333
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "ring_lineage",
+          "shape": "ring",
+          "condition": "lineage",
+          "means": {
+            "set_001": -0.056042,
+            "set_002": -0.055208
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "solo_free",
+          "shape": "solo",
+          "condition": "free",
+          "means": {
+            "set_001": -0.018958,
+            "set_002": -0.020972
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "solo_lineage",
+          "shape": "solo",
+          "condition": "lineage",
+          "means": {
+            "set_001": -0.060347,
+            "set_002": -0.055139
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "dyad_free",
+          "shape": "dyad",
+          "condition": "free",
+          "means": {
+            "set_001": -0.04625,
+            "set_002": -0.026806
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "dyad_lineage",
+          "shape": "dyad",
+          "condition": "lineage",
+          "means": {
+            "set_001": -0.060694,
+            "set_002": -0.05375
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "bounce_free",
+          "shape": "bounce",
+          "condition": "free",
+          "means": {
+            "set_001": -0.007778,
+            "set_002": -0.021111
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "bounce_lineage",
+          "shape": "bounce",
+          "condition": "lineage",
+          "means": {
+            "set_001": -0.069167,
+            "set_002": -0.057222
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "diamond_free",
+          "shape": "diamond",
+          "condition": "free",
+          "means": {
+            "set_001": 0.006042,
+            "set_002": 0.001875
+          },
+          "signs": {
+            "set_001": "positive",
+            "set_002": "flat"
+          },
+          "reversed": false
+        },
+        {
+          "cell": "diamond_lineage",
+          "shape": "diamond",
+          "condition": "lineage",
+          "means": {
+            "set_001": -0.049375,
+            "set_002": -0.043125
+          },
+          "signs": {
+            "set_001": "negative",
+            "set_002": "negative"
+          },
+          "reversed": false
+        }
+      ],
+      "reversed_cells": [],
+      "rule": "ten within-detached cells: sign of the stage mean certainty excess at the far position per shape and condition, means within \u00b1.005 counted as flat; contradicted if any cell is positive in one stage and negative in the other"
+    }
+  },
+  "descriptive_replication": [
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "ring",
+      "condition": "free",
+      "values": {
+        "set_001": 0.043333,
+        "set_002": 0.043333
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "ring",
+      "condition": "lineage",
+      "values": {
+        "set_001": 0.130833,
+        "set_002": 0.1275
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "E6 strict verdict",
+      "shape": "ring",
+      "condition": "lineage",
+      "values": {
+        "set_001": "consistent",
+        "set_002": "consistent"
+      },
+      "signs": {}
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "solo",
+      "condition": "free",
+      "values": {
+        "set_001": 0.051667,
+        "set_002": 0.0425
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "solo",
+      "condition": "lineage",
+      "values": {
+        "set_001": 0.114167,
+        "set_002": 0.120833
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "dyad",
+      "condition": "free",
+      "values": {
+        "set_001": 0.105,
+        "set_002": 0.051667
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "dyad",
+      "condition": "lineage",
+      "values": {
+        "set_001": 0.138333,
+        "set_002": 0.114167
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "bounce",
+      "condition": "free",
+      "values": {
+        "set_001": 0.023333,
+        "set_002": 0.054167
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "bounce",
+      "condition": "lineage",
+      "values": {
+        "set_001": 0.14,
+        "set_002": 0.118333
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "E6 strict verdict",
+      "shape": "bounce",
+      "condition": "lineage",
+      "values": {
+        "set_001": "consistent",
+        "set_002": "consistent"
+      },
+      "signs": {}
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "diamond",
+      "condition": "free",
+      "values": {
+        "set_001": 0.024167,
+        "set_002": 0.0175
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "far-agent compounding (mean last \u2212 first)",
+      "shape": "diamond",
+      "condition": "lineage",
+      "values": {
+        "set_001": 0.1075,
+        "set_002": 0.089167
+      },
+      "signs": {
+        "set_001": "positive",
+        "set_002": "positive"
+      }
+    },
+    {
+      "quantity": "E6 strict verdict",
+      "shape": "diamond",
+      "condition": "lineage",
+      "values": {
+        "set_001": "contradicted",
+        "set_002": "contradicted"
+      },
+      "signs": {}
+    }
+  ],
+  "set_002_paired_qualified": {
+    "verdicts": {
+      "set_002": {
+        "E1": "contradicted",
+        "E3a": "contradicted",
+        "E3b": "contradicted"
+      }
+    },
+    "set_001_drift_gauge": {
+      "status": "FAIL",
+      "positions_lineage_deviation_counts": {
+        "A": {
+          "contemporary": 11,
+          "historical": 8,
+          "difference": 3,
+          "within_tolerance": true
+        },
+        "B": {
+          "contemporary": 3,
+          "historical": 9,
+          "difference": -6,
+          "within_tolerance": false
+        },
+        "C": {
+          "contemporary": 24,
+          "historical": 17,
+          "difference": 7,
+          "within_tolerance": false
+        }
+      },
+      "per_world": {
+        "free": [
+          {
+            "seed": 154869395,
+            "mean_paired_excess_difference": 0.003333,
+            "within": true
+          },
+          {
+            "seed": 652310877,
+            "mean_paired_excess_difference": 0.001667,
+            "within": true
+          },
+          {
+            "seed": 683505103,
+            "mean_paired_excess_difference": 0.0,
+            "within": true
+          },
+          {
+            "seed": 950201606,
+            "mean_paired_excess_difference": 0.0,
+            "within": true
+          },
+          {
+            "seed": 961840741,
+            "mean_paired_excess_difference": 0.001667,
+            "within": true
+          },
+          {
+            "seed": 1117385864,
+            "mean_paired_excess_difference": -0.001667,
+            "within": true
+          },
+          {
+            "seed": 1146035841,
+            "mean_paired_excess_difference": 0.001667,
+            "within": true
+          },
+          {
+            "seed": 1265697921,
+            "mean_paired_excess_difference": 0.005833,
+            "within": true
+          },
+          {
+            "seed": 1280872600,
+            "mean_paired_excess_difference": 0.0,
+            "within": true
+          },
+          {
+            "seed": 1296650177,
+            "mean_paired_excess_difference": 0.001667,
+            "within": true
+          },
+          {
+            "seed": 1779995607,
+            "mean_paired_excess_difference": 0.0,
+            "within": true
+          },
+          {
+            "seed": 1813269025,
+            "mean_paired_excess_difference": 0.0075,
+            "within": true
+          }
+        ],
+        "lineage": [
+          {
+            "seed": 154869395,
+            "mean_paired_excess_difference": 0.02,
+            "within": true
+          },
+          {
+            "seed": 652310877,
+            "mean_paired_excess_difference": 0.006667,
+            "within": true
+          },
+          {
+            "seed": 683505103,
+            "mean_paired_excess_difference": -0.006667,
+            "within": true
+          },
+          {
+            "seed": 950201606,
+            "mean_paired_excess_difference": -0.003333,
+            "within": true
+          },
+          {
+            "seed": 961840741,
+            "mean_paired_excess_difference": -0.0075,
+            "within": true
+          },
+          {
+            "seed": 1117385864,
+            "mean_paired_excess_difference": -0.016667,
+            "within": true
+          },
+          {
+            "seed": 1146035841,
+            "mean_paired_excess_difference": -0.0,
+            "within": true
+          },
+          {
+            "seed": 1265697921,
+            "mean_paired_excess_difference": 0.008333,
+            "within": true
+          },
+          {
+            "seed": 1280872600,
+            "mean_paired_excess_difference": -0.005,
+            "within": true
+          },
+          {
+            "seed": 1296650177,
+            "mean_paired_excess_difference": -0.000833,
+            "within": true
+          },
+          {
+            "seed": 1779995607,
+            "mean_paired_excess_difference": -0.0125,
+            "within": true
+          },
+          {
+            "seed": 1813269025,
+            "mean_paired_excess_difference": 0.03,
+            "within": false
+          }
+        ]
+      },
+      "worlds_within_tolerance": {
+        "free": 12,
+        "lineage": 11
+      },
+      "tolerances": {
+        "count": 4,
+        "per_world_mean_excess": 0.02,
+        "worlds_required": 10,
+        "rule": "five sixths of paired worlds (10 of 12)"
+      },
+      "wording": "observed behavior differed across execution windows under the same nominal model configuration",
+      "contemporary_dates": [
+        "2026-11-02"
+      ],
+      "historical_dates": [
+        "2026-10-02"
+      ]
+    },
+    "note": "Set 002 pairs are against historical controls and are not same-window evidence; never pooled with Set 001, never corrected by the gauge."
+  },
+  "twins": {
+    "set_001": {
+      "ring_detached_set_001": {
+        "set_id": "ring_contemporary_set_001",
+        "gate": "gate_3c",
+        "kind": "contemporary",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-11-02"
+        ],
+        "gap_days_max": 1
+      },
+      "solo_detached_set_001": {
+        "set_id": "solo_contemporary_set_001",
+        "gate": "gate_3c",
+        "kind": "contemporary",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-11-02"
+        ],
+        "gap_days_max": 1
+      },
+      "dyad_detached_set_001": {
+        "set_id": "dyad_contemporary_set_001",
+        "gate": "gate_3c",
+        "kind": "contemporary",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-11-02"
+        ],
+        "gap_days_max": 1
+      },
+      "bounce_detached_set_001": {
+        "set_id": "bounce_contemporary_set_001",
+        "gate": "gate_3c",
+        "kind": "contemporary",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-11-02"
+        ],
+        "gap_days_max": 1
+      },
+      "diamond_detached_set_001": {
+        "set_id": "diamond_set_001",
+        "gate": "gate_3b",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-30"
+        ],
+        "gap_days_max": 2
+      },
+      "ring_contemporary_set_001": {
+        "set_id": "ring_control_set_001",
+        "gate": "gate_3a",
+        "kind": "historical",
+        "role": "drift gauge"
+      }
+    },
+    "set_002": {
+      "ring_detached_set_002": {
+        "set_id": "ring_control_set_002",
+        "gate": "gate_3a",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-02"
+        ],
+        "gap_days_max": 30
+      },
+      "solo_detached_set_002": {
+        "set_id": "solo_control_set_002",
+        "gate": "gate_3a",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-02"
+        ],
+        "gap_days_max": 30
+      },
+      "dyad_detached_set_002": {
+        "set_id": "dyad_set_002",
+        "gate": "gate_3a",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-02"
+        ],
+        "gap_days_max": 30
+      },
+      "bounce_detached_set_002": {
+        "set_id": "bounce_set_002",
+        "gate": "gate_3a",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-02"
+        ],
+        "gap_days_max": 30
+      },
+      "diamond_detached_set_002": {
+        "set_id": "diamond_set_002",
+        "gate": "gate_3b",
+        "kind": "historical",
+        "detached_dates": [
+          "2026-11-02"
+        ],
+        "twin_dates": [
+          "2026-10-31"
+        ],
+        "gap_days_max": 1
+      }
+    }
+  },
+  "closure_rule": {
+    "both stages' manifests prospectively frozen": "yes: plan status FROZEN",
+    "every world in all fourteen arms has a valid archived execution or a documented technical failure": "yes: corpus audits set_001: PASS; set_002: PASS, 168/168 complete, 1 technical failure record(s) preserved",
+    "raw outputs immutable": "yes: SHA-256 per raw file recorded in each corpus audit and re-checked by each primary-outcome audit, twins included",
+    "manipulation check passed in every detached arm": "yes",
+    "predefined primary outcomes audited": "yes: 2 stage audit(s) under EXP-003-GATE-3C-PRIMARY-OUTCOME-AUDIT-SPEC-v0.1",
+    "arms, stages, conditions and agents reported separately; twins dated": "yes: per-arm tables in each stage audit; this synthesis keeps one column per stage",
+    "drift gauge recorded": "yes: FAIL (observed behavior differed across execution windows under the same nominal model configuration)",
+    "Set 002 paired verdicts qualified as historical-control evidence, never pooled or corrected": "yes",
+    "negative results retained": "yes: 13 contradicted single-stage expectation verdict(s) stand as written"
+  },
+  "boundary": "Mechanical cross-stage placement of two pre-registered audits. No pooling of stages or arms, no test, no threshold beyond the spec's flat band, no drift correction, no causal or mechanism claim, nothing on H2. The relation to the hypothesis is written separately under research/observations/.",
+  "timestamp_utc": "2026-11-02T04:12:49.749305+00:00"
+}
