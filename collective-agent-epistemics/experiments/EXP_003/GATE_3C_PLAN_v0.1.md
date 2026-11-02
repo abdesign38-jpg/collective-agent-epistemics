@@ -2,9 +2,7 @@
 
 ## Status
 
-**PLAN DRAFT / NOT FROZEN / NOT EXECUTED**
-
-Gate 3C may be frozen only after Gates 3A and 3B are closed (`exp-003-gate3a-closed-v0.1`, `exp-003-gate3b-closed-v0.1`). It reuses their Set 001 and Set 002 worlds so that the only difference between a detached execution and its twin is re-grounding. This plan was amended before freeze under the Gate 3C scientific contract of 2026-11-01 (arms, stages, expectations and boundaries); the intervention is unchanged from the original draft.
+**FROZEN.** Anchors filled and JSON twin set to `FROZEN` in the freeze commits (anchor fill afa05a8fd4669567991cc70fa4763b328cb69888; this status flip names that commit as `plan_freeze_commit`). Gates 3A and 3B are closed (`exp-003-gate3a-closed-v0.1`, `exp-003-gate3b-closed-v0.1`). No Gate 3C real-model call had been made before this commit. It reuses their Set 001 and Set 002 worlds so that the only difference between a detached execution and its twin is re-grounding. This plan was amended before freeze under the Gate 3C scientific contract of 2026-11-01 (arms, stages, expectations and boundaries); the intervention is unchanged from the original draft.
 
 ## Gate 3C question
 
