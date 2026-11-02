@@ -1,0 +1,305 @@
+{
+  "experiment": "EXP-003",
+  "set_id": "G3C_DIAMONDDET002",
+  "anchor": "d1250663ec206539f2d64c9c8cdcd10c87e5b9af|exp-003-protocol-v0.1|GATE_3C_PLAN_v0.1",
+  "topology": "diamond_detached",
+  "root_mode": "single",
+  "sensor_reliability": 0.7,
+  "excluded_seeds": [],
+  "selection": {
+    "scheme": "inherited",
+    "from_set_id": "G3B_GEN002",
+    "from_anchor": "1daa069af7000613ba06af35714bc22764c1f409|exp-003-protocol-v0.1|GATE_3B_PLAN_v0.1"
+  },
+  "worlds": [
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_316127362",
+      "seed": 316127362,
+      "internal_world_id": "EXP_003_W_316127362",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:001",
+      "execution_order": 1
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_710597220",
+      "seed": 710597220,
+      "internal_world_id": "EXP_003_W_710597220",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:002",
+      "execution_order": 2
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_962632369",
+      "seed": 962632369,
+      "internal_world_id": "EXP_003_W_962632369",
+      "truth": "A",
+      "observed": [
+        "A"
+      ],
+      "cell": "A/A",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:003",
+      "execution_order": 3
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_241955308",
+      "seed": 241955308,
+      "internal_world_id": "EXP_003_W_241955308",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:004",
+      "execution_order": 4
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_723648650",
+      "seed": 723648650,
+      "internal_world_id": "EXP_003_W_723648650",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:005",
+      "execution_order": 5
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_1054956113",
+      "seed": 1054956113,
+      "internal_world_id": "EXP_003_W_1054956113",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:006",
+      "execution_order": 6
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_1831325112",
+      "seed": 1831325112,
+      "internal_world_id": "EXP_003_W_1831325112",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:007",
+      "execution_order": 7
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_374607106",
+      "seed": 374607106,
+      "internal_world_id": "EXP_003_W_374607106",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:008",
+      "execution_order": 8
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_443947794",
+      "seed": 443947794,
+      "internal_world_id": "EXP_003_W_443947794",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:009",
+      "execution_order": 9
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_533125286",
+      "seed": 533125286,
+      "internal_world_id": "EXP_003_W_533125286",
+      "truth": "A",
+      "observed": [
+        "B"
+      ],
+      "cell": "A/B",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:010",
+      "execution_order": 10
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_633201644",
+      "seed": 633201644,
+      "internal_world_id": "EXP_003_W_633201644",
+      "truth": "B",
+      "observed": [
+        "B"
+      ],
+      "cell": "B/B",
+      "alignment": "aligned",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "B",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:011",
+      "execution_order": 11
+    },
+    {
+      "canonical_id": "E3_G3C_DIAMONDDET002_seed_1092129420",
+      "seed": 1092129420,
+      "internal_world_id": "EXP_003_W_1092129420",
+      "truth": "B",
+      "observed": [
+        "A"
+      ],
+      "cell": "B/A",
+      "alignment": "misleading",
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "source": "sensor_1",
+          "reliability": 0.7,
+          "observed_state": "A",
+          "assigned_to": [
+            "A"
+          ]
+        }
+      ],
+      "order_key": "inherited:G3B_GEN002:012",
+      "execution_order": 12
+    }
+  ],
+  "model_calls_made": 0
+}
