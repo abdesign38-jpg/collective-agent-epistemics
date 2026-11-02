@@ -65,7 +65,7 @@ class PlanTests(unittest.TestCase):
         expected = {
             "GATE_3A_PLAN_v0.1.json": {"set_001": 1200, "set_002": 1200},
             "GATE_3B_PLAN_v0.1.json": {"set_001": 1356, "set_002": 924},
-            "GATE_3C_PLAN_v0.1.json": {"set_001": 1596},
+            "GATE_3C_PLAN_v0.1.json": {"set_001": 2796, "set_002": 1596},
             "GATE_3D_PLAN_v0.1.json": {"set_001": 3168},
         }
         for name, totals in expected.items():
