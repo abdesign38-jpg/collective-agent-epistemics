@@ -1,6 +1,6 @@
 # EXP-003: Fan-in and Connected Hives
 
-**Status:** PROTOCOL v0.1 FROZEN (tag `exp-003-protocol-v0.1`, runtime `c54563b`) · GATE 3A CLOSED (tag `exp-003-gate3a-closed-v0.1`, commit `1daa069`) · GATE 3B CLOSED (tag `exp-003-gate3b-closed-v0.1`) · GATES 3C, 3D DRAFT, NOT FROZEN, NO REAL-MODEL CALLS MADE
+**Status:** PROTOCOL v0.1 FROZEN (tag `exp-003-protocol-v0.1`, runtime `c54563b`) · GATE 3A CLOSED (tag `exp-003-gate3a-closed-v0.1`, commit `1daa069`) · GATE 3B CLOSED (tag `exp-003-gate3b-closed-v0.1`) · GATE 3C CLOSED (tag `exp-003-gate3c-closed-v0.1`) · GATE 3D DRAFT, NOT FROZEN, NO REAL-MODEL CALLS MADE
 
 EXP-003 climbs a ladder of topologies, one structural change per rung: solo → dyad → ring → bounce → diamond → detached → bridged hives. It reuses the EXP-002 conditions, metrics and governance and adds the new shapes, a two-root positive control, non-interaction and unbridged controls, a perceived-source probe, mechanical provenance scoring, pre-registered replication sets, a second-provider model layer, a factor ledger and a gate orchestrator.
 
@@ -9,11 +9,12 @@ Read in this order:
 1. [protocol.md](protocol.md): topologies, root modes, new metrics, model layer, execution and archival.
 2. [GATE_3A_PLAN_v0.1.md](GATE_3A_PLAN_v0.1.md): four matched topologies (ring, solo, dyad, bounce) on the same worlds, same model, same day, with a pre-registered replication set. The EXP-002 ring runs are retrospective evidence only.
 3. [GATE_3B_PLAN_v0.1.md](GATE_3B_PLAN_v0.1.md): diamond, the first fan-in, with the one-root versus two-root matrix, a probe reactivity check and a replication set.
-4. [GATE_3C_PLAN_v0.1.md](GATE_3C_PLAN_v0.1.md): every 3A and 3B shape without re-grounding, paired by world.
+4. [GATE_3C_PLAN_v0.1.md](GATE_3C_PLAN_v0.1.md): every 3A and 3B shape without re-grounding, paired by world, with same-day re-grounded twins and a drift gauge in Set 001 (amended under the Gate 3C scientific contract before freeze).
 5. [GATE_3D_PLAN_v0.1.md](GATE_3D_PLAN_v0.1.md): bridged hives with unbridged twins, shared and dual roots.
 6. [results/README.md](results/README.md): archive contract.
 7. [GATE_3A_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md](GATE_3A_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md): the pre-registered analysis rules for Gate 3A, committed before any outcome was read.
 8. [GATE_3B_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md](GATE_3B_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md): the pre-registered analysis rules for Gate 3B (direction rules for one-root and two-root worlds, E1 to E7), committed before any Gate 3B model call.
+9. [GATE_3C_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md](GATE_3C_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md): the pre-registered analysis rules for Gate 3C (manipulation check, paired displacement and divergence against the matched twin, far-agent compounding, the strict co-presence test E6 with descriptive tiers, the drift gauge, E1 to E7), committed before any Gate 3C model call.
 
 Each markdown plan has a JSON twin (`GATE_3x_PLAN_v0.1.json`) that the orchestrator reads. Gates run in order; each requires the previous one closed (3D accepts 3C deferred with a recorded reason). A gate is never redesigned after its results are seen.
 
@@ -68,6 +69,35 @@ python -m experiments.EXP_003.tools.gate3b_primary_outcome_audit --stage set_001
 python -m experiments.EXP_003.tools.gate3b_primary_outcome_audit --stage set_002
 python -m experiments.EXP_003.tools.gate3b_synthesis
 ```
+
+## Gate 3C (closed)
+
+Fourteen arms: in Set 001 the five detached shapes (ring, solo, dyad, bounce, diamond; `regrounding=False`, no agent shown its direct observation after the seed firing) on the Gate 3A ring Set 001 and Gate 3B diamond Set 001 worlds, plus same-day re-grounded twins of the four Gate 3A shapes on the same worlds (the contemporary ring doubling as a drift gauge against the Gate 3A ring); in Set 002 the five detached shapes on the Gate 3A and 3B Set 002 worlds, paired with the archived executions (historical twins, verdicts qualified before any call). Model `gpt-5.6-sol`, effort `medium`, all seeds inherited, probe matched within every pair. Set 002 started after Set 001 passed its corpus audit and before any Set 001 outcome was read. 168 of 168 worlds archived (4392 calls); one technical failure record preserved in Set 001 (provider `401`, cause chain recorded), the world completed on one retry; zero in Set 002.
+
+| Step | Where |
+|---|---|
+| Plan and manifests | `GATE_3C_PLAN_v0.1.{md,json}` (amended `0ba46f4`; FROZEN, anchor fill `afa05a8`, status flip `12a2522`), fourteen `GATE_3C_MANIFEST_*_v0.1.{json,md}` (`a454585`) |
+| Analysis rules (pre-registered) | `GATE_3C_PRIMARY_OUTCOME_AUDIT_SPEC_v0.1.md`, `tools/gate3c_primary_outcome_audit.py`, `tools/gate3c_synthesis.py`, all at `d28c716`, before any call |
+| Failure-record instrumentation | `tools/gate_orchestrator.py` cause chain in failure records (`81b53a8`), outside the frozen runtime |
+| Archive | `results/archive/gate_3c/<set>/<canonical_id>/attempt_<NNN>/` |
+| Corpus audits | `audits/gate_3c/EXP_003_GATE_3C_SET_00{1,2}_CORPUS_AUDIT_v0.1.{json,md}` (`d58641c`, `77af3df`) |
+| Primary-outcome audits | `audits/gate_3c/EXP_003_GATE_3C_SET_00{1,2}_PRIMARY_OUTCOME_AUDIT_v0.1.{json,md}` (`ae05198`) |
+| Synthesis | `audits/gate_3c/EXP_003_GATE_3C_SYNTHESIS_v0.1.{json,md}` (`e92b2d1`) |
+| Observations | `../../research/observations/EXP_003_gate_3c_observations_v0.1.md` |
+
+In one paragraph, descriptive only: removing the direct observation changed the trajectories of every shape in both stages (under LINEAGE, 10 to 12 of 12 worlds materially displaced from their twin in every arm), and the direction was down: the far agent's stage mean was below the reference in 19 of 20 arm-by-condition cells, the discount grew with every cycle, and it was deeper under LINEAGE than under FREE in every shape. The solo detached agent, alone with its own previous message, discounted too (E4 contradicted), while its same-day re-grounded twin sat at the reference in 288 of 288 firings. Origin inflation under LINEAGE was absent in the detached ring and bounce (0 of 84 firings per stage; the detached dyad 0 of 72, descriptively) while the same shapes' re-grounded twins reproduced the Gate 3B pattern on the same day (21 inflations, all after an inbound message not naming the sensor); the detached diamond still inflated at 5 and 6 of 48, reporting one source each time, so E6 reads contradicted and H1 is not contradicted in the single-path shapes and contradicted as a universal claim. The detached LINEAGE discount rates did not order as Gate 3A's ladder (E5 contradicted). The drift gauge read FAIL (event counts a month apart differed at two of three positions; per-world levels within .02 in 23 of 24 worlds), so Set 002's paired verdicts stand qualified. Set 002 kept the sign of all ten within-detached cells (E7 consistent). Verdicts: E1 contradicted/contradicted, E2 contradicted/contradicted, E3a contradicted/contradicted, E3b consistent/contradicted, E4 contradicted/contradicted, E5 contradicted/contradicted, E6 contradicted/contradicted, E7 consistent; the strict any-arm rules and the per-cell counts are printed together in the audits. Whether a discount is justified caution or an error is not decided by this gate. No significance test, no pooled stage or arm, no drift correction, no causal claim.
+
+The Gate 3C audit chain (read-only; each step refuses to run unless the previous one passed):
+
+```bash
+python -m experiments.EXP_003.tools.corpus_audit --plan experiments/EXP_003/GATE_3C_PLAN_v0.1.json --stage set_001
+python -m experiments.EXP_003.tools.corpus_audit --plan experiments/EXP_003/GATE_3C_PLAN_v0.1.json --stage set_002
+python -m experiments.EXP_003.tools.gate3c_primary_outcome_audit --stage set_001
+python -m experiments.EXP_003.tools.gate3c_primary_outcome_audit --stage set_002
+python -m experiments.EXP_003.tools.gate3c_synthesis
+```
+
+Gate 3D accepts Gate 3C closed. Its execution is deferred as a sequencing preference recorded in `research/README.md`, not for a scientific reason.
 
 ## Quick start (no network)
 

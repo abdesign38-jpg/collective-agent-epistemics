@@ -9,7 +9,7 @@ This directory separates the project's stable conceptual frame, working proposit
 - [REPOSITORY_RESEARCH_STRUCTURE_v0.1.md](REPOSITORY_RESEARCH_STRUCTURE_v0.1.md) — preserved historical repository hierarchy and branching policy.
 - [REPOSITORY_RESEARCH_STRUCTURE_v0.2.md](REPOSITORY_RESEARCH_STRUCTURE_v0.2.md) — current governance model for preserving scientific hierarchy and checkpointed evidence while keeping working branches operational only.
 
-The empirical observation registry begins with [EXP_002_pilot_observations_v0.1.md](observations/EXP_002_pilot_observations_v0.1.md); the most recent entry is [EXP_003_gate_3b_observations_v0.1.md](observations/EXP_003_gate_3b_observations_v0.1.md).
+The empirical observation registry begins with [EXP_002_pilot_observations_v0.1.md](observations/EXP_002_pilot_observations_v0.1.md); the most recent entry is [EXP_003_gate_3c_observations_v0.1.md](observations/EXP_003_gate_3c_observations_v0.1.md).
 
 ## Current high-level state
 
@@ -21,4 +21,5 @@ The empirical observation registry begins with [EXP_002_pilot_observations_v0.1.
 - **EXP-003 v0.1** — frozen (tag `exp-003-protocol-v0.1`)
 - **Gate 3A** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3a-closed-v0.1`); findings in `observations/EXP_003_gate_3a_observations_v0.1.md`
 - **Gate 3B** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3b-closed-v0.1`); findings in `observations/EXP_003_gate_3b_observations_v0.1.md`
-- **Gates 3C, 3D** — prospective plans drafted (`experiments/EXP_003/`); not frozen; not executed
+- **Gate 3C** — closed under the frozen EXP-003 v0.1 design (tag `exp-003-gate3c-closed-v0.1`); findings in `observations/EXP_003_gate_3c_observations_v0.1.md`
+- **Gate 3D** — prospective plan drafted (`experiments/EXP_003/`); not frozen; not executed. Deferred as a sequencing preference, not for a scientific reason: the owner's approved next steps are a coding study of information transformation on the existing EXP-003 archive, mechanism isolation in a separately versioned experiment, and a second-model replication of the frozen Gate 3B plan. Gate 3D's plan is unchanged and may be frozen later under the same procedure.
