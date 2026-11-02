@@ -1,0 +1,71 @@
+diff --git a/collective-agent-epistemics/experiments/EXP_003/gate_orchestrator.py b/collective-agent-epistemics/experiments/EXP_003/gate_orchestrator.py
+index 352220a..63178cf 100644
+--- a/collective-agent-epistemics/experiments/EXP_003/gate_orchestrator.py
++++ b/collective-agent-epistemics/experiments/EXP_003/gate_orchestrator.py
+@@ -383,12 +383,27 @@ def _write_failure_record(dest: Path, task: WorldTask, arm: Arm, plan: dict[str,
+                           "topology": arm.topology, "root_mode": arm.root_mode},
+         "manifest_sha256": sha256_file(manifest_path),
+         "exception_type": type(exc).__name__, "exception_message": str(exc),
++        "cause_chain": _exception_causes(exc),
+         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+         "status": "technical_failure",
+     }
+     (dest / "failure_metadata.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+ 
+ 
++def _exception_causes(exc: BaseException, limit: int = 5) -> list[dict[str, Any]]:
++    """The chained causes behind a wrapped exception (adapters wrap provider errors), so a failure
++    record says what actually failed: type, message (truncated) and an HTTP status when present."""
++    causes: list[dict[str, Any]] = []
++    seen: set[int] = set()
++    cause = exc.__cause__ or exc.__context__
++    while cause is not None and id(cause) not in seen and len(causes) < limit:
++        seen.add(id(cause))
++        causes.append({"type": type(cause).__name__, "message": str(cause)[:500],
++                       "status_code": getattr(cause, "status_code", None)})
++        cause = cause.__cause__ or cause.__context__
++    return causes
++
++
+ def run_and_archive_world(task: WorldTask, arm: Arm, plan: dict[str, Any], binding: ProviderBinding, *,
+                           archive_root: Path, gate_dir: str, set_dir: str, manifest_path: Path,
+                           live: bool, authorize_retry: bool) -> tuple[Path, bool]:
+diff --git a/collective-agent-epistemics/tests/test_exp003_orchestrator.py b/collective-agent-epistemics/tests/test_exp003_orchestrator.py
+index 6c8dde4..c262c1f 100644
+--- a/collective-agent-epistemics/tests/test_exp003_orchestrator.py
++++ b/collective-agent-epistemics/tests/test_exp003_orchestrator.py
+@@ -219,6 +219,8 @@ class CampaignTests(unittest.TestCase):
+             self.assertTrue(first_ok and second_failed)
+             record = json.loads((world_dirs[1] / "attempt_001" / "failure_metadata.json").read_text())
+             self.assertEqual(record["status"], "technical_failure")
++            self.assertEqual(record["exception_type"], "RuntimeError")
++            self.assertEqual(record["cause_chain"], [])   # the synthetic failure wraps nothing
+             status = json.loads((root / "gate_3a" / "campaign_status.json").read_text())
+             self.assertFalse(status["all_required_sets_complete"])
+             self.assertEqual(status["sets"]["bounce_set_001"]["failed"], 1)
+@@ -231,6 +233,25 @@ class CampaignTests(unittest.TestCase):
+             self.assertTrue(str(dests[1]).endswith("attempt_002"))
+             self.assertTrue((world_dirs[1] / "attempt_001" / "failure_metadata.json").exists())
+ 
++    def test_failure_record_lists_the_wrapped_provider_cause(self):
++        from experiments.EXP_003.gate_orchestrator import _exception_causes
++
++        class FakeAPIStatusError(Exception):
++            status_code = 429
++
++        try:
++            try:
++                raise FakeAPIStatusError("insufficient_quota: billing hard limit reached")
++            except FakeAPIStatusError as inner:
++                raise RuntimeError("OpenAI Responses request failed") from inner
++        except RuntimeError as wrapped:
++            chain = _exception_causes(wrapped)
++        self.assertEqual(len(chain), 1)
++        self.assertEqual(chain[0]["type"], "FakeAPIStatusError")
++        self.assertEqual(chain[0]["status_code"], 429)
++        self.assertIn("insufficient_quota", chain[0]["message"])
++        self.assertEqual(_exception_causes(RuntimeError("bare")), [])
++
+     def test_live_requires_frozen_anchors(self):
+         with tempfile.TemporaryDirectory() as tmp:
+             tmp = Path(tmp)
