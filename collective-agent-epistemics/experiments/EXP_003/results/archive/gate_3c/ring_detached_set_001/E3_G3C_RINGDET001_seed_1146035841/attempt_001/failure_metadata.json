@@ -1,0 +1,36 @@
+{
+  "gate": "3C",
+  "set": "ring_detached_set_001",
+  "canonical_id": "E3_G3C_RINGDET001_seed_1146035841",
+  "seed": 1146035841,
+  "attempt": 1,
+  "frozen_config": {
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "execution_policy": "paired",
+    "sensor_reliability": 0.7,
+    "max_depth": 12,
+    "rounds": 4,
+    "probe": false,
+    "topology": "ring_detached",
+    "root_mode": "single"
+  },
+  "manifest_sha256": "4a366ea5ad5fd6fdbf336d56db71798165dc8657845e09e3563db893a0e72c64",
+  "exception_type": "OpenAIAdapterError",
+  "exception_message": "OpenAI Responses request failed",
+  "cause_chain": [
+    {
+      "type": "AuthenticationError",
+      "message": "Error code: 401 - {'error': {'message': 'Your API key has expired. Create a new API key to continue.', 'type': 'invalid_request_error', 'code': 'expired_secret_key', 'param': None}, 'status': 401}",
+      "status_code": 401
+    },
+    {
+      "type": "HTTPStatusError",
+      "message": "Client error '401 Unauthorized' for url 'https://api.openai.com/v1/responses'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401",
+      "status_code": null
+    }
+  ],
+  "timestamp_utc": "2026-11-02T01:05:05.564103+00:00",
+  "status": "technical_failure"
+}
